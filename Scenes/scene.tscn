@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://duo6trvnaw83a"]
+
+[ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://scenes/movement_component.tscn" id="1_nxogm"]
+[ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://scenes/platform.tscn" id="2_3253y"]
+[ext_resource type="Texture2D" uid="uid://dkuwlbsmyre3j" path="res://textures/Block.png" id="2_u3cyc"]
+[ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://scripts/state_idle.gd" id="4_5fb3c"]
+[ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://scripts/state_running.gd" id="5_gjmho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4msxo"]
+size = Vector2(85, 126)
+
+[node name="Scene" type="Node"]
+
+[node name="Platform" parent="." instance=ExtResource("2_3253y")]
+position = Vector2(369, 543)
+
+[node name="Platform2" parent="." instance=ExtResource("2_3253y")]
+position = Vector2(1085, 432)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(99, 421)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.42000005, 0.6249999)
+texture = ExtResource("2_u3cyc")
+region_rect = Rect2(100, 100, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_4msxo")
+
+[node name="MovementComponent" parent="Player" instance=ExtResource("1_nxogm")]
+metadata/_edit_lock_ = true
+
+[node name="StateIdle" type="Node" parent="Player/MovementComponent"]
+script = ExtResource("4_5fb3c")
+
+[node name="StateRunning" type="Node" parent="Player/MovementComponent"]
+script = ExtResource("5_gjmho")
