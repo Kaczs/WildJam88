@@ -30,7 +30,6 @@ func _ready():
 
 func _unhandled_input(event: InputEvent):
 	current_state.handle_input(event)
-	print(event)
 
 func _process(delta: float):
 	current_state.update(delta)

@@ -1,3 +1,4 @@
+## Base class for all states used by the movement component
 class_name MovementState extends Node
 
 signal finished(next_state_path: String, data: Dictionary)
@@ -20,7 +21,7 @@ func phys_update(_delta: float):
 
 ## Words 
 func enter(_previous_state_path: String):
-	print("eee")
+	pass
 
 ## Called when changing the state away from this one, should clean up
 func exit() -> void:

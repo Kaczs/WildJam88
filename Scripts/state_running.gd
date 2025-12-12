@@ -5,7 +5,7 @@ func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
 	speed = get_parent().move_speed
-	#print("I am currently Running")
+	print("I am currently Running")
 
 func phys_update(_delta: float):
 	player_body.velocity.y += gravity * _delta

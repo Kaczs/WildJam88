@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4s3fycysvqsi"]
+
+[ext_resource type="Texture2D" uid="uid://mnlrr1xewcgj" path="res://Assests/Sprites/LouChill.png" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/state_idle.gd" id="3_vgqql"]
+[ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://Scripts/state_running.gd" id="4_fkybt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
+radius = 9.0
+height = 66.0
+
+[node name="Player" type="CharacterBody2D"]
+scale = Vector2(4, 4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v0iea")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 2)
+shape = SubResource("CapsuleShape2D_v0iea")
+
+[node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
+
+[node name="StateIdle" type="Node" parent="MovementComponent"]
+script = ExtResource("3_vgqql")
+
+[node name="StateRunning" type="Node" parent="MovementComponent"]
+script = ExtResource("4_fkybt")
