@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://mnlrr1xewcgj"
-path="res://.godot/imported/LouChill.png-7815ebb79c0f9856f36a74348a7bb028.ctex"
+path="res://.godot/imported/LouChill.png-57614cb2c18f75a871548c32be5876e2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LouChill.png"
-dest_files=["res://.godot/imported/LouChill.png-7815ebb79c0f9856f36a74348a7bb028.ctex"]
+source_file="res://Assests/Sprites/LouChill.png"
+dest_files=["res://.godot/imported/LouChill.png-57614cb2c18f75a871548c32be5876e2.ctex"]
 
 [params]
 
