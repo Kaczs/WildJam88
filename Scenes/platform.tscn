@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://coodroxcr3fl1"]
 
-[ext_resource type="Texture2D" uid="uid://dkuwlbsmyre3j" path="res://textures/Block.png" id="1_mi635"]
+[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assests/Sprites/Block.png" id="1_1rc8e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s8bxr"]
 size = Vector2(686, 90)
@@ -10,7 +10,7 @@ size = Vector2(686, 90)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(3.4196875, 0.44303647)
-texture = ExtResource("1_mi635")
+texture = ExtResource("1_1rc8e")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
