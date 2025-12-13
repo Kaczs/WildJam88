@@ -81,12 +81,18 @@ region = Rect2(4608, 0, 256, 384)
 
 [resource]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qp4h3")
+}],
 "loop": true,
 "name": &"crouching",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qp4h3")
+}],
 "loop": true,
 "name": &"falling",
 "speed": 5.0
@@ -161,7 +167,10 @@ animations = [{
 "name": &"jumping",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qp4h3")
+}],
 "loop": true,
 "name": &"running",
 "speed": 5.0
