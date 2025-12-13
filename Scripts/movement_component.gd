@@ -12,6 +12,7 @@ var current_state: MovementState
 @export var jump_power := 1000.0
 
 func _ready():
+	print ("this is a test")
 	player_body = owner
 	animated_sprite = owner.find_child("AnimatedSprite2D")
 	if player_body is not CharacterBody2D:

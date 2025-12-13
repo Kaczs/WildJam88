@@ -4,7 +4,7 @@ var speed
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
-	parent.animated_sprite.play("running")
+	parent.animated_sprite.play("crouching")
 	speed = parent.move_speed
 
 func phys_update(_delta: float):
@@ -18,8 +18,11 @@ func phys_update(_delta: float):
 	elif horizontal_input > 0:
 		parent.animated_sprite.flip_h = false
 	player_body.velocity.x = horizontal_input * speed
-	# Stop running go idle
-	if is_equal_approx(horizontal_input, 0.0):
+	# Stopped crouching when trying to run? Stand and run
+	if not Input.is_action_pressed("Down") and abs(horizontal_input) > 0:
+		finished.emit("StateRunning")
+	# Stopped crouching while idle
+	elif not Input.is_action_pressed("Down"):
 		finished.emit("StateIdle")
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
