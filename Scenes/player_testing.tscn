@@ -11,11 +11,11 @@ position = Vector2(675, 1087)
 scale = Vector2(2, 1)
 
 [node name="Platform3" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(1656, 869)
+position = Vector2(1708, 775)
 scale = Vector2(2, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
 position = Vector2(467, 876)
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_ovenk")]
-position = Vector2(1533, 682)
+position = Vector2(1719, 550)

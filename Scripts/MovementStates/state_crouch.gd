@@ -1,11 +1,15 @@
 extends MovementState
 var speed
+var player_collider:CollisionShape2D
 
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
-	# play idle animation
 	parent.animated_sprite.play("crouching")
 	speed = parent.move_speed
+	player_collider = owner.find_child("CollisionShape2D")
+	# Change collider size
+	player_collider.scale = Vector2(4,2)
+	player_collider.position.y = 50.0
 
 func phys_update(_delta: float):
 	# Gravity
@@ -18,7 +22,6 @@ func phys_update(_delta: float):
 	elif horizontal_input > 0:
 		parent.animated_sprite.flip_h = false
 	player_body.velocity.x = horizontal_input * speed
-	# Change collider size
 	# Stopped crouching when trying to run? Stand and run
 	if not Input.is_action_pressed("Down") and abs(horizontal_input) > 0:
 		finished.emit("StateRunning")
@@ -29,3 +32,8 @@ func phys_update(_delta: float):
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
 	player_body.move_and_slide()
+
+func exit() -> void:
+	# Change collider size back
+	player_collider.scale = Vector2(4,4)
+	player_collider.position.y = 0

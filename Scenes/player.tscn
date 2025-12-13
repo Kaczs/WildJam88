@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=11 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="SpriteFrames" uid="uid://3gnkl7et55sj" path="res://Assests/LouSpriteFrames.tres" id="1_vgqql"]
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bem1ko0rtxajr" path="res://Scripts/MovementStates/state_jumping.gd" id="5_x3wgy"]
 [ext_resource type="Script" path="res://Scripts/health_component.gd" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://cb4v0sy8btfrh" path="res://Scripts/MovementStates/state_crouch.gd" id="7_8erm5"]
+[ext_resource type="Script" uid="uid://mul7wvit1oqg" path="res://Scripts/MovementStates/state_standing_attack.gd" id="8_f1ek2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
 radius = 9.0
@@ -21,7 +22,6 @@ animation = &"crouching"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 2)
 scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_v0iea")
 
@@ -43,6 +43,9 @@ script = ExtResource("5_fkybt")
 
 [node name="StateCrouch" type="Node" parent="MovementComponent"]
 script = ExtResource("7_8erm5")
+
+[node name="StateStandingAttack" type="Node" parent="MovementComponent"]
+script = ExtResource("8_f1ek2")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
