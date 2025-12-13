@@ -11,13 +11,12 @@
 radius = 9.0
 height = 71.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_vgqql")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.020259036
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)

@@ -1,6 +1,7 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://3gnkl7et55sj"]
+[gd_resource type="SpriteFrames" load_steps=22 format=3 uid="uid://3gnkl7et55sj"]
 
 [ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assests/Sprites/LouIdle-Sheet.png" id="1_u1oj4"]
+[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assests/Sprites/Block.png" id="2_qp4h3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qp4h3"]
 atlas = ExtResource("1_u1oj4")
@@ -80,6 +81,16 @@ region = Rect2(4608, 0, 256, 384)
 
 [resource]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"crouching",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"falling",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qp4h3")
@@ -141,4 +152,17 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qp4h3")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"running",
+"speed": 5.0
 }]

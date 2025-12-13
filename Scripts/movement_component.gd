@@ -6,12 +6,14 @@ class_name MovementComponent extends Node
 var current_state: MovementState
 @export var player_body: CharacterBody2D
 @export var initial_state: MovementState = null
+@export var animated_sprite: AnimatedSprite2D
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
 
 func _ready():
-	player_body = get_parent()
+	player_body = owner
+	animated_sprite = owner.find_child("AnimatedSprite2D")
 	if player_body is not CharacterBody2D:
 		push_error("The owner of the MovementComponent must be a CharacterBody2D")
 	# Grab the first state on the object if one wasn't set 
