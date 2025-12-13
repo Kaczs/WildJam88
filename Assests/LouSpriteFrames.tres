@@ -1,8 +1,9 @@
-[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://3gnkl7et55sj"]
+[gd_resource type="SpriteFrames" load_steps=34 format=3 uid="uid://3gnkl7et55sj"]
 
 [ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assests/Sprites/CrouchPlaceholder.png" id="1_k0yc4"]
 [ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assests/Sprites/LouIdle-Sheet.png" id="1_u1oj4"]
 [ext_resource type="Texture2D" uid="uid://b3jumdoton4ur" path="res://Assests/Sprites/JumpPlaceholder.png" id="2_7rmqq"]
+[ext_resource type="Texture2D" uid="uid://cov10twsu7kir" path="res://Assests/Sprites/DashAttackPlaceholder.png" id="2_bgyks"]
 [ext_resource type="Texture2D" uid="uid://dgsro2xg6ygu5" path="res://Assests/Sprites/LouRunningIdle-Sheet.png" id="4_7rmqq"]
 [ext_resource type="Texture2D" uid="uid://bgn0fpr37g0q1" path="res://Assests/Sprites/Attack1Placeholder.png" id="5_bgyks"]
 
@@ -122,6 +123,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"crouching",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bgyks")
+}],
+"loop": true,
+"name": &"dashattack",
 "speed": 5.0
 }, {
 "frames": [{

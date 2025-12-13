@@ -18,7 +18,7 @@ height = 71.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_vgqql")
-animation = &"falling"
+animation = &"dashattack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
