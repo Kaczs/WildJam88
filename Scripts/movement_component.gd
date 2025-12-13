@@ -54,3 +54,7 @@ func transition_to_next_state(target_state_path: String, _data: Dictionary = {})
 	current_state.exit()
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	print("Done Animating")

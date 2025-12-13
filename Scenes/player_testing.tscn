@@ -19,7 +19,7 @@ position = Vector2(486, 812)
 offset = Vector2(0, -260)
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_ovenk")]
-position = Vector2(1814, 651)
+position = Vector2(2089, 754)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
