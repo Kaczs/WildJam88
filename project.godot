@@ -13,3 +13,8 @@ config_version=5
 config/name="WildJam88"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+SoundFiles="*res://Singletons/Audio/SoundFiles.gd"
+SoundManager="*res://Singletons/Audio/SoundManager.gd"

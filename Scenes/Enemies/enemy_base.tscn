@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://bajc1pulyaeh7"]
+
+[ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scripts/Enemy State Machine/enemy_brain_component.tscn" id="1_vu4yt"]
+[ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scripts/Enemy State Machine/State/enemy_idle.tscn" id="2_wmxvo"]
+[ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scripts/Enemy State Machine/State/enemy_chase.tscn" id="3_wmxvo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu4yt"]
+radius = 500.0
+
+[node name="EnemyBase" type="RigidBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ef3uv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("1_vu4yt")]
+initial_state = NodePath("EnemyIdle")
+
+[node name="EnemyIdle" parent="EnemyBrainComponent" instance=ExtResource("2_wmxvo")]
+
+[node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("3_wmxvo")]
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_vu4yt")
