@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://duo6trvnaw83a"]
 
-[ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://scenes/movement_component.tscn" id="1_nxogm"]
-[ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://scenes/platform.tscn" id="2_3253y"]
-[ext_resource type="Texture2D" uid="uid://dkuwlbsmyre3j" path="res://textures/Block.png" id="2_u3cyc"]
-[ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://scripts/state_idle.gd" id="4_5fb3c"]
-[ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://scripts/state_running.gd" id="5_gjmho"]
+[ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="1_nxogm"]
+[ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_3253y"]
+[ext_resource type="Texture2D" path="res://textures/Block.png" id="2_u3cyc"]
+[ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="4_5fb3c"]
+[ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://Scripts/MovementStates/state_running.gd" id="5_gjmho"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4msxo"]
 size = Vector2(85, 126)
