@@ -2,9 +2,13 @@
 ## Adding different states will give whatever you add this to different movement abilities, run, crouch, jump etc.
 ## Whatever you attach this to needs to be a CharacterBody2D. Additionally there should be a sprite 2d (animated  sprite actually)
 ## as a child of that rigidbody
-extends Node
+extends Node2D
 var current_state: EnemyState
 var last_facing:bool
+var starting_position:Vector2
+@export var health_component:HealthComponent
+@export var animation_player:AnimationPlayer
+@export var animated_sprite_2d:AnimatedSprite2D
 @export var enemy_body: RigidBody2D
 @export var initial_state: EnemyState = null
 
@@ -15,10 +19,10 @@ var last_facing:bool
 @export var attack_distance := 100
 @export var loose_player_distance := 700
 
-@onready var animated_sprite_2d:AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var area:Area2D = $"../Area2D"
 
 func _ready():
+	starting_position = self.get_global_position()
 	enemy_body = get_parent()
 	# Grab the first state on the object if one wasn't set 
 	if initial_state == null:
@@ -54,7 +58,7 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state.enter(previous_state_path, data)
 
 func change_animation(new_animation:String, facing_left:bool = last_facing):
-	animated_sprite_2d.set_animation(new_animation)
+	animation_player.play(new_animation)
 	last_facing = facing_left
 	if facing_left:
 		animated_sprite_2d.set_flip_h(false)

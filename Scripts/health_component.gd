@@ -10,7 +10,7 @@ func _ready():
 func adjust_health(amount):
 	current_health += amount
 	if current_health <= 0:
-		print("I ded")
+		print("I ded :" + get_parent().name)
 		# if player change to die
 		# if bot change to die state
 		# if none of the above delete it (like static boxes for instance?)

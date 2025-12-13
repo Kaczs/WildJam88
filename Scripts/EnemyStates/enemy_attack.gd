@@ -12,6 +12,7 @@ func phys_update(_delta: float):
 	var direction_to_player = player.global_position.x - get_parent().global_position.x
 	if abs(player.global_position.x - get_parent().global_position.x) >= get_parent().attack_distance:
 		finished.emit("EnemyChase", {"player": player})
+		return
 	if direction_to_player > 0:
 		facing = true
 	elif direction_to_player <= 0:
