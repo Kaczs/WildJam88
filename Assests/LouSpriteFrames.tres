@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assests/Sprites/LouIdle-Sheet.png" id="1_u1oj4"]
 [ext_resource type="Texture2D" uid="uid://b3jumdoton4ur" path="res://Assests/Sprites/JumpPlaceholder.png" id="2_7rmqq"]
 [ext_resource type="Texture2D" uid="uid://cov10twsu7kir" path="res://Assests/Sprites/DashAttackPlaceholder.png" id="2_bgyks"]
-[ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assests/Sprites/LouRunningIdle-Sheet.png" id="4_7rmqq"]
+[ext_resource type="Texture2D" uid="uid://dgsro2xg6ygu5" path="res://Assests/Sprites/LouRunningIdle-Sheet.png" id="4_7rmqq"]
 [ext_resource type="Texture2D" uid="uid://bgn0fpr37g0q1" path="res://Assests/Sprites/Attack1Placeholder.png" id="5_bgyks"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qp4h3"]
