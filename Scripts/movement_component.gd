@@ -2,7 +2,7 @@
 ## Adding different states will give whatever you add this to different movement abilities, run, crouch, jump etc.
 ## Whatever you attach this to needs to be a CharacterBody2D. Additionally there should be a sprite 2d (animated  sprite actually)
 ## as a child of that rigidbody
-extends Node
+class_name MovementComponent extends Node
 var current_state: MovementState
 @export var player_body: CharacterBody2D
 @export var initial_state: MovementState = null
@@ -33,13 +33,14 @@ func _unhandled_input(event: InputEvent):
 
 func _process(delta: float):
 	current_state.update(delta)
+	print(current_state.name)
 
 func _physics_process(delta: float) -> void:
 	current_state.phys_update(delta)
 
 ## Function will take a path to the state you want to transition to
 ## and will do that
-func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
+func transition_to_next_state(target_state_path: String, _data: Dictionary = {}):
 	# if the given node path is invalid return
 	if not has_node(target_state_path):
 		push_error("Tried to transition to state: " + target_state_path + " but it doesn't exist")

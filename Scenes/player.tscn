@@ -1,28 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=8 format=3 uid="uid://c4s3fycysvqsi"]
 
-[ext_resource type="Texture2D" uid="uid://mnlrr1xewcgj" path="res://Assests/Sprites/LouChill.png" id="1_v0iea"]
+[ext_resource type="SpriteFrames" uid="uid://3gnkl7et55sj" path="res://Assests/LouSpriteFrames.tres" id="1_vgqql"]
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
-[ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/state_idle.gd" id="3_vgqql"]
-[ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://Scripts/state_running.gd" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
+[ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://Scripts/MovementStates/state_running.gd" id="4_fkybt"]
+[ext_resource type="Script" uid="uid://cseafthhxejhw" path="res://Scripts/MovementStates/state_falling.gd" id="5_fkybt"]
+[ext_resource type="Script" uid="uid://bem1ko0rtxajr" path="res://Scripts/MovementStates/state_jumping.gd" id="5_x3wgy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
 radius = 9.0
-height = 66.0
+height = 71.0
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(4, 4)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_v0iea")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_vgqql")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.020259036
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, 2)
+scale = Vector2(4, 4)
 shape = SubResource("CapsuleShape2D_v0iea")
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
+move_speed = 300.0
+jump_power = 700.0
 
 [node name="StateIdle" type="Node" parent="MovementComponent"]
 script = ExtResource("3_vgqql")
 
 [node name="StateRunning" type="Node" parent="MovementComponent"]
 script = ExtResource("4_fkybt")
+
+[node name="StateJumping" type="Node" parent="MovementComponent"]
+script = ExtResource("5_x3wgy")
+
+[node name="StateFalling" type="Node" parent="MovementComponent"]
+script = ExtResource("5_fkybt")

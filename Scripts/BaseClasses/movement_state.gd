@@ -1,11 +1,11 @@
 ## Base class for all states used by the movement component
 class_name MovementState extends Node
 
+@warning_ignore("unused_signal")
 signal finished(next_state_path: String, data: Dictionary)
 var player_body: CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var animation_sprite: Texture2D
-@onready var parent_sprite
+@onready var parent:MovementComponent = get_parent()
 
 ## Called by the movement component receiving unhandled input events.
 func handle_input(_event: InputEvent):
