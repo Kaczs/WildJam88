@@ -4,12 +4,16 @@
 ## as a child of that rigidbody
 extends Node
 var current_state: EnemyState
+var last_facing:bool
 @export var enemy_body: RigidBody2D
 @export var initial_state: EnemyState = null
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
 @export var damage := 5
+@export var attack_cooldown := 0.5
+@export var attack_distance := 100
+@export var loose_player_distance := 700
 
 @onready var animated_sprite_2d:AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var area:Area2D = $"../Area2D"
@@ -49,5 +53,10 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path, data)
 
-func change_animation(new_animation:String):
+func change_animation(new_animation:String, facing_left:bool = last_facing):
 	animated_sprite_2d.set_animation(new_animation)
+	last_facing = facing_left
+	if facing_left:
+		animated_sprite_2d.set_flip_h(false)
+	else:
+		animated_sprite_2d.set_flip_h(true)

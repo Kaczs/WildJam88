@@ -7,16 +7,11 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_mcy4d")]
-position = Vector2(124, 805)
+position = Vector2(59, 809)
 
 [node name="Platform" parent="." instance=ExtResource("2_jh8am")]
-position = Vector2(354, 1032)
-
-[node name="Platform2" parent="." instance=ExtResource("2_jh8am")]
-position = Vector2(1075, 875)
-
-[node name="Platform3" parent="." instance=ExtResource("2_jh8am")]
-position = Vector2(1842, 721)
+position = Vector2(823, 1011)
+scale = Vector2(11.280003, 1)
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_da26p")]
-position = Vector2(1810, 519)
+position = Vector2(1799, 816)
