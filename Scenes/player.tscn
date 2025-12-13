@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://irjk8fhvhtdw" path="res://Scripts/MovementStates/state_running.gd" id="4_fkybt"]
 [ext_resource type="Script" uid="uid://cseafthhxejhw" path="res://Scripts/MovementStates/state_falling.gd" id="5_fkybt"]
 [ext_resource type="Script" uid="uid://bem1ko0rtxajr" path="res://Scripts/MovementStates/state_jumping.gd" id="5_x3wgy"]
-[ext_resource type="Script" path="res://Scripts/health_component.gd" id="7_3smsa"]
+[ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://cb4v0sy8btfrh" path="res://Scripts/MovementStates/state_crouch.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://mul7wvit1oqg" path="res://Scripts/MovementStates/state_standing_attack.gd" id="8_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assests/Sprites/LouRunningIdle-Sheet.png" id="9_f1ek2"]
