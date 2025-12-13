@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5ln8hl6t5c8r"]
+
+[ext_resource type="Script" uid="uid://t58138wrwg1r" path="res://Scripts/EnemyStates/enemy_attack.gd" id="1_w46i6"]
+
+[node name="EnemyAttack" type="Node"]
+script = ExtResource("1_w46i6")
+animation_sprite = "Attack"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

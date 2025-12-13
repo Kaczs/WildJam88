@@ -9,6 +9,7 @@ var current_state: EnemyState
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
+@export var damage := 5
 
 @onready var animated_sprite_2d:AnimatedSprite2D = $"../AnimatedSprite2D"
 @onready var area:Area2D = $"../Area2D"
