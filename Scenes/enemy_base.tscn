@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/EnemyStateScenes/enemy_idle.tscn" id="2_wmxvo"]
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/EnemyStateScenes/enemy_chase.tscn" id="3_wmxvo"]
 [ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/EnemyStateScenes/enemy_attack.tscn" id="5_bddga"]
-[ext_resource type="Script" path="res://Scripts/health_component.gd" id="6_ukcf2"]
+[ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="6_ukcf2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 52.0
@@ -58,7 +58,6 @@ move_speed = 100.0
 [node name="EnemyIdle" parent="EnemyBrainComponent" instance=ExtResource("2_wmxvo")]
 
 [node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("3_wmxvo")]
-loose_player_distance = 1000
 
 [node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("5_bddga")]
 
