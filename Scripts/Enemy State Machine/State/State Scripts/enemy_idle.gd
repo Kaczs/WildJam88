@@ -2,24 +2,22 @@ extends EnemyState
 
 var area:Area2D
 
-func _ready() -> void:
-	if get_parent().area:
-		area = get_parent().area
-	else:
-		push_error("I (" + str(self) + ") Cant get parents area variable")
-	area.body_entered.connect(body_entered)
+
 
 func enter(_previous_state_path: String, _data:Dictionary):
-	get_parent().change_animtion(animation_sprite)
+	area = get_parent().area
+	if not area.body_entered.is_connected(body_entered):
+		area.body_entered.connect(body_entered)
+	get_parent().change_animation(animation_sprite)
+	area.set_monitoring(true)
 	for body in area.get_overlapping_bodies():
 		if body.is_in_group("player"):
-			finished.emit("chase", {"player": body})
+			finished.emit("EnemyChase", {"player": body})
 			return
-	area.set_monitoring(true)
 
 func body_entered(body:Node2D):
 	if body.is_in_group("player"):
 		finished.emit("EnemyChase", {"player": body})
 
 func exit() -> void:
-	area.set_monitoring(false)
+	set_deferred("area.set_monitoring", false)

@@ -13,7 +13,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		direction_to_player = 1
 	elif direction_to_player <= 0:
 		direction_to_player = -1
-	get_parent().change_animtion(animation_sprite)
+	get_parent().change_animation(animation_sprite)
 	enemy_body = get_parent().get_parent()
 
 func phys_update(_delta: float):
