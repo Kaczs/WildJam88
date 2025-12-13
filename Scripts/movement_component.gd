@@ -10,6 +10,7 @@ var current_state: MovementState
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
+@export var attack_cooldown := 0.6
 
 func _ready():
 	print ("this is a test")
