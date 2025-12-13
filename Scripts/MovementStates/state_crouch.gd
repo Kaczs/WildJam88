@@ -18,6 +18,7 @@ func phys_update(_delta: float):
 	elif horizontal_input > 0:
 		parent.animated_sprite.flip_h = false
 	player_body.velocity.x = horizontal_input * speed
+	# Change collider size
 	# Stopped crouching when trying to run? Stand and run
 	if not Input.is_action_pressed("Down") and abs(horizontal_input) > 0:
 		finished.emit("StateRunning")

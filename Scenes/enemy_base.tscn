@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bajc1pulyaeh7"]
+[gd_scene load_steps=10 format=3 uid="uid://bajc1pulyaeh7"]
 
 [ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assests/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/enemy_brain_component.tscn" id="1_vu4yt"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/EnemyStateScenes/enemy_idle.tscn" id="2_wmxvo"]
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/EnemyStateScenes/enemy_chase.tscn" id="3_wmxvo"]
 [ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/EnemyStateScenes/enemy_attack.tscn" id="5_bddga"]
+[ext_resource type="Script" path="res://Scripts/health_component.gd" id="6_ukcf2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 52.0
@@ -41,6 +42,7 @@ animations = [{
 radius = 1000.0
 
 [node name="EnemyBase" type="RigidBody2D"]
+lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ef3uv")
@@ -65,3 +67,6 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vu4yt")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("6_ukcf2")
