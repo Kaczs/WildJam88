@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=23 format=3 uid="uid://c4s3fycysvqsi"]
+=======
+[gd_scene load_steps=12 format=3 uid="uid://c4s3fycysvqsi"]
+>>>>>>> 60ec1df (testing animations)
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -18,6 +22,7 @@
 radius = 9.0
 height = 71.0
 
+<<<<<<< HEAD
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
 tracks/0/type = "value"
@@ -352,3 +357,10 @@ hframes = 8
 libraries = {
 &"": SubResource("AnimationLibrary_tx1dd")
 }
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-6, -25)
+shape = SubResource("RectangleShape2D_f1ek2")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="MovementComponent" method="_on_animated_sprite_2d_animation_finished"]
