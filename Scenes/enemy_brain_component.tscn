@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b67qppnk8tonb"]
+
+[ext_resource type="Script" uid="uid://ndmpcibnn4cr" path="res://Scripts/enemy_brain_component.gd" id="1_5m2av"]
+
+[node name="EnemyBrainComponent" type="Node2D"]
+script = ExtResource("1_5m2av")
