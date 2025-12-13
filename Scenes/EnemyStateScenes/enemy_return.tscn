@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccbkjecfvu0c3"]
+
+[ext_resource type="Script" uid="uid://bmc72liapmvym" path="res://Scripts/EnemyStates/enemy_return.gd" id="1_v4r3k"]
+
+[node name="EnemyReturn" type="Node"]
+script = ExtResource("1_v4r3k")
+animation_sprite = "Run"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+attenuation = 2.0705302
+bus = &"SFX"
+
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d32jhpvxkg2gv"]
+
+[ext_resource type="Script" uid="uid://b8o8khjjkwyl0" path="res://Scripts/EnemyStates/enemy_death.gd" id="1_4m758"]
+
+[node name="EnemyDeath" type="Node"]
+script = ExtResource("1_4m758")
+animation_sprite = "Death"
