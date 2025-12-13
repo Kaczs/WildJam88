@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7pgawu5mch6h"
-path="res://.godot/imported/LouRunningIdle-Sheet.png-344aa5a9127a367a23df4312c6a34049.ctex"
+uid="uid://fdawkit8so0r"
+path="res://.godot/imported/LouRunningIdlePlaceholder-Sheet.png-bbe55682327b09106a5f1dc7ee089c9a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/Sprites/LouRunningIdle-Sheet.png"
-dest_files=["res://.godot/imported/LouRunningIdle-Sheet.png-344aa5a9127a367a23df4312c6a34049.ctex"]
+source_file="res://Assests/Sprites/LouRunningIdlePlaceholder-Sheet.png"
+dest_files=["res://.godot/imported/LouRunningIdlePlaceholder-Sheet.png-bbe55682327b09106a5f1dc7ee089c9a.ctex"]
 
 [params]
 
