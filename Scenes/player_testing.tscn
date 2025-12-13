@@ -18,4 +18,4 @@ scale = Vector2(2, 1)
 position = Vector2(467, 876)
 
 [node name="EnemyBase" parent="." instance=ExtResource("3_ovenk")]
-position = Vector2(1842, 682)
+position = Vector2(1533, 682)
