@@ -10,7 +10,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 func phys_update(_delta: float):
 	if not animation_player.is_playing():
 		#if player not in attack range then change state to EnemyChase else attack
-		if player.global_position.x - get_parent().global_position.x > get_parent().attack_distance:
+		if abs(player.global_position.x - get_parent().global_position.x) > get_parent().attack_distance:
 			finished.emit("EnemyChase", {"player": player})
 			return
 		attack()
