@@ -312,12 +312,13 @@ script = ExtResource("6_ukcf2")
 sprite_frames = SubResource("SpriteFrames_sgjdr")
 animation = &"Death"
 
-[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("health_component", "animation_player", "animated_sprite_2d", "enemy_body", "initial_state") instance=ExtResource("1_vu4yt")]
+[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("health_component", "animation_player", "animated_sprite_2d", "enemy_body", "initial_state", "player_detector") instance=ExtResource("1_vu4yt")]
 health_component = NodePath("../HealthComponent")
 animation_player = NodePath("../AnimationPlayer")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
 enemy_body = NodePath("..")
 initial_state = NodePath("EnemySearch")
+player_detector = NodePath("../PlayerDetector")
 move_speed = 100.0
 lose_player_distance = 1500
 
