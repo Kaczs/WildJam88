@@ -1,30 +1,23 @@
 extends EnemyState
 
-@onready var timer:Timer = $Timer
-var facing:bool
+var animation_player:AnimationPlayer
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	player = _data["player"]
+	animation_player = get_parent().animation_player
+	attack()
 
 func phys_update(_delta: float):
-	if not timer.is_stopped():
-		return
-	var direction_to_player = player.global_position.x - get_parent().global_position.x
-	#check if player is in attack range if not go to chase state
-	if abs(player.global_position.x - get_parent().global_position.x) >= get_parent().attack_distance:
-		finished.emit("EnemyChase", {"player": player})
-		return
-	#get direction of player
-	if direction_to_player > 0:
-		facing = true
-	elif direction_to_player <= 0:
-		facing = false
-	#set animation
-	get_parent().change_animation(animation_sprite, facing)
-	timer.start(get_parent().attack_cooldown)
-	#wait for attack to complete 
-	await timer.timeout
-	#if player in range do damage
-	if abs(player.global_position.x - get_parent().global_position.x) <= get_parent().attack_distance:
-		var player_health:HealthComponent = player.find_child("HealthComponent")
-		player_health.take_damage(get_parent().damage)
+	if not animation_player.is_playing():
+		#if player not in attack range then change state to EnemyChase else attack
+		if player.global_position.x - get_parent().global_position.x > get_parent().attack_distance:
+			finished.emit("EnemyChase", {"player": player})
+			return
+		attack()
+
+func attack():
+	#gets direction of player then plays the corresponding animation
+	if player.global_position.x - get_parent().global_position.x > 0:
+		animation_player.play("AttackRight")
+	else:
+		animation_player.play("AttackLeft")

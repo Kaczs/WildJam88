@@ -12,6 +12,7 @@ var starting_position:Vector2
 @export var enemy_body: RigidBody2D
 @export var initial_state: EnemyState = null
 @export var player_detector:Area2D
+@export var hit_box:Area2D
 
 @export var move_speed := 200.0 #if this is ever over 3000 the return state has a chnace to not stop at the start location
 @export var damage := 5
@@ -74,3 +75,9 @@ func enemy_hit(stagger_duration:int, is_dead:bool):
 		transition_to_next_state("EnemyDeath")
 		return
 	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
+
+func hit():
+	for body in hit_box.get_overlapping_bodies():
+		if body.is_in_group("player"):
+			var player_health:HealthComponent = body.get_node("HealthComponent")
+			player_health.take_damage(damage)
