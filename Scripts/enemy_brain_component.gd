@@ -11,14 +11,14 @@ var starting_position:Vector2
 @export var animated_sprite_2d:AnimatedSprite2D
 @export var enemy_body: RigidBody2D
 @export var initial_state: EnemyState = null
+@export var player_detector:Area2D
 
-@export var move_speed := 200.0
+@export var move_speed := 200.0 #if this is ever over 3000 the return state has a chnace to not stop at the start location
 @export var damage := 5
 @export var attack_cooldown := 0.5
 @export var attack_distance := 100
 @export var lose_player_distance := 500
 
-@onready var area:Area2D = $"../Area2D"
 
 func _ready():
 	starting_position = self.get_global_position()

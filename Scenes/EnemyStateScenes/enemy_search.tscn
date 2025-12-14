@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cq6ysku38lqcn"]
+
+[ext_resource type="Script" uid="uid://dw5l86fqv7dbi" path="res://Scripts/EnemyStates/enemy_idle.gd" id="1_na1va"]
+
+[node name="EnemySearch" type="Node"]
+script = ExtResource("1_na1va")
+animation_sprite = "Idle"
