@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ch62nfowgp3dy"
+path="res://.godot/imported/footsteps_on_snow_16.mp3-73f393e7529ed2e195c687203713c605.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Indevidual Footsteps on Snow/footsteps_on_snow_16.mp3"
+dest_files=["res://.godot/imported/footsteps_on_snow_16.mp3-73f393e7529ed2e195c687203713c605.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
