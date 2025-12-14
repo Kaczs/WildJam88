@@ -35,6 +35,11 @@ func _ready():
 		state_node.finished.connect(transition_to_next_state)
 	current_state = initial_state
 	await owner.ready
+	if get_parent().has_node("HealthComponent"):
+		var health:HealthComponent = get_node("HealthComponent")
+		health.on_hit.connect(on_hit)
+	else:
+		push_warning("can't find HealthComponent")
 	current_state.enter("",{})
 
 func _process(delta: float):
@@ -63,3 +68,9 @@ func change_animation(new_animation:String, facing_left:bool = last_facing):
 		animated_sprite_2d.set_flip_h(false)
 	else:
 		animated_sprite_2d.set_flip_h(true)
+
+func on_hit(stagger_duration:int, is_dead:bool):
+	if is_dead:
+		transition_to_next_state("EnemyDeath")
+		return
+	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
