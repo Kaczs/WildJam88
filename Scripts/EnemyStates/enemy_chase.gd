@@ -19,8 +19,8 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	enemy_body = get_parent().get_parent()
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
+	play_sound = true
 	audio.play()
-	audio.set_stream_paused(false)
 
 
 func phys_update(_delta: float):
@@ -33,8 +33,9 @@ func phys_update(_delta: float):
 	enemy_body.position.x += get_parent().move_speed * _delta * direction_to_player
 
 func exit() -> void:
-	audio.set_stream_paused(true)
+	play_sound = false
 
 func _on_audio_stream_player_2d_finished() -> void:
-	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
-	audio.play()
+	if play_sound:
+		audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
+		audio.play()
