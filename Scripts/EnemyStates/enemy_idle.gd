@@ -3,7 +3,7 @@ extends EnemyState
 
 @export var player_detector_range:int = 1000
 
-@onready var area:Area2D = $PlayerDetector
+var area:Area2D
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	area = get_parent().player_detector
@@ -11,13 +11,13 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		area.body_entered.connect(body_entered)
 	#set animation
 	get_parent().change_animation(animation_sprite)
-	#check if player in is PlayerDetector befor we toggled monitoring
+	#monitoring is toggled on (when state is active) and off (when inactive) so that we can listen for the on body entered signal
+	area.set_monitoring(true)
+	#check if player is in PlayerDetector
 	for body in area.get_overlapping_bodies():
 		if body.is_in_group("player"):
 			finished.emit("EnemyChase", {"player": body})
 			return
-	#monitoring is toggled on (when state is active) and off (when inactive) so that we can listen for the on body entered signal
-	area.set_monitoring(true)
 
 func body_entered(body:Node2D):
 	if body.is_in_group("player"):
