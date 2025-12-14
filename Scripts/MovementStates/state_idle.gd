@@ -2,7 +2,7 @@ extends MovementState
 
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
-	parent.animated_sprite.play("idle")
+	animation_player.play("idle")
 
 func phys_update(_delta: float):
 	player_body.velocity.y += gravity * _delta

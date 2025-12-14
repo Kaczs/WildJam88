@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://bajc1pulyaeh7"]
 
-[ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assests/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
+[ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/enemy_brain_component.tscn" id="1_vu4yt"]
-[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assests/Sprites/Block.png" id="2_kiwyh"]
+[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="2_kiwyh"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/EnemyStateScenes/enemy_idle.tscn" id="2_wmxvo"]
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/EnemyStateScenes/enemy_chase.tscn" id="3_wmxvo"]
 [ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/EnemyStateScenes/enemy_attack.tscn" id="5_bddga"]

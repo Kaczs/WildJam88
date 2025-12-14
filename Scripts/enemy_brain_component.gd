@@ -57,7 +57,7 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state.enter(previous_state_path, data)
 
 func change_animation(new_animation:String, facing_left:bool = last_facing):
-	animation_player.play(new_animation)
+	animated_sprite_2d.set_animation(new_animation)
 	last_facing = facing_left
 	if facing_left:
 		animated_sprite_2d.set_flip_h(false)
