@@ -4,10 +4,7 @@ var player_collider:CollisionShape2D
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	animation_player.play("crouching")
-	player_collider = owner.find_child("CollisionShape2D")
 	# Change collider size (do this in animation player later)
-	player_collider.scale = Vector2(4,2)
-	player_collider.position.y = 50.0
 
 func phys_update(_delta: float):
 	# Gravity
@@ -30,8 +27,3 @@ func phys_update(_delta: float):
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
 	player_body.move_and_slide()
-
-func exit() -> void:
-	# Change collider size back
-	player_collider.scale = Vector2(4,4)
-	player_collider.position.y = 0

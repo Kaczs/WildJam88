@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=27 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -16,6 +16,7 @@
 [ext_resource type="Shape2D" uid="uid://bbeevo8ffwitr" path="res://Assets/standing_hurtbox.tres" id="12_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://bgn0fpr37g0q1" path="res://Assets/Sprites/Attack1Placeholder.png" id="12_pu2lt"]
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scenes/attack_area.gd" id="14_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -91,6 +92,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-7, 11)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 41)]
+}
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
 resource_name = "crouching"
@@ -139,10 +152,10 @@ tracks/3/path = NodePath("CollisionShape2D:shape")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_h4iuc"), ExtResource("12_fd4e3")]
+"values": [ExtResource("10_h4iuc")]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -151,10 +164,22 @@ tracks/4/path = NodePath("CollisionShape2D:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-6, 2), Vector2(-7, 11)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-5, 45)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1, 35)]
 }
 
 [sub_resource type="Animation" id="Animation_qqcod"]
@@ -237,6 +262,42 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:shape")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_fd4e3")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-7, 11)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_fd4e3"]
@@ -415,6 +476,7 @@ script = ExtResource("8_f1ek2")
 script = ExtResource("7_3smsa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, 41)
 texture = ExtResource("9_f1ek2")
 hframes = 8
 
@@ -435,5 +497,10 @@ script = ExtResource("14_7dp3o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(2, -28)
 shape = SubResource("RectangleShape2D_ukyrk")
+
+[node name="visual aid" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, 260)
+texture = ExtResource("17_qqcod")
 
 [connection signal="area_entered" from="AttackArea" to="AttackArea" method="_on_area_entered"]
