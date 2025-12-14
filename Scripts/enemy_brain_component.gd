@@ -63,6 +63,7 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state.exit()
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path, data)
+	print(current_state.name)
 
 func change_animation(new_animation:String, facing_left:bool = last_facing):
 	animation_player.play(new_animation)
