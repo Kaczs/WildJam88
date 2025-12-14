@@ -10,6 +10,8 @@ func phys_update(_delta: float):
 		finished.emit("StateFalling")
 	elif Input.is_action_just_pressed("Attack"):
 		finished.emit("StateStandingAttack")
+	elif Input.is_action_just_pressed("special1"):
+		finished.emit("StateRadiantDash")
 	elif Input.is_action_pressed("Down"):
 		finished.emit("StateCrouch")
 	elif Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):

@@ -39,7 +39,7 @@ func _unhandled_input(event: InputEvent):
 
 func _process(delta: float):
 	current_state.update(delta)
-	print(current_state.name)
+	#print(current_state.name)
 
 func _physics_process(delta: float) -> void:
 	current_state.phys_update(delta)
