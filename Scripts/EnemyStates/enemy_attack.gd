@@ -27,4 +27,4 @@ func phys_update(_delta: float):
 	#if player in range do damage
 	if abs(player.global_position.x - get_parent().global_position.x) <= get_parent().attack_distance:
 		var player_health:HealthComponent = player.find_child("HealthComponent")
-		player_health.adjust_health(-get_parent().damage)
+		player_health.take_damage(get_parent().damage)
