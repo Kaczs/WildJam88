@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=31 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -8,15 +8,19 @@
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://cb4v0sy8btfrh" path="res://Scripts/MovementStates/state_crouch.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://mul7wvit1oqg" path="res://Scripts/MovementStates/state_standing_attack.gd" id="8_f1ek2"]
+[ext_resource type="Script" uid="uid://b2ldlh5l8bs0j" path="res://Scripts/MovementStates/state_standing_attack2.gd" id="8_olqyp"]
 [ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assets/Sprites/LouRunningIdle-Sheet.png" id="9_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://cgfvsptec84ek" path="res://Assets/Sprites/Crouch.png" id="10_7dp3o"]
 [ext_resource type="Shape2D" uid="uid://ddqpff32wgik8" path="res://Assets/couching_hurtbox.tres" id="10_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assets/Sprites/LouIdle-Sheet.png" id="10_tx1dd"]
 [ext_resource type="Texture2D" uid="uid://b3jumdoton4ur" path="res://Assets/Sprites/JumpPlaceholder.png" id="11_gymyn"]
+[ext_resource type="Shape2D" uid="uid://ddr7rsxi3ckt" path="res://Scenes/hitbox2.tres" id="11_l6n3p"]
 [ext_resource type="Shape2D" uid="uid://bbeevo8ffwitr" path="res://Assets/standing_hurtbox.tres" id="12_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://bgn0fpr37g0q1" path="res://Assets/Sprites/Attack1Placeholder.png" id="12_pu2lt"]
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scenes/attack_area.gd" id="14_7dp3o"]
+[ext_resource type="Shape2D" uid="uid://ddtshlkx03trt" path="res://Scenes/hitbox1.tres" id="17_olqyp"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
+[ext_resource type="Texture2D" uid="uid://cov10twsu7kir" path="res://Assets/Sprites/DashAttackPlaceholder.png" id="18_wpjfl"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -103,6 +107,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(4, 41)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AttackArea/CollisionShape2D:shape")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_l6n3p")]
 }
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
@@ -433,6 +449,82 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AttackArea/CollisionShape2D:shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("17_olqyp")]
+}
+
+[sub_resource type="Animation" id="Animation_bi64h"]
+resource_name = "standingattack2"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_wpjfl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackArea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AttackArea/CollisionShape2D:shape")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_l6n3p")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
@@ -442,11 +534,9 @@ _data = {
 &"idle": SubResource("Animation_f1ek2"),
 &"jumping": SubResource("Animation_fd4e3"),
 &"running": SubResource("Animation_7dp3o"),
-&"standingattack": SubResource("Animation_igrcy")
+&"standingattack": SubResource("Animation_igrcy"),
+&"standingattack2": SubResource("Animation_bi64h")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukyrk"]
-size = Vector2(267.75, 78.5)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 
@@ -472,6 +562,9 @@ script = ExtResource("7_8erm5")
 [node name="StateStandingAttack" type="Node" parent="MovementComponent"]
 script = ExtResource("8_f1ek2")
 
+[node name="StateStandingAttack2" type="Node" parent="MovementComponent"]
+script = ExtResource("8_olqyp")
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
 
@@ -495,8 +588,8 @@ monitorable = false
 script = ExtResource("14_7dp3o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(2, -28)
-shape = SubResource("RectangleShape2D_ukyrk")
+position = Vector2(0, 38)
+shape = ExtResource("11_l6n3p")
 
 [node name="visual aid" type="Sprite2D" parent="."]
 visible = false
