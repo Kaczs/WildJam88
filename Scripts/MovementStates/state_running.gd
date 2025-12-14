@@ -22,6 +22,8 @@ func phys_update(_delta: float):
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
+	elif Input.is_action_pressed("Down"):
+		finished.emit("StateCrouch")
 	elif player_body.velocity.y >= 0 and not player_body.is_on_floor():
 		finished.emit("StateFalling")
 	player_body.move_and_slide()
