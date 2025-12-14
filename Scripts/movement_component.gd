@@ -4,18 +4,20 @@
 ## as a child of that rigidbody
 class_name MovementComponent extends Node
 var current_state: MovementState
-@export var player_body: CharacterBody2D
-@export var initial_state: MovementState = null
-@export var animated_sprite: AnimatedSprite2D
+var player_body: CharacterBody2D
+var initial_state: MovementState = null
+var animation_player: AnimationPlayer
+var player_sprite: Sprite2D
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
 @export var attack_cooldown := 0.6
 
 func _ready():
-	print ("this is a test")
+	# Set startup variables
 	player_body = owner
-	animated_sprite = owner.find_child("AnimatedSprite2D")
+	animation_player = owner.find_child("AnimationPlayer")
+	player_sprite = owner.find_child("Sprite2D")
 	if player_body is not CharacterBody2D:
 		push_error("The owner of the MovementComponent must be a CharacterBody2D")
 	# Grab the first state on the object if one wasn't set 
@@ -54,3 +56,7 @@ func transition_to_next_state(target_state_path: String, _data: Dictionary = {})
 	current_state.exit()
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	print("Done Animating")

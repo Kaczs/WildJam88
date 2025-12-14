@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgsro2xg6ygu5"
-path="res://.godot/imported/LouRunningIdle-Sheet.png-344aa5a9127a367a23df4312c6a34049.ctex"
+uid="uid://cwvjueuedxoh0"
+path="res://.godot/imported/KatanaVanish-Sheet.png-d6fa6a1fe4fdfb864aa3a38db69ae9ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assests/Sprites/LouRunningIdle-Sheet.png"
-dest_files=["res://.godot/imported/LouRunningIdle-Sheet.png-344aa5a9127a367a23df4312c6a34049.ctex"]
+source_file="res://Assests/Sprites/KatanaVanish-Sheet.png"
+dest_files=["res://.godot/imported/KatanaVanish-Sheet.png-d6fa6a1fe4fdfb864aa3a38db69ae9ef.ctex"]
 
 [params]
 
