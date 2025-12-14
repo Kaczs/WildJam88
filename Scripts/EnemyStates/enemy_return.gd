@@ -44,3 +44,4 @@ func body_entered(body:Node2D):
 
 func exit() -> void:
 	play_sound = false
+	audio.stop()

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/EnemyStateScenes/enemy_death.tscn" id="6_mvox5"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="6_ukcf2"]
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/EnemyStateScenes/enemy_return.tscn" id="8_cqif6"]
-[ext_resource type="PackedScene" path="res://Scenes/EnemyStateScenes/enemy_stun.tscn" id="9_rx00m"]
+[ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/EnemyStateScenes/enemy_stun.tscn" id="9_rx00m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 52.0
@@ -140,6 +140,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_rx00m"]
 length = 0.001
@@ -232,6 +244,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_8sg68"]
 resource_name = "Stun"
@@ -280,7 +304,6 @@ lock_rotation = true
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("6_ukcf2")
-max_health = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ef3uv")
