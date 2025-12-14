@@ -8,11 +8,11 @@
 [ext_resource type="Script" path="res://Scripts/health_component.gd" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://cb4v0sy8btfrh" path="res://Scripts/MovementStates/state_crouch.gd" id="7_8erm5"]
 [ext_resource type="Script" uid="uid://mul7wvit1oqg" path="res://Scripts/MovementStates/state_standing_attack.gd" id="8_f1ek2"]
-[ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assests/Sprites/LouRunningIdle-Sheet.png" id="9_f1ek2"]
-[ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assests/Sprites/LouIdle-Sheet.png" id="10_tx1dd"]
-[ext_resource type="Texture2D" uid="uid://b3jumdoton4ur" path="res://Assests/Sprites/JumpPlaceholder.png" id="11_gymyn"]
-[ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assests/Sprites/CrouchPlaceholder.png" id="11_pu2lt"]
-[ext_resource type="Texture2D" uid="uid://bgn0fpr37g0q1" path="res://Assests/Sprites/Attack1Placeholder.png" id="12_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assets/Sprites/LouRunningIdle-Sheet.png" id="9_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assets/Sprites/LouIdle-Sheet.png" id="10_tx1dd"]
+[ext_resource type="Texture2D" uid="uid://b3jumdoton4ur" path="res://Assets/Sprites/JumpPlaceholder.png" id="11_gymyn"]
+[ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="11_pu2lt"]
+[ext_resource type="Texture2D" uid="uid://bgn0fpr37g0q1" path="res://Assets/Sprites/Attack1Placeholder.png" id="12_pu2lt"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v0iea"]
 radius = 9.0
