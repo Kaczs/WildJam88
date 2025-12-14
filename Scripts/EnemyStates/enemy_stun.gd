@@ -9,10 +9,5 @@ func enter(_previous_state_path: String, _data:Dictionary):
 func _on_timer_timeout() -> void:
 	finished.emit("Idle")
 
-func phys_update(_delta: float):
-	if get_parent().health_component.current_health <= 0:
-		finished.emit("EnemyDeath")
-		return
-
 func exit() -> void:
 	timer.stop()

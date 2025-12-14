@@ -9,9 +9,6 @@ var area:Area2D
 @onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func enter(_previous_state_path: String, _data:Dictionary):
-	if get_parent().health_component.current_health <= 0:
-		finished.emit("EnemyDeath")
-		return
 	area = get_parent().area
 	if not area.body_entered.is_connected(body_entered):
 		area.body_entered.connect(body_entered)
