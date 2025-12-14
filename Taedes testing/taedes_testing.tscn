@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfo58k83dyuyq"]
+[gd_scene load_steps=5 format=3 uid="uid://bfo58k83dyuyq"]
 
+[ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Taedes testing/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
 [ext_resource type="PackedScene" uid="uid://bajc1pulyaeh7" path="res://Scenes/enemy_base.tscn" id="3_da26p"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("enemy")]
+script = ExtResource("1_jh8am")
+enemy = NodePath("EnemyBase")
 
 [node name="Player" parent="." instance=ExtResource("1_mcy4d")]
 position = Vector2(59, 809)

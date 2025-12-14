@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bajc1pulyaeh7"]
+[gd_scene load_steps=21 format=3 uid="uid://bajc1pulyaeh7"]
 
 [ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assests/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/enemy_brain_component.tscn" id="1_vu4yt"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/EnemyStateScenes/enemy_death.tscn" id="6_mvox5"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="6_ukcf2"]
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/EnemyStateScenes/enemy_return.tscn" id="8_cqif6"]
+[ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/EnemyStateScenes/enemy_stun.tscn" id="9_rx00m"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 52.0
@@ -47,10 +48,70 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_b1gup")
+}],
+"loop": true,
+"name": &"Stun",
+"speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vu4yt"]
-radius = 700.0
+[sub_resource type="Animation" id="Animation_kiwyh"]
+resource_name = "Attack"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack"]
+}
+
+[sub_resource type="Animation" id="Animation_tuqf4"]
+resource_name = "Death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Death"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.23333335, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_cqif6"]
 resource_name = "Idle"
@@ -130,6 +191,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [&"Death"]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_6gj7t"]
 resource_name = "Run"
@@ -160,59 +233,33 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_kiwyh"]
-resource_name = "Attack"
+[sub_resource type="Animation" id="Animation_8sg68"]
+resource_name = "Stun"
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Attack"]
-}
-
-[sub_resource type="Animation" id="Animation_tuqf4"]
-resource_name = "Death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Death"]
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.2617993877991494, -0.2617993877991494, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(0.1, 0.1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimatedSprite2D:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.23333335, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Stun"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuqf4"]
@@ -221,11 +268,18 @@ _data = {
 &"Death": SubResource("Animation_tuqf4"),
 &"Idle": SubResource("Animation_cqif6"),
 &"RESET": SubResource("Animation_rx00m"),
-&"Run": SubResource("Animation_6gj7t")
+&"Run": SubResource("Animation_6gj7t"),
+&"Stun": SubResource("Animation_8sg68")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vu4yt"]
+radius = 1000.0
 
 [node name="EnemyBase" type="RigidBody2D"]
 lock_rotation = true
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("6_ukcf2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ef3uv")
@@ -241,7 +295,7 @@ animated_sprite_2d = NodePath("../AnimatedSprite2D")
 enemy_body = NodePath("..")
 initial_state = NodePath("EnemyIdle")
 move_speed = 100.0
-loose_player_distance = 1000
+lose_player_distance = 1500
 
 [node name="EnemyIdle" parent="EnemyBrainComponent" instance=ExtResource("2_wmxvo")]
 
@@ -250,20 +304,19 @@ loose_player_distance = 1000
 [node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("5_bddga")]
 
 [node name="EnemyDeath" parent="EnemyBrainComponent" node_paths=PackedStringArray("colider") instance=ExtResource("6_mvox5")]
-colider = NodePath("../../Area2D/CollisionShape2D")
+colider = NodePath("../../CollisionShape2D")
 
 [node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_cqif6")]
+
+[node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_rx00m")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tuqf4")
+}
 
 [node name="Area2D" type="Area2D" parent="."]
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vu4yt")
-
-[node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("6_ukcf2")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tuqf4")
-}
