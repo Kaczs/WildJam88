@@ -36,8 +36,8 @@ func _ready():
 	current_state = initial_state
 	await owner.ready
 	if get_parent().has_node("HealthComponent"):
-		var health:HealthComponent = get_node("HealthComponent")
-		health.on_hit.connect(on_hit)
+		var health:HealthComponent = get_parent().get_node("HealthComponent")
+		health.on_hit.connect(enemy_hit)
 	else:
 		push_warning("can't find HealthComponent")
 	current_state.enter("",{})
@@ -62,14 +62,14 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state.enter(previous_state_path, data)
 
 func change_animation(new_animation:String, facing_left:bool = last_facing):
-	animated_sprite_2d.set_animation(new_animation)
+	animation_player.play(new_animation)
 	last_facing = facing_left
 	if facing_left:
 		animated_sprite_2d.set_flip_h(false)
 	else:
 		animated_sprite_2d.set_flip_h(true)
 
-func on_hit(stagger_duration:int, is_dead:bool):
+func enemy_hit(stagger_duration:int, is_dead:bool):
 	if is_dead:
 		transition_to_next_state("EnemyDeath")
 		return
