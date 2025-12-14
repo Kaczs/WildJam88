@@ -6,9 +6,6 @@ var facing_left:bool
 @onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func enter(_previous_state_path: String, _data:Dictionary):
-	if get_parent().health_component.current_health <= 0:
-		finished.emit("EnemyDeath")
-		return
 	player = _data["player"]
 	direction_to_player = player.global_position.x - get_parent().global_position.x
 	if direction_to_player > 0:
