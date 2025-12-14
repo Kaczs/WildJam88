@@ -25,4 +25,4 @@ func body_entered(body:Node2D):
 
 func exit() -> void:
 	#this is call deferred because the engine yelled at me when I dint do it
-	set_deferred("area.set_monitoring", false)
+	area.set_deferred("monitoring", false)
