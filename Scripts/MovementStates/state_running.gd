@@ -1,11 +1,9 @@
 extends MovementState
-var speed
 
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
-	parent.animated_sprite.play("running")
-	speed = parent.move_speed
+	animation_player.play("running")
 
 func phys_update(_delta: float):
 	# Gravity
@@ -14,9 +12,9 @@ func phys_update(_delta: float):
 	var horizontal_input = Input.get_axis("Left", "Right")
 	# Flip sprite by direction
 	if horizontal_input < 0:
-		parent.animated_sprite.flip_h = true
+		sprite.flip_h = true
 	elif horizontal_input > 0:
-		parent.animated_sprite.flip_h = false
+		sprite.flip_h = false
 	player_body.velocity.x = horizontal_input * speed
 	# Stop running go idle
 	if is_equal_approx(horizontal_input, 0.0):

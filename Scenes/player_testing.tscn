@@ -9,8 +9,9 @@
 
 [node name="Platform" parent="." instance=ExtResource("1_m6wkf")]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(2729, 1013.0001)
-scale = Vector2(7.9792914, -1.1835871)
+position = Vector2(1102, 1025)
+scale = Vector2(5, -1.184)
+metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
 position = Vector2(486, 812)
