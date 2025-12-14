@@ -1,5 +1,6 @@
 extends EnemyState
 
+var play_sound:bool
 var starting_postion:Vector2
 var direction_to_start
 var facing_left
@@ -25,7 +26,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	audio.play()
-	audio.set_stream_paused(false)
+	play_sound = true
 
 func phys_update(_delta: float):
 	var distacne_to_start = starting_postion.x - get_parent().global_position.x
@@ -35,12 +36,13 @@ func phys_update(_delta: float):
 	enemy_body.position.x += get_parent().move_speed * _delta * direction_to_start
 
 func _on_audio_stream_player_2d_finished() -> void:
-	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
-	audio.play()
+	if play_sound:
+		audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
+		audio.play()
 
 func body_entered(body:Node2D):
 	if body.is_in_group("player"):
 		finished.emit("EnemyChase", {"player": body})
 
 func exit() -> void:
-	audio.set_stream_paused(true)
+	play_sound = false

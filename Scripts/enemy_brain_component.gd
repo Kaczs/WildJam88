@@ -6,22 +6,28 @@ extends Node2D
 var current_state: EnemyState
 var last_facing:bool
 var starting_position:Vector2
-@export var health_component:HealthComponent
-@export var animation_player:AnimationPlayer
-@export var animated_sprite_2d:AnimatedSprite2D
-@export var enemy_body: RigidBody2D
-@export var initial_state: EnemyState = null
-@export var player_detector:Area2D
-@export var hit_box:Area2D
+var enemy_body: RigidBody2D
+var health_component:HealthComponent
+var animation_player:AnimationPlayer
+var animated_sprite_2d:AnimatedSprite2D
+var player_detector:Area2D
+var hit_box:Area2D
 
+@export var initial_state: EnemyState = null
+
+@export_group("Stats")
 @export var move_speed := 200.0 #if this is ever over 3000 the return state has a chnace to not stop at the start location
 @export var damage := 5
-@export var attack_cooldown := 0.5
-@export var attack_distance := 100
+@export_subgroup("detection")
 @export var lose_player_distance := 500
-
+@export var attack_distance := 100
 
 func _ready():
+	health_component = get_parent().get_node("HealthComponent") 
+	animation_player = get_parent().get_node("AnimationPlayer") 
+	animated_sprite_2d = get_parent().get_node("AnimatedSprite2D") 
+	player_detector = get_parent().get_node("PlayerDetector")
+	hit_box = get_parent().get_node("HitBox")
 	starting_position = self.get_global_position()
 	enemy_body = get_parent()
 	# Grab the first state on the object if one wasn't set 
@@ -36,11 +42,7 @@ func _ready():
 		state_node.finished.connect(transition_to_next_state)
 	current_state = initial_state
 	await owner.ready
-	if get_parent().has_node("HealthComponent"):
-		var health:HealthComponent = get_parent().get_node("HealthComponent")
-		health.on_hit.connect(enemy_hit)
-	else:
-		push_warning("can't find HealthComponent")
+	health_component.on_hit.connect(enemy_hit)
 	current_state.enter("",{})
 
 func _process(delta: float):
@@ -76,7 +78,8 @@ func enemy_hit(stagger_duration:int, is_dead:bool):
 		return
 	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
 
-func hit():
+#called by animation player
+func hit_player():
 	for body in hit_box.get_overlapping_bodies():
 		if body.is_in_group("player"):
 			var player_health:HealthComponent = body.get_node("HealthComponent")
