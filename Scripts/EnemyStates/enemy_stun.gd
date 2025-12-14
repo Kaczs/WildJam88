@@ -15,4 +15,4 @@ func phys_update(_delta: float):
 		return
 
 func exit() -> void:
-	timer.set_paused(true)
+	timer.stop()
