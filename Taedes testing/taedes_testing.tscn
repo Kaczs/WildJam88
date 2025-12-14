@@ -10,11 +10,15 @@ script = ExtResource("1_jh8am")
 enemy = NodePath("EnemyBase")
 
 [node name="Player" parent="." instance=ExtResource("1_mcy4d")]
-position = Vector2(59, 809)
+position = Vector2(134, 213)
 
 [node name="Platform" parent="." instance=ExtResource("2_jh8am")]
 position = Vector2(823, 1011)
 scale = Vector2(11.280003, 1)
 
+[node name="Platform2" parent="." instance=ExtResource("2_jh8am")]
+position = Vector2(-3584, 502)
+scale = Vector2(11.280003, 1)
+
 [node name="EnemyBase" parent="." instance=ExtResource("3_da26p")]
-position = Vector2(1752, 814)
+position = Vector2(1771, 751)

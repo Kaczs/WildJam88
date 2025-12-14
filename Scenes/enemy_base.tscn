@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bajc1pulyaeh7"]
+[gd_scene load_steps=24 format=3 uid="uid://bajc1pulyaeh7"]
 
 [ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/enemy_brain_component.tscn" id="1_vu4yt"]
@@ -215,6 +215,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_6gj7t"]
 resource_name = "Run"
@@ -286,9 +310,143 @@ tracks/1/keys = {
 "values": [&"Stun"]
 }
 
+[sub_resource type="Animation" id="Animation_c2fo8"]
+resource_name = "AttackLeft"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7666667, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5235987755982988, -0.2617993877991494, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyBrainComponent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hit"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-100, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_qkjgn"]
+resource_name = "AttackRight"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:rotation")
+tracks/0/interp = 3
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.7666667, 1.9, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.5235987755982988, 0.2617993877991494, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack"]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("EnemyBrainComponent")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hit"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBox:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:flip_h")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuqf4"]
 _data = {
 &"Attack": SubResource("Animation_kiwyh"),
+&"AttackLeft": SubResource("Animation_c2fo8"),
+&"AttackRight": SubResource("Animation_qkjgn"),
 &"Death": SubResource("Animation_tuqf4"),
 &"Idle": SubResource("Animation_cqif6"),
 &"RESET": SubResource("Animation_rx00m"),
@@ -298,6 +456,9 @@ _data = {
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
 radius = 1000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
+size = Vector2(128.1875, 143)
 
 [node name="EnemyBase" type="RigidBody2D"]
 lock_rotation = true
@@ -312,14 +473,16 @@ script = ExtResource("6_ukcf2")
 sprite_frames = SubResource("SpriteFrames_sgjdr")
 animation = &"Death"
 
-[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("health_component", "animation_player", "animated_sprite_2d", "enemy_body", "initial_state", "player_detector") instance=ExtResource("1_vu4yt")]
+[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("health_component", "animation_player", "animated_sprite_2d", "enemy_body", "initial_state", "player_detector", "hit_box") instance=ExtResource("1_vu4yt")]
 health_component = NodePath("../HealthComponent")
 animation_player = NodePath("../AnimationPlayer")
 animated_sprite_2d = NodePath("../AnimatedSprite2D")
 enemy_body = NodePath("..")
 initial_state = NodePath("EnemySearch")
 player_detector = NodePath("../PlayerDetector")
+hit_box = NodePath("../HitBox")
 move_speed = 100.0
+attack_distance = 150
 lose_player_distance = 1500
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("2_wmxvo")]
@@ -345,3 +508,9 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_rx00m")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_rx00m")
