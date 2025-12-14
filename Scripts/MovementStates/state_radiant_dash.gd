@@ -3,7 +3,12 @@ extends MovementState
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
-	animation_player.play("standingattack")
+	animation_player.play("radiantdash")
+	var horizontal_input = Input.get_axis("Left", "Right")
+	if sprite.flip_h == false:
+		player_body.position.x += 700
+	else:
+		player_body.position.x -= 700
 
 func phys_update(_delta: float):
 	# Gravity
@@ -13,8 +18,6 @@ func phys_update(_delta: float):
 	# Stopped crouching when trying to run? Stand and run
 	if abs(horizontal_input) > 0:
 		finished.emit("StateRunning")
-	elif Input.is_action_just_pressed("Attack"):
-		finished.emit("StateStandingAttack2")
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
