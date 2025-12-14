@@ -7,6 +7,7 @@ var facing_left:bool
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	player = _data["player"]
+	#gets the derection of player and sets animation
 	direction_to_player = player.global_position.x - get_parent().global_position.x
 	if direction_to_player > 0:
 		direction_to_player = 1
@@ -16,6 +17,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		facing_left = false
 	get_parent().change_animation(animation_sprite, facing_left)
 	enemy_body = get_parent().get_parent()
+	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	audio.play()
 	audio.set_stream_paused(false)
