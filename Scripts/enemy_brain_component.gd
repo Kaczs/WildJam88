@@ -13,11 +13,10 @@ var starting_position:Vector2
 @export var initial_state: EnemyState = null
 
 @export var move_speed := 200.0
-@export var jump_power := 1000.0
 @export var damage := 5
 @export var attack_cooldown := 0.5
 @export var attack_distance := 100
-@export var loose_player_distance := 700
+@export var lose_player_distance := 500
 
 @onready var area:Area2D = $"../Area2D"
 

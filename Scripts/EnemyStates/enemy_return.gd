@@ -9,6 +9,9 @@ var area:Area2D
 @onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func enter(_previous_state_path: String, _data:Dictionary):
+	if get_parent().health_component.current_health <= 0:
+		finished.emit("EnemyDeath")
+		return
 	area = get_parent().area
 	if not area.body_entered.is_connected(body_entered):
 		area.body_entered.connect(body_entered)
@@ -27,6 +30,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 
 func phys_update(_delta: float):
 	var distacne_to_start = starting_postion.x - get_parent().global_position.x
+	#
 	if distacne_to_start < 30 and -30 < distacne_to_start:
 		finished.emit("EnemyIdle")
 	enemy_body.position.x += get_parent().move_speed * _delta * direction_to_start

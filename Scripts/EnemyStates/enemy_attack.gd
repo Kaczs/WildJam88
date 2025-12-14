@@ -7,6 +7,9 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	player = _data["player"]
 
 func phys_update(_delta: float):
+	if get_parent().health_component.current_health <= 0:
+		finished.emit("EnemyDeath")
+		return
 	if not timer.is_stopped():
 		return
 	var direction_to_player = player.global_position.x - get_parent().global_position.x

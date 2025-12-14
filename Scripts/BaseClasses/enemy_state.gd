@@ -14,8 +14,7 @@ func update(_delta: float):
 
 ## Called by the movement component on the physics update loop
 func phys_update(_delta: float):
-	if get_parent().health_component.current_health <= 0:
-		finished.emit("EnemyDeath")
+	pass
 
 ## Words 
 func enter(_previous_state_path: String, _data:Dictionary):

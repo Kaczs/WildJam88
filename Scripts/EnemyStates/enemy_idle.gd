@@ -2,8 +2,6 @@ extends EnemyState
 
 var area:Area2D
 
-
-
 func enter(_previous_state_path: String, _data:Dictionary):
 	area = get_parent().area
 	if not area.body_entered.is_connected(body_entered):
@@ -14,6 +12,11 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		if body.is_in_group("player"):
 			finished.emit("EnemyChase", {"player": body})
 			return
+
+func phys_update(_delta: float):
+	if get_parent().health_component.current_health <= 0:
+		finished.emit("EnemyDeath")
+		return
 
 func body_entered(body:Node2D):
 	if body.is_in_group("player"):
