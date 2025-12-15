@@ -11,8 +11,6 @@ var area:Area2D
 func _ready() -> void:
 	await get_parent().get_parent().ready
 	area = enemy_body.get_node("PlayerDetector")
-	area.body_entered.connect(body_entered)
-
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	starting_postion = get_parent().starting_position
@@ -21,15 +19,17 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	direction_to_start = starting_postion.x - get_parent().global_position.x
 	if direction_to_start > 0:
 		direction_to_start = 1
-		facing_left = true
+		facing_left = false
 	elif direction_to_start <= 0:
 		direction_to_start = -1
-		facing_left = false
-	get_parent().change_animation(animation_sprite, facing_left)
+		facing_left = true
+	animation_player.play(animation_sprite)
+	get_parent().animated_sprite_2d.flip_h = facing_left
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	audio.play()
 	is_current_state = true
+	area.get_child(0).set_disabled(false)
 
 func phys_update(_delta: float):
 	var distacne_to_start = starting_postion.x - get_parent().global_position.x
@@ -43,9 +43,6 @@ func _on_audio_stream_player_2d_finished() -> void:
 		audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 		audio.play()
 
-func body_entered(body:Node2D):
-	if body.is_in_group("player") and is_current_state:
-		finished.emit("EnemyChase", {"player": body})
-
 func exit() -> void:
+	area.get_child(0).call_deferred("set_disabled",true)
 	is_current_state = false

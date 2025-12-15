@@ -42,6 +42,7 @@ func _ready():
 	for state_node: EnemyState in find_children("*", "EnemyState"):
 		state_node.enemy_body = enemy_body
 		state_node.finished.connect(transition_to_next_state)
+		state_node.animation_player = animation_player
 	current_state = initial_state
 	await owner.ready
 	health_component.on_hit.connect(enemy_hit)
@@ -66,14 +67,6 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path, data)
 	print(current_state.name)
-
-func change_animation(new_animation:String, facing_left:bool = last_facing):
-	animation_player.play(new_animation)
-	last_facing = facing_left
-	if facing_left:
-		animated_sprite_2d.set_flip_h(false)
-	else:
-		animated_sprite_2d.set_flip_h(true)
 
 func enemy_hit(stagger_duration:int, is_dead:bool):
 	if is_dead:

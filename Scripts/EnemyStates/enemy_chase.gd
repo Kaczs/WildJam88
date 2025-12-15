@@ -11,11 +11,12 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	direction_to_player = player.global_position.x - get_parent().global_position.x
 	if direction_to_player > 0:
 		direction_to_player = 1
-		facing_left = true
+		facing_left = false
 	elif direction_to_player <= 0:
 		direction_to_player = -1
-		facing_left = false
-	get_parent().change_animation(animation_sprite, facing_left)
+		facing_left = true
+	animation_player.play(animation_sprite)
+	get_parent().animated_sprite_2d.flip_h = facing_left
 	enemy_body = get_parent().get_parent()
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
@@ -41,12 +42,12 @@ func _on_audio_stream_player_2d_finished() -> void:
 	direction_to_player = player.global_position.x - get_parent().global_position.x
 	if direction_to_player > 0:
 		direction_to_player = 1
-		facing_left = true
+		facing_left = false
 	elif direction_to_player <= 0:
 		direction_to_player = -1
-		facing_left = false
+		facing_left = true
 	if is_current_state:
 		audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 		audio.play()
 		#we only updata animation if this is curent state
-		get_parent().change_animation(animation_sprite, facing_left)
+		get_parent().animated_sprite_2d.flip_h = facing_left

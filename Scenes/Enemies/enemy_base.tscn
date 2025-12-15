@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://bajc1pulyaeh7"]
 
-[ext_resource type="Script" uid="uid://8ndkpe2hedbt" path="res://Scenes/Enemies/Enemy Scripts/enemy_base.gd" id="1_2j2wd"]
+[ext_resource type="Script" uid="uid://cwd74osp41kgi" path="res://Scenes/Enemies/enemy_base.gd" id="1_2j2wd"]
 [ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="1_vu4yt"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="2_kiwyh"]
@@ -110,19 +110,17 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/4/type = "method"
+tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath(".")
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.9),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"hit_player"
-}]
+"times": PackedFloat32Array(1.85, 1.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_qkjgn"]
@@ -176,19 +174,17 @@ tracks/3/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/4/type = "method"
+tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath(".")
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(1.9),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"hit_player"
-}]
+"times": PackedFloat32Array(1.85, 1.95),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_tuqf4"]
@@ -346,11 +342,23 @@ tracks/5/keys = {
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/path = NodePath("AnimatedSprite2D:flip_h")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HitBox/CollisionShape2D:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -445,7 +453,7 @@ radius = 1000.0
 size = Vector2(128.1875, 143)
 
 [node name="EnemyBase" type="RigidBody2D"]
-collision_layer = 8
+collision_layer = 9
 lock_rotation = true
 script = ExtResource("1_2j2wd")
 
@@ -483,12 +491,20 @@ libraries = {
 }
 
 [node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_rx00m")
+disabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(100, 0)
+collision_layer = 0
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_rx00m")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -4,7 +4,7 @@ extends EnemyState
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	timer.start(_data["stun duration"])
-	get_parent().change_animation(animation_sprite)
+	animation_player.play(animation_sprite)
 
 func _on_timer_timeout() -> void:
 	finished.emit("EnemyReturn")
