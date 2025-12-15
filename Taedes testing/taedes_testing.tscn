@@ -1,16 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfo58k83dyuyq"]
+[gd_scene load_steps=5 format=3 uid="uid://bfo58k83dyuyq"]
 
 [ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Taedes testing/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
-[ext_resource type="PackedScene" uid="uid://bajc1pulyaeh7" path="res://Scenes/Enemies/enemy_base.tscn" id="3_da26p"]
-[ext_resource type="PackedScene" uid="uid://bkucgyj2pl76g" path="res://Scenes/Enemies/archer.tscn" id="4_jh8am"]
+[ext_resource type="PackedScene" uid="uid://ckq285hai1v75" path="res://Scenes/Enemies/enemy_multi_attack.tscn" id="4_jh8am"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_jh8am")
 
 [node name="Player" parent="." instance=ExtResource("1_mcy4d")]
-position = Vector2(243, 281)
+position = Vector2(177, 392)
 
 [node name="Platform" parent="." instance=ExtResource("2_jh8am")]
 position = Vector2(823, 1011)
@@ -24,8 +23,5 @@ scale = Vector2(0.02219671, 22.275415)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(929, 550)
 
-[node name="Archer" parent="." instance=ExtResource("4_jh8am")]
-position = Vector2(1798, 822)
-
-[node name="EnemyBase" parent="." instance=ExtResource("3_da26p")]
-position = Vector2(1558, 387)
+[node name="EnemyMultiAttack" parent="." instance=ExtResource("4_jh8am")]
+position = Vector2(1354, 425)

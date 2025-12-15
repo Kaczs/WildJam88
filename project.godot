@@ -25,6 +25,15 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://Scenes/Enemies/": "blue",
+"res://Scenes/Enemies/Enemy Attacks/Attack Scenes/": "gray",
+"res://Scenes/Enemies/Enemy Attacks/Attack Scripts/": "gray",
+"res://Scenes/Enemies/Enemy Scripts/": "gray"
+}
+
 [global_group]
 
 player=""
