@@ -20,10 +20,8 @@ scale = Vector2(1, -1.184)
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
 position = Vector2(486, 812)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2(0, -260)
-
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(1108, 1061)
 scale = Vector2(0.8203704, 0.8203704)
@@ -32,3 +30,7 @@ metadata/_edit_lock_ = true
 
 [node name="EnemyBase" parent="." instance=ExtResource("4_6ej57")]
 position = Vector2(2020, 699)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(486, 812)
+offset = Vector2(0, -260)
