@@ -51,8 +51,10 @@ func _physics_process(delta: float) -> void:
 ## Function will take a path to the state you want to transition to
 ## and will do that
 func transition_to_next_state(target_state_path: String, _data: Dictionary = {}):
-	# Fix hitbox rotation
-	# Disable hitbox
+	# Reset to standard state before transitioning this is to ensure any parameters
+	# that were unique to one animation are reset properly (like hitboxes)
+	animation_player.play(&"RESET")
+	animation_player.advance(0)
 	# if the given node path is invalid return
 	if not has_node(target_state_path):
 		push_error("Tried to transition to state: " + target_state_path + " but it doesn't exist")
