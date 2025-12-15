@@ -1,8 +1,5 @@
 extends EnemyState
 
-
-@export var player_detector_range:int = 1000
-
 var area:Area2D
 
 func enter(_previous_state_path: String, _data:Dictionary):
@@ -25,4 +22,4 @@ func body_entered(body:Node2D):
 
 func exit() -> void:
 	#this is call deferred because the engine yelled at me when I dint do it
-	set_deferred("area.set_monitoring", false)
+	area.set_deferred("monitoring", false)

@@ -1,6 +1,6 @@
 extends EnemyState
 
-var play_sound:bool
+var is_current_state:bool
 var starting_postion:Vector2
 var direction_to_start
 var facing_left
@@ -8,10 +8,13 @@ var area:Area2D
 
 @onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+func _ready() -> void:
+	await get_parent().get_parent().ready
+	area = enemy_body.get_node("PlayerDetector")
+	area.body_entered.connect(body_entered)
+
+
 func enter(_previous_state_path: String, _data:Dictionary):
-	area = get_parent().player_detector
-	if not area.body_entered.is_connected(body_entered):
-		area.body_entered.connect(body_entered)
 	starting_postion = get_parent().starting_position
 	#we use only starting_postion.x so that if the enemy has fallen off a platform they can go to close to there stating pos
 	#TODO make enemy teleport if not on screen and at starting_postion.x
@@ -26,7 +29,8 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	audio.play()
-	play_sound = true
+	is_current_state = true
+	area.set_monitoring(true)
 
 func phys_update(_delta: float):
 	var distacne_to_start = starting_postion.x - get_parent().global_position.x
@@ -36,7 +40,7 @@ func phys_update(_delta: float):
 	enemy_body.position.x += get_parent().move_speed * _delta * direction_to_start
 
 func _on_audio_stream_player_2d_finished() -> void:
-	if play_sound:
+	if is_current_state:
 		audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 		audio.play()
 
@@ -45,4 +49,6 @@ func body_entered(body:Node2D):
 		finished.emit("EnemyChase", {"player": body})
 
 func exit() -> void:
-	play_sound = false
+	is_current_state = false
+	#this is call deferred because the engine yelled at me when I dint do it
+	area.set_deferred("monitoring", false)
