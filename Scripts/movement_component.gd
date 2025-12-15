@@ -12,6 +12,10 @@ var player_sprite: Sprite2D
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
 @export var attack_cooldown := 0.6
+## This is the time that a player has to wait after performing an attack
+## however if they land an attack they have the ability to forgo this delay
+## and startup another attack depending on the one they hit
+@export var attack_recovery := 0.16
 
 func _ready():
 	# Set startup variables
@@ -47,6 +51,10 @@ func _physics_process(delta: float) -> void:
 ## Function will take a path to the state you want to transition to
 ## and will do that
 func transition_to_next_state(target_state_path: String, _data: Dictionary = {}):
+	# Reset to standard state before transitioning this is to ensure any parameters
+	# that were unique to one animation are reset properly (like hitboxes)
+	animation_player.play(&"RESET")
+	animation_player.advance(0)
 	# if the given node path is invalid return
 	if not has_node(target_state_path):
 		push_error("Tried to transition to state: " + target_state_path + " but it doesn't exist")
@@ -57,6 +65,5 @@ func transition_to_next_state(target_state_path: String, _data: Dictionary = {})
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path)
 
-
-func _on_animated_sprite_2d_animation_finished() -> void:
-	print("Done Animating")
+func force_idle():
+	transition_to_next_state("idle")

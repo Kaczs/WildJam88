@@ -18,4 +18,8 @@ func phys_update(_delta: float):
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
+	# Optionally immediately animation: X X X 
+	# if hit
+	# 0.16s after animation then unlock player > nother attack > jump > move > parry
+	# kill 0.16s delay if hit a guy
 	player_body.move_and_slide()

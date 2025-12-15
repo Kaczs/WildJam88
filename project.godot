@@ -63,6 +63,13 @@ special1={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="physics"
+2d_physics/layer_2="player detection"
+2d_physics/layer_3="player hurtboxes"
+2d_physics/layer_4="enemy hurtboxes"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

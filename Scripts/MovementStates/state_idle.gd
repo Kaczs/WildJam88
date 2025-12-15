@@ -6,8 +6,10 @@ func enter(_previous_state_path: String, _data := {}):
 
 func phys_update(_delta: float):
 	player_body.velocity.y += gravity * _delta
+	
 	if not player_body.is_on_floor():
 		finished.emit("StateFalling")
+	# if were cancel
 	elif Input.is_action_just_pressed("Attack"):
 		finished.emit("StateStandingAttack")
 	elif Input.is_action_just_pressed("special1"):
