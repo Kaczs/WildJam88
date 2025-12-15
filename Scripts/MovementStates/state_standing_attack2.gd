@@ -1,9 +1,11 @@
 extends MovementState
 
 func enter(_previous_state_path: String, _data := {}):
-	# cancel out any momentum
-	# play idle animation
+	# Flip hitbox depending on facing
+	if sprite.flip_h == true:
+		parent.flip_character()
 	animation_player.play("standingattack2")
+	
 
 func phys_update(_delta: float):
 	# Slide the player forward as they attack
