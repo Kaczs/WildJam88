@@ -7,7 +7,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	get_parent().change_animation(animation_sprite)
 
 func _on_timer_timeout() -> void:
-	finished.emit("EnemySearch")
+	finished.emit("EnemyReturn")
 
 func exit() -> void:
 	#ensuers that if the enemy dies befor timer timout that _on_timer_timeout is not called

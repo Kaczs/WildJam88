@@ -13,7 +13,7 @@ var animated_sprite_2d:AnimatedSprite2D
 var player_detector:Area2D
 var hit_box:Area2D
 
-@export var initial_state: EnemyState = null
+@export var initial_state: EnemyState
 
 @export_group("Stats")
 @export var move_speed := 200.0 #if this is ever over 3000 the return state has a chnace to not stop at the start location
@@ -23,6 +23,8 @@ var hit_box:Area2D
 @export var attack_distance := 100
 
 func _ready():
+	if not initial_state:
+		initial_state = get_node("EnemySearch")
 	health_component = get_parent().get_node("HealthComponent") 
 	animation_player = get_parent().get_node("AnimationPlayer") 
 	animated_sprite_2d = get_parent().get_node("AnimatedSprite2D") 
@@ -78,10 +80,3 @@ func enemy_hit(stagger_duration:int, is_dead:bool):
 		transition_to_next_state("EnemyDeath")
 		return
 	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
-
-#called by animation player
-func hit_player():
-	for body in hit_box.get_overlapping_bodies():
-		if body.is_in_group("player"):
-			var player_health:HealthComponent = body.get_node("HealthComponent")
-			player_health.take_damage(damage)
