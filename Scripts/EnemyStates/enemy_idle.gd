@@ -1,6 +1,7 @@
 extends EnemyState
 
 var area:Area2D
+var is_current_state:bool
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	area = get_parent().player_detector
@@ -9,17 +10,18 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	#set animation
 	get_parent().change_animation(animation_sprite)
 	#monitoring is toggled on (when state is active) and off (when inactive) so that we can listen for the on body entered signal
-	area.set_monitoring(true)
+	is_current_state = true
 	#check if player is in PlayerDetector
 	for body in area.get_overlapping_bodies():
 		if body.is_in_group("player"):
 			finished.emit("EnemyChase", {"player": body})
 			return
 
+
+
 func body_entered(body:Node2D):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and is_current_state:
 		finished.emit("EnemyChase", {"player": body})
 
 func exit() -> void:
-	#this is call deferred because the engine yelled at me when I dint do it
-	area.set_deferred("monitoring", false)
+	is_current_state = false

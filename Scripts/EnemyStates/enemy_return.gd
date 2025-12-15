@@ -30,7 +30,6 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	audio.play()
 	is_current_state = true
-	area.set_monitoring(true)
 
 func phys_update(_delta: float):
 	var distacne_to_start = starting_postion.x - get_parent().global_position.x
@@ -45,10 +44,8 @@ func _on_audio_stream_player_2d_finished() -> void:
 		audio.play()
 
 func body_entered(body:Node2D):
-	if body.is_in_group("player"):
+	if body.is_in_group("player") and is_current_state:
 		finished.emit("EnemyChase", {"player": body})
 
 func exit() -> void:
 	is_current_state = false
-	#this is call deferred because the engine yelled at me when I dint do it
-	area.set_deferred("monitoring", false)

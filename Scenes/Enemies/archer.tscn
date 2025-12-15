@@ -479,7 +479,6 @@ libraries = {
 }
 
 [node name="PlayerDetector" type="Area2D" parent="."]
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_dv6mx")
@@ -489,3 +488,5 @@ position = Vector2(-100, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("RectangleShape2D_al3at")
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

@@ -1,6 +1,6 @@
 class_name Projectile extends Node2D
 
-@export var force := 500
+@export var force:Vector2
 @export var damage:int
 @export var despawn_timer := 3.3
 
@@ -16,4 +16,4 @@ func die():
 	self.queue_free()
 
 func _physics_process(delta: float) -> void:
-	position.x += force * delta
+	position += force * delta
