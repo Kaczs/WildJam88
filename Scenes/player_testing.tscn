@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
-[ext_resource type="PackedScene" uid="uid://bajc1pulyaeh7" path="res://Scenes/enemy_base.tscn" id="4_6ej57"]
+[ext_resource type="PackedScene" path="res://Scenes/enemy_base.tscn" id="4_6ej57"]
 [ext_resource type="Texture2D" uid="uid://bst0whfgmcxe8" path="res://Assets/Sprites/Background.png" id="4_k6022"]
 
 [node name="PlayerTesting" type="Node2D"]
