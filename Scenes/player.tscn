@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=35 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assets/Sprites/LouRunningIdle-Sheet.png" id="9_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://cgfvsptec84ek" path="res://Assets/Sprites/Crouch.png" id="10_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assets/Sprites/LouIdle-Sheet.png" id="10_tx1dd"]
-[ext_resource type="Shape2D" uid="uid://bcyu0nl3lqieq" path="res://Scenes/dash_hitbox.tres" id="13_bi64h"]
 [ext_resource type="Texture2D" uid="uid://d0to131eb554g" path="res://Assets/Sprites/LouJumpAnimated-Sheet.png" id="13_wpjfl"]
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scripts/attack_area.gd" id="14_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://cxptxuecqdkfa" path="res://Assets/Sprites/LouJump.png" id="14_wpjfl"]
@@ -22,8 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://cwvjueuedxoh0" path="res://Assets/Sprites/KatanaVanish-Sheet.png" id="20_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://wks3dicdnhat" path="res://Assets/Sprites/LouBusterswordAttack-Sheet.png" id="21_p1odr"]
 [ext_resource type="PackedScene" uid="uid://lq7egalli8sh" path="res://Assets/ParticleSystems/dash_particles.tscn" id="25_p1odr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -78,118 +75,106 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Hitbox:shape")
+tracks/4/path = NodePath("AttackArea/Hitbox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("RectangleShape2D_olqyp")]
+"values": [Vector2(-2, 120)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea/Hitbox:position")
+tracks/5/path = NodePath("DashParticles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-2, 120)]
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DashParticles:emitting")
+tracks/6/path = NodePath("AttackArea/Hitbox:shape:size")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [Vector2(20, 20)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AttackArea/Hitbox:shape:size")
+tracks/7/path = NodePath("AttackArea/Hitbox:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(20, 20)]
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("AttackArea/Hitbox:disabled")
+tracks/8/path = NodePath("AttackArea/Hitbox:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [0.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("AttackArea/Hitbox:rotation")
+tracks/9/path = NodePath("Hurtbox2:shape:size")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [Vector2(15.9375, 21.3125)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Hurtbox2:shape:size")
+tracks/10/path = NodePath("Hurtbox:shape:size")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(15.9375, 21.3125)]
+"values": [Vector2(24.0625, 56.125)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Hurtbox:shape:size")
+tracks/11/path = NodePath("Hurtbox:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(24.0625, 56.125)]
+"values": [Vector2(-5.25, 48.625)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Hurtbox:position")
+tracks/12/path = NodePath("Hurtbox2:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(-5.25, 48.625)]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("Hurtbox2:position")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -251,6 +236,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_qqcod"]
 resource_name = "falling"
+length = 0.31
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -283,10 +269,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -558,38 +544,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Hitbox:shape")
+tracks/4/path = NodePath("AttackArea/Hitbox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_bi64h")]
+"update": 0,
+"values": [Vector2(-372, 38.75)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea/Hitbox:position")
+tracks/5/path = NodePath("DashParticles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-396, 30)]
+"update": 1,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DashParticles:emitting")
+tracks/6/path = NodePath("AttackArea/Hitbox:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AttackArea/Hitbox:shape:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [Vector2(876, 206.5)]
 }
 
 [sub_resource type="Animation" id="Animation_7dp3o"]
@@ -842,6 +840,8 @@ size = Vector2(24.0625, 56.125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi64h"]
 size = Vector2(15.9375, 21.3125)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
@@ -898,7 +898,6 @@ shape = SubResource("RectangleShape2D_bi64h")
 modulate = Color(1, 0.9853517, 1, 1)
 collision_layer = 0
 collision_mask = 8
-monitoring = false
 monitorable = false
 script = ExtResource("14_7dp3o")
 
@@ -918,4 +917,5 @@ texture = ExtResource("17_qqcod")
 [node name="DashParticles" parent="." instance=ExtResource("25_p1odr")]
 position = Vector2(-800, 0)
 
+[connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="AttackArea" to="AttackArea" method="_on_body_shape_entered"]

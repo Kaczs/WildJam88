@@ -4,7 +4,6 @@ func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
 	animation_player.play("radiantdash")
-	var horizontal_input = Input.get_axis("Left", "Right")
 	if sprite.flip_h == false:
 		player_body.position.x += 700
 	else:
