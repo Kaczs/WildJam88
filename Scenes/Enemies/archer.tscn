@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bkucgyj2pl76g"]
+[gd_scene load_steps=24 format=3 uid="uid://bkucgyj2pl76g"]
 
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="1_36kj3"]
 [ext_resource type="Script" uid="uid://j3kfux8qi8mq" path="res://Scenes/Enemies/Enemy Scripts/archer.gd" id="1_al3at"]
@@ -13,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="10_al3at"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_quixy"]
-radius = 41.0
-height = 270.0
+radius = 44.0
+height = 248.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xq7ed"]
 animations = [{
@@ -112,6 +112,18 @@ tracks/3/keys = {
 "method": &"hit_player"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
 
 [sub_resource type="Animation" id="Animation_qkjgn"]
 resource_name = "AttackRight"
@@ -165,6 +177,18 @@ tracks/3/keys = {
 "args": [],
 "method": &"hit_player"
 }]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:direction")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_tuqf4"]
@@ -320,6 +344,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:direction")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_6gj7t"]
 resource_name = "Run"
@@ -403,7 +439,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dv6mx"]
-radius = 1000.0
+radius = 1500.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_al3at"]
+size = Vector2(128.1875, 143)
 
 [node name="Archer" type="RigidBody2D"]
 lock_rotation = true
@@ -413,6 +452,8 @@ script = ExtResource("1_al3at")
 shape = SubResource("CapsuleShape2D_quixy")
 
 [node name="EnemyBrainComponent" parent="." instance=ExtResource("1_36kj3")]
+lose_player_distance = 1500
+attack_distance = 1500
 
 [node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("2_q4q7k")]
 
@@ -442,3 +483,9 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_dv6mx")
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(-100, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_al3at")
