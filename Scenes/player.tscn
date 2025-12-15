@@ -1019,6 +1019,7 @@ size = Vector2(15.9375, 21.3125)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 7
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
 move_speed = 600.0

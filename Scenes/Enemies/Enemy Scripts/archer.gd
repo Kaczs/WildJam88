@@ -15,9 +15,6 @@ func hit_player():
 	arrow.damage = get_node("EnemyBrainComponent").damage
 	get_parent().add_child(arrow)
 
-
-
-
 func _on_player_detector_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):\
-	player = body
+	if body.is_in_group("player"):
+		player = body
