@@ -19,9 +19,10 @@ var particles:Node2D
 ## and startup another attack depending on the one they hit
 @export var attack_recovery := 0.16
 ## This bool is flipped to true when the hitbox deals damage, used in states to determine cancelling
-@export var dealt_damage = false
+@export var dealt_damage := false
 ## Flipped by the AnimationPlayer, generally when attacking to lend weight and forward motion
-@export var slide_forward = false
+@export var slide_forward := false
+@export var cannot_cancel := false
 
 func _ready():
 	# Set startup variables
