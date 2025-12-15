@@ -8,6 +8,8 @@ var player_body: CharacterBody2D
 var initial_state: MovementState = null
 var animation_player: AnimationPlayer
 var player_sprite: Sprite2D
+var hit_box_area:Area2D
+var particles:Node2D
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
@@ -16,12 +18,20 @@ var player_sprite: Sprite2D
 ## however if they land an attack they have the ability to forgo this delay
 ## and startup another attack depending on the one they hit
 @export var attack_recovery := 0.16
+## This bool is flipped to true when the hitbox deals damage, used in states to determine cancelling
+@export var dealt_damage := false
+## Flipped by the AnimationPlayer, generally when attacking to lend weight and forward motion
+@export var slide_forward := false
+@export var cannot_cancel := false
 
 func _ready():
 	# Set startup variables
 	player_body = owner
 	animation_player = owner.find_child("AnimationPlayer")
 	player_sprite = owner.find_child("Sprite2D")
+	hit_box_area = owner.find_child("AttackArea")
+	hit_box_area = owner.find_child("AttackArea")
+	particles = owner.find_child("Particles")
 	if player_body is not CharacterBody2D:
 		push_error("The owner of the MovementComponent must be a CharacterBody2D")
 	# Grab the first state on the object if one wasn't set 
@@ -65,5 +75,18 @@ func transition_to_next_state(target_state_path: String, _data: Dictionary = {})
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path)
 
+## Flip the characters hitbox, particles and so forth
+## reset function on animationplayer will fix the flipped state
+## when transitioning
+func flip_character():
+	hit_box_area.scale.x = -1
+	particles.scale.x = -1
+
+## This forces the state back to idle, generally called in the AnimationPlayer at the end of animations
+## that dont loop or idle well
 func force_idle():
-	transition_to_next_state("idle")
+	transition_to_next_state("StateIdle")
+
+func _on_attack_area_dealt_damage() -> void:
+	dealt_damage = true
+	

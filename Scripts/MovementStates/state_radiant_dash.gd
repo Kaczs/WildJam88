@@ -1,14 +1,14 @@
 extends MovementState
 
 func enter(_previous_state_path: String, _data := {}):
-	# cancel out any momentum
-	# play idle animation
-	animation_player.play("radiantdash")
-	var horizontal_input = Input.get_axis("Left", "Right")
-	if sprite.flip_h == false:
-		player_body.position.x += 700
-	else:
+	# Flip hitbox and teleport depending on facing
+	if sprite.flip_h == true:
+		parent.flip_character()
 		player_body.position.x -= 700
+	else:
+		player_body.position.x += 700
+	animation_player.play("radiantdash")
+		
 
 func phys_update(_delta: float):
 	# Gravity

@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b7pgawu5mch6h" path="res://Assets/Sprites/LouRunningIdle-Sheet.png" id="9_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://cgfvsptec84ek" path="res://Assets/Sprites/Crouch.png" id="10_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://fjaw0sasgu5h" path="res://Assets/Sprites/LouIdle-Sheet.png" id="10_tx1dd"]
-[ext_resource type="Shape2D" uid="uid://bcyu0nl3lqieq" path="res://Scenes/dash_hitbox.tres" id="13_bi64h"]
 [ext_resource type="Texture2D" uid="uid://d0to131eb554g" path="res://Assets/Sprites/LouJumpAnimated-Sheet.png" id="13_wpjfl"]
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scripts/attack_area.gd" id="14_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://cxptxuecqdkfa" path="res://Assets/Sprites/LouJump.png" id="14_wpjfl"]
@@ -21,9 +20,8 @@
 [ext_resource type="Texture2D" uid="uid://cjnns2n88n5i2" path="res://Assets/Sprites/LouFirstSlashAttack-Sheet.png" id="19_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://cwvjueuedxoh0" path="res://Assets/Sprites/KatanaVanish-Sheet.png" id="20_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://wks3dicdnhat" path="res://Assets/Sprites/LouBusterswordAttack-Sheet.png" id="21_p1odr"]
+[ext_resource type="PackedScene" uid="uid://b4f832by4j4xq" path="res://Assets/ParticleSystems/slash_particles.tscn" id="22_wpjfl"]
 [ext_resource type="PackedScene" uid="uid://lq7egalli8sh" path="res://Assets/ParticleSystems/dash_particles.tscn" id="25_p1odr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -78,122 +76,182 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Hitbox:shape")
+tracks/4/path = NodePath("AttackArea/Hitbox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("RectangleShape2D_olqyp")]
+"values": [Vector2(-2, 120)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea/Hitbox:position")
+tracks/5/path = NodePath("Particles/DashParticles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-2, 120)]
+"values": [false]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DashParticles:emitting")
+tracks/6/path = NodePath("AttackArea/Hitbox:shape:size")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [Vector2(20, 20)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("AttackArea/Hitbox:shape:size")
+tracks/7/path = NodePath("AttackArea/Hitbox:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(20, 20)]
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("AttackArea/Hitbox:disabled")
+tracks/8/path = NodePath("AttackArea/Hitbox:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [0.0]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("AttackArea/Hitbox:rotation")
+tracks/9/path = NodePath("Hurtbox2:shape:size")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [Vector2(15.9375, 21.3125)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Hurtbox2:shape:size")
+tracks/10/path = NodePath("Hurtbox:shape:size")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(15.9375, 21.3125)]
+"values": [Vector2(24.0625, 56.125)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Hurtbox:shape:size")
+tracks/11/path = NodePath("Hurtbox:position")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(24.0625, 56.125)]
+"values": [Vector2(-5.25, 48.625)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("Hurtbox:position")
+tracks/12/path = NodePath("Hurtbox2:position")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-5.25, 48.625)]
+"values": [Vector2(-12, -107)]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("Hurtbox2:position")
+tracks/13/path = NodePath("MovementComponent:dealt_damage")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(-12, -107)]
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("MovementComponent:slide_forward")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Particles/SlashParticles:emitting")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AttackArea:scale")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(1, 1)]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("Particles:scale")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/18/type = "value"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("MovementComponent:cannot_cancel")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
@@ -251,6 +309,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_qqcod"]
 resource_name = "falling"
+length = 0.31
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -283,10 +342,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -505,7 +564,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_2ijsl"]
 resource_name = "radiantdash"
-length = 1.3
+length = 1.45
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -538,10 +597,10 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1, 1.05, 1.1, 1.15, 1.2, 1.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.1, 0.39999998, 0.5, 0.59999996, 0.7, 0.8, 0.9, 1, 1.05, 1.0999999, 1.1500001, 1.2, 1.25, 1.3, 1.3499999, 1.4000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -558,38 +617,76 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AttackArea/Hitbox:shape")
+tracks/4/path = NodePath("AttackArea/Hitbox:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_bi64h")]
+"update": 0,
+"values": [Vector2(-372, 38.75)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea/Hitbox:position")
+tracks/5/path = NodePath("Particles/DashParticles:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-396, 30)]
+"update": 1,
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("DashParticles:emitting")
+tracks/6/path = NodePath("AttackArea/Hitbox:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AttackArea/Hitbox:shape:size")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+"values": [Vector2(876, 206.5)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Particles/SlashParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
 "values": [true]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MovementComponent")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(1.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_idle"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_7dp3o"]
@@ -636,7 +733,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_igrcy"]
 resource_name = "standingattack"
-length = 0.816
+length = 1.2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -722,9 +819,48 @@ tracks/6/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MovementComponent")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_idle"
+}]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MovementComponent:slide_forward")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.35, 0.55),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MovementComponent:cannot_cancel")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_bi64h"]
 resource_name = "standingattack2"
+length = 1.3
 step = 0.02
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -822,6 +958,44 @@ tracks/7/keys = {
 "update": 1,
 "values": [0.0]
 }
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MovementComponent")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_idle"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MovementComponent:slide_forward")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MovementComponent:cannot_cancel")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
@@ -841,6 +1015,8 @@ size = Vector2(24.0625, 56.125)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bi64h"]
 size = Vector2(15.9375, 21.3125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_olqyp"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 
@@ -875,6 +1051,16 @@ script = ExtResource("9_bi64h")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
 
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="DashParticles" parent="Particles" instance=ExtResource("25_p1odr")]
+position = Vector2(-800, 0)
+
+[node name="SlashParticles" parent="Particles" instance=ExtResource("22_wpjfl")]
+position = Vector2(-447, 54)
+initial_velocity_min = 0.0
+initial_velocity_max = 100.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("10_tx1dd")
 hframes = 19
@@ -898,7 +1084,6 @@ shape = SubResource("RectangleShape2D_bi64h")
 modulate = Color(1, 0.9853517, 1, 1)
 collision_layer = 0
 collision_mask = 8
-monitoring = false
 monitorable = false
 script = ExtResource("14_7dp3o")
 
@@ -913,9 +1098,6 @@ visible = false
 position = Vector2(-8, 260)
 texture = ExtResource("17_qqcod")
 
-[node name="Particles" type="Node" parent="."]
-
-[node name="DashParticles" parent="." instance=ExtResource("25_p1odr")]
-position = Vector2(-800, 0)
-
+[connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="AttackArea" to="AttackArea" method="_on_body_shape_entered"]
+[connection signal="dealt_damage" from="AttackArea" to="MovementComponent" method="_on_attack_area_dealt_damage"]
