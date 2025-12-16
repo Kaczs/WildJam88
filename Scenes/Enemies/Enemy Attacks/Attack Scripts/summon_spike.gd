@@ -12,6 +12,7 @@ func attack(player:CharacterBody2D, animation_player:AnimationPlayer, _enemy:Rig
 	spike.position = Vector2(player.position.x, player.position.y + 200)
 	spike.scale = Vector2(0.2,0.2)
 	spike.damage = damage
+	spike.show_behind_parent = true
 	animation_player.play("Summon")
 	await animation_player.summon
 	player.get_parent().add_child(spike)
