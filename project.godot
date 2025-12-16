@@ -34,8 +34,6 @@ folder_colors={
 "res://Scenes/Enemies/Enemy Attacks/Attack Scenes/": "gray",
 "res://Scenes/Enemies/Enemy Attacks/Attack Scripts/": "gray",
 "res://Scenes/Enemies/Enemy Scripts/": "gray"
-"res://Scripts/EnemyStates/": "red",
-"res://Scripts/MovementStates/": "green"
 }
 
 [global_group]

@@ -7,7 +7,6 @@ func enter(_previous_state_path: String, _data := {}):
 	if sprite.flip_h == false:
 		player_body.position.x += 700
 	else:
-		parent.flip_character()
 		player_body.position.x -= 700
 
 func phys_update(_delta: float):
