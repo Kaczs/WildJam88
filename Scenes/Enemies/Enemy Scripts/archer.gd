@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var projectile:PackedScene = load("res://Scenes/Enemy Components/projectile.tscn")
+var projectile:PackedScene = load("res://Scenes/Enemies/Enemy Attacks/Attack Scenes/projectile.tscn")
 
 @export var force_of_shot := 700
 var player:CharacterBody2D
