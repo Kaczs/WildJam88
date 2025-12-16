@@ -1,6 +1,6 @@
-[gd_scene load_steps=30 format=3 uid="uid://7irhfv4746gr"]
+[gd_scene load_steps=28 format=3 uid="uid://ckq285hai1v75"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
+[ext_resource type="Script" uid="uid://byrcl4rsx7gnk" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="2_3xlbi"]
 [ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="3_lfjdt"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="4_hbqep"]
@@ -8,13 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="6_irpb7"]
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="7_3sihu"]
 [ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_attack.tscn" id="8_q1nra"]
-[ext_resource type="PackedScene" uid="uid://eay840vmwhmj" path="res://Scenes/Enemies/Enemy Attacks/range_attack.tscn" id="9_lfjdt"]
+[ext_resource type="PackedScene" uid="uid://45ap5t70jf8u" path="res://Scenes/Enemies/Enemy Attacks/summon_spike.tscn" id="9_lfjdt"]
 [ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="9_w3dap"]
 [ext_resource type="PackedScene" uid="uid://bvivvfh2x6t7d" path="res://Scenes/Enemies/Enemy Attacks/melee_attack.tscn" id="10_hbqep"]
-[ext_resource type="PackedScene" uid="uid://45ap5t70jf8u" path="res://Scenes/Enemies/Enemy Attacks/summon_spike.tscn" id="10_o5xwb"]
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="10_ubvm2"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="11_7j32b"]
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_3xlbi"]
+[ext_resource type="Script" uid="uid://i6scm3u4cjys" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_3xlbi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 52.0
@@ -480,47 +479,6 @@ tracks/2/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_hbqep"]
-resource_name = "RangeAttack"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:rotation")
-tracks/0/interp = 3
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.43333334, 0.93333334),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.5235987755982988, -0.2617993877991494, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Attack"]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.43333334),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"summon_now"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuqf4"]
 _data = {
 &"AttackLeft": SubResource("Animation_c2fo8"),
@@ -528,7 +486,6 @@ _data = {
 &"Death": SubResource("Animation_tuqf4"),
 &"Idle": SubResource("Animation_cqif6"),
 &"RESET": SubResource("Animation_rx00m"),
-&"RangeAttack": SubResource("Animation_hbqep"),
 &"Run": SubResource("Animation_6gj7t"),
 &"Stun": SubResource("Animation_8sg68"),
 &"Summon": SubResource("Animation_lfjdt")
@@ -546,6 +503,7 @@ lock_rotation = true
 script = ExtResource("1_fw8pk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_ef3uv")
 
 [node name="HealthComponent" type="Node" parent="."]
@@ -567,14 +525,10 @@ attack_distance = 700
 [node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("7_3sihu")]
 
 [node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("8_q1nra")]
-sequens_attacks = true
-animation_sprite = ""
-
-[node name="RangeAttack" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("9_lfjdt")]
-
-[node name="SummonSpike" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("10_o5xwb")]
 
 [node name="MeleeAttack" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("10_hbqep")]
+
+[node name="SummonSpike" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("9_lfjdt")]
 
 [node name="EnemyDeath" parent="EnemyBrainComponent" instance=ExtResource("9_w3dap")]
 
@@ -593,10 +547,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+visible = false
 shape = SubResource("CircleShape2D_rx00m")
 disabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(100, 0)
 collision_layer = 0
 collision_mask = 4
