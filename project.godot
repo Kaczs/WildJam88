@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SoundFiles="*res://Singletons/Audio/SoundFiles.gd"
 SoundManager="*res://Singletons/Audio/SoundManager.gd"
+HitstopManager="*res://Scripts/hitstop_manager.gd"
 
 [display]
 

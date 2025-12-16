@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0sy6ahx75jo0"]
+[gd_scene load_steps=5 format=3 uid="uid://0sy6ahx75jo0"]
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
+[ext_resource type="PackedScene" uid="uid://bkucgyj2pl76g" path="res://Scenes/Enemies/archer.tscn" id="4_6ej57"]
 [ext_resource type="Texture2D" uid="uid://bst0whfgmcxe8" path="res://Assets/Sprites/Background.png" id="4_k6022"]
 
 [node name="PlayerTesting" type="Node2D"]
@@ -19,6 +20,12 @@ scale = Vector2(1, -1.184)
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
 position = Vector2(486, 812)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2(0, -260)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(1108, 1061)
@@ -26,6 +33,5 @@ scale = Vector2(0.8203704, 0.8203704)
 texture = ExtResource("4_k6022")
 metadata/_edit_lock_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(486, 812)
-offset = Vector2(0, -260)
+[node name="Archer" parent="." instance=ExtResource("4_6ej57")]
+position = Vector2(2443, 699)
