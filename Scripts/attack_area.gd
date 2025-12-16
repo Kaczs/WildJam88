@@ -7,3 +7,4 @@ func _on_body_shape_entered(_body_rid: RID, body: Node2D, _body_shape_index: int
 		health_component.take_damage(50)
 		print("Dealing damage to: " + body.name)
 		dealt_damage.emit()
+		HitstopManager.create_hitstop(0.08)

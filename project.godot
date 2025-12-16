@@ -19,12 +19,20 @@ config/icon="res://icon.svg"
 
 SoundFiles="*res://Singletons/Audio/SoundFiles.gd"
 SoundManager="*res://Singletons/Audio/SoundManager.gd"
+HitstopManager="*res://Scripts/hitstop_manager.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://Scripts/EnemyStates/": "red",
+"res://Scripts/MovementStates/": "green"
+}
 
 [global_group]
 
