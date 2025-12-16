@@ -13,7 +13,13 @@ var particles:Node2D
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
-@export var attack_cooldown := 0.6
+## This can be modified by upgrades and such to increase damage in a scaling way
+@export var damage_mod := 1.0
+## The animation player will change this based on how much damage an attack should do
+## this allows for multiattack animations to have different damage
+@export var attack_damage := 50
+## Animation player should change the amount of hitstop an attack causes
+@export var hitstop := 0.08
 ## This is the time that a player has to wait after performing an attack
 ## however if they land an attack they have the ability to forgo this delay
 ## and startup another attack depending on the one they hit
