@@ -1,15 +1,10 @@
 extends EnemyState
 
-var bodies_hit:Array
-
-func _ready() -> void:
-	await get_parent().get_parent().ready
-	get_parent().hit_box.connect("body_entered", _hit_box_body_entered)
-
+var attack
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	player = _data["player"]
-	attack()
+	pick_attack()
 
 func phys_update(_delta: float):
 	if not animation_player.is_playing():
@@ -17,18 +12,21 @@ func phys_update(_delta: float):
 		if abs(player.global_position.x - get_parent().global_position.x) > get_parent().attack_distance:
 			finished.emit("EnemyChase", {"player": player})
 			return
-		attack()
+		pick_attack()
 
-func attack():
-	#gets direction of player then plays the corresponding animation
-	bodies_hit.clear()
-	if player.global_position.x - get_parent().global_position.x > 0:
-		animation_player.play("AttackRight")
+func pick_attack():
+	var distance_to_player = abs(player.global_position.x - get_parent().global_position.x)
+	var children = get_children().pick_random()
+	if attack:
+		children = attack
+	if children.min_range > distance_to_player:
+		#finished.emit("EnemyRun")
+		pass
+	elif distance_to_player > children.max_range:
+		finished.emit("EnemyChase", {"temp attack range": children.max_range, "player": player})
+		attack = children
 	else:
-		animation_player.play("AttackLeft")
-
-
-func _hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and not bodies_hit.has(body):
-		body.get_node("HealthComponent").take_damage(get_parent().damage)
-		bodies_hit.append(body)
+		children.attack(player, animation_player, enemy_body)
+		attack = null
+		return
+	finished.emit("EnemyChase", {"player": player})

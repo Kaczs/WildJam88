@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvyw4d0wk08vk"
-path="res://.godot/imported/CultistAttack-Sheet.png-0e070f13f3a3a49073b9ddcb5ec1e08a.ctex"
+uid="uid://d1l8ujmaqho6"
+path="res://.godot/imported/Ice spike.png-8c11d386e44160fe154ca0558b8753cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/EnemySprites/CultistAttack-Sheet.png"
-dest_files=["res://.godot/imported/CultistAttack-Sheet.png-0e070f13f3a3a49073b9ddcb5ec1e08a.ctex"]
+source_file="res://Assets/Sprites/Ice spike.png"
+dest_files=["res://.godot/imported/Ice spike.png-8c11d386e44160fe154ca0558b8753cd.ctex"]
 
 [params]
 

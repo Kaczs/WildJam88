@@ -1,16 +1,19 @@
-[gd_scene load_steps=24 format=3 uid="uid://bajc1pulyaeh7"]
+[gd_scene load_steps=28 format=3 uid="uid://ckq285hai1v75"]
 
-[ext_resource type="Script" uid="uid://cwd74osp41kgi" path="res://Scenes/Enemies/enemy_base.gd" id="1_2j2wd"]
-[ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="1_b1gup"]
-[ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="1_vu4yt"]
-[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="2_kiwyh"]
-[ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="2_wmxvo"]
-[ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="3_wmxvo"]
-[ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_attack.tscn" id="5_bddga"]
-[ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="6_mvox5"]
-[ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="6_ukcf2"]
-[ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="8_cqif6"]
-[ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_rx00m"]
+[ext_resource type="Script" uid="uid://byrcl4rsx7gnk" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
+[ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="2_3xlbi"]
+[ext_resource type="Texture2D" uid="uid://crhxic3y1n2r7" path="res://Assets/Sprites/CrouchPlaceholder.png" id="3_lfjdt"]
+[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="4_hbqep"]
+[ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="5_o5xwb"]
+[ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="6_irpb7"]
+[ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="7_3sihu"]
+[ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_attack.tscn" id="8_q1nra"]
+[ext_resource type="PackedScene" uid="uid://45ap5t70jf8u" path="res://Scenes/Enemies/Enemy Attacks/summon_spike.tscn" id="9_lfjdt"]
+[ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="9_w3dap"]
+[ext_resource type="PackedScene" uid="uid://bvivvfh2x6t7d" path="res://Scenes/Enemies/Enemy Attacks/melee_attack.tscn" id="10_hbqep"]
+[ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="10_ubvm2"]
+[ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="11_7j32b"]
+[ext_resource type="Script" uid="uid://i6scm3u4cjys" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_3xlbi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 52.0
@@ -20,7 +23,7 @@ height = 244.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b1gup")
+"texture": ExtResource("3_lfjdt")
 }],
 "loop": true,
 "name": &"Attack",
@@ -28,7 +31,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_kiwyh")
+"texture": ExtResource("4_hbqep")
 }],
 "loop": true,
 "name": &"Death",
@@ -36,7 +39,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b1gup")
+"texture": ExtResource("3_lfjdt")
 }],
 "loop": true,
 "name": &"Idle",
@@ -44,7 +47,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b1gup")
+"texture": ExtResource("3_lfjdt")
 }],
 "loop": true,
 "name": &"Run",
@@ -52,7 +55,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b1gup")
+"texture": ExtResource("3_lfjdt")
 }],
 "loop": true,
 "name": &"Stun",
@@ -435,6 +438,47 @@ tracks/1/keys = {
 "values": [&"Stun"]
 }
 
+[sub_resource type="Animation" id="Animation_lfjdt"]
+resource_name = "Summon"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.8, 0.96666664),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -50), Vector2(0, -50), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667, 0.23333333, 0.33333334, 0.43333334, 0.5333333, 0.6333333, 0.73333335, 0.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.5235987755982988, -0.5235987755982988, 0.5235987755982988, -0.5235987755982988, 0.5235987755982988, -0.5235987755982988, 0.0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"summon_now"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuqf4"]
 _data = {
 &"AttackLeft": SubResource("Animation_c2fo8"),
@@ -443,7 +487,8 @@ _data = {
 &"Idle": SubResource("Animation_cqif6"),
 &"RESET": SubResource("Animation_rx00m"),
 &"Run": SubResource("Animation_6gj7t"),
-&"Stun": SubResource("Animation_8sg68")
+&"Stun": SubResource("Animation_8sg68"),
+&"Summon": SubResource("Animation_lfjdt")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
@@ -452,53 +497,62 @@ radius = 1000.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(128.1875, 143)
 
-[node name="EnemyBase" type="RigidBody2D"]
+[node name="EnemyMultiAttack" type="RigidBody2D"]
 collision_layer = 9
 lock_rotation = true
-script = ExtResource("1_2j2wd")
+script = ExtResource("1_fw8pk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_ef3uv")
 
 [node name="HealthComponent" type="Node" parent="."]
-script = ExtResource("6_ukcf2")
+script = ExtResource("2_3xlbi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sgjdr")
 animation = &"Death"
+flip_h = true
 
-[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("1_vu4yt")]
+[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("5_o5xwb")]
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
 lose_player_distance = 1500
-attack_distance = 150
+attack_distance = 700
 
-[node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("2_wmxvo")]
+[node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("6_irpb7")]
 
-[node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("3_wmxvo")]
+[node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("7_3sihu")]
 
-[node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("5_bddga")]
+[node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("8_q1nra")]
 
-[node name="EnemyDeath" parent="EnemyBrainComponent" instance=ExtResource("6_mvox5")]
+[node name="MeleeAttack" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("10_hbqep")]
 
-[node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_cqif6")]
+[node name="SummonSpike" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("9_lfjdt")]
 
-[node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_rx00m")]
+[node name="EnemyDeath" parent="EnemyBrainComponent" instance=ExtResource("9_w3dap")]
+
+[node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("10_ubvm2")]
+
+[node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("11_7j32b")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_tuqf4")
 }
+script = ExtResource("12_3xlbi")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+visible = false
 shape = SubResource("CircleShape2D_rx00m")
 disabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 position = Vector2(100, 0)
 collision_layer = 0
 collision_mask = 4
