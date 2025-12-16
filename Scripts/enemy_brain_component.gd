@@ -71,5 +71,5 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 func enemy_hit(stagger_duration:int, is_dead:bool):
 	if is_dead:
 		transition_to_next_state("EnemyDeath")
-		return
-	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
+	else:
+		transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})

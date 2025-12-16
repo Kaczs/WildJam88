@@ -1,7 +1,7 @@
 extends Node
 
 const max_range := 700
-const min_range := 300
+const min_range := 400
 
 @export var damage:int = 30
 

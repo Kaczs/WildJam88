@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
-[ext_resource type="PackedScene" uid="uid://bajc1pulyaeh7" path="res://Scenes/Enemies/enemy_base.tscn" id="4_6ej57"]
+[ext_resource type="PackedScene" uid="uid://8e3jhauv74jq" path="res://Scenes/Enemies/enemy_multi_attack.tscn" id="4_6ej57"]
 [ext_resource type="Texture2D" uid="uid://bst0whfgmcxe8" path="res://Assets/Sprites/Background.png" id="4_k6022"]
 
 [node name="PlayerTesting" type="Node2D"]
@@ -18,7 +18,7 @@ position = Vector2(-188, 787)
 scale = Vector2(1, -1.184)
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
-position = Vector2(486, 812)
+position = Vector2(-173, 457)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -27,9 +27,9 @@ scale = Vector2(0.8203704, 0.8203704)
 texture = ExtResource("4_k6022")
 metadata/_edit_lock_ = true
 
-[node name="EnemyBase" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(2208, 705)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(486, 812)
 offset = Vector2(0, -260)
+
+[node name="EnemyMultiAttack" parent="." instance=ExtResource("4_6ej57")]
+position = Vector2(1370, 680)

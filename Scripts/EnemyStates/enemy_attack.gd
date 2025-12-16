@@ -12,10 +12,7 @@ var attack_number := 0
 func enter(_previous_state_path: String, _data:Dictionary):
 	player = _data["player"]
 	attacks_list = get_children()
-	if sequens_attacks:
-		next_attack()
-	else:
-		pick_random_attack()
+	animation_player.play("RESET")
 
 
 func phys_update(_delta: float):
@@ -30,8 +27,8 @@ func next_attack():
 	var distance_to_player = abs(player.global_position.x - get_parent().global_position.x)
 	var current_attack = attacks_list[attack_number]
 	if current_attack.min_range > distance_to_player:
-		#finished.emit("EnemyRun")
-		pass
+		finished.emit("EnemyChase", {"temp attack range": current_attack.min_range, "player": player, "reverse":true})
+		return
 	elif distance_to_player > current_attack.max_range:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		return
@@ -47,13 +44,10 @@ func pick_random_attack():
 	if attack:
 		current_attack = attack
 	if current_attack.min_range > distance_to_player:
-		#finished.emit("EnemyRun")
-		pass
+		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player, "reverse":true})
 	elif distance_to_player > current_attack.max_range:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		attack = current_attack
 	else:
 		current_attack.attack(player, animation_player, enemy_body)
 		attack = null
-		return
-	finished.emit("EnemyChase", {"player": player})
