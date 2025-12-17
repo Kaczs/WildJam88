@@ -19,11 +19,11 @@ func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:Rigi
 	if direction_to_player > 0:
 		animation_player.play("RangeAttack")
 		sprite.set_flip_h(false)
-		arrow.global_position = enemy.global_position + Vector2(spawn_offset.x, spawn_offset.y)
+		arrow.global_position = enemy.global_position + Vector2(-spawn_offset.x, spawn_offset.y)
 	elif direction_to_player <= 0:
 		animation_player.play("RangeAttack")
 		sprite.set_flip_h(true)
-		arrow.global_position = enemy.global_position + Vector2(spawn_offset.x, -spawn_offset.y)
+		arrow.global_position = enemy.global_position + Vector2(spawn_offset.x, spawn_offset.y)
 	arrow.speed = Vector2.RIGHT.rotated(angle_to_player) * speed
 	arrow.rotation = angle_to_player
 	arrow.damage = enemy.get_node("EnemyBrainComponent").damage

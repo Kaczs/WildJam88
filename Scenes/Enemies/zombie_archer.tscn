@@ -404,6 +404,7 @@ animation_sprite = ""
 
 [node name="RangeAttack" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("7_fpk6q")]
 projectile = ExtResource("8_t1cl0")
+spawn_offset = Vector2(-104, -19)
 
 [node name="EnemyDeath" parent="EnemyBrainComponent" instance=ExtResource("9_2ewnb")]
 
