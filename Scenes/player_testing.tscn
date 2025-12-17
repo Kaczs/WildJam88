@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
-[ext_resource type="PackedScene" uid="uid://bajc1pulyaeh7" path="res://Scenes/Enemies/enemy_base.tscn" id="4_6ej57"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/enemy_multi_attack.tscn" id="3_ovenk"]
 
 [node name="PlayerTesting" type="Node2D"]
 
@@ -27,30 +27,12 @@ process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="EnemyBase" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(2067, 1529)
-
-[node name="EnemyBase2" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(2266, 1532)
-
-[node name="EnemyBase3" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(5172, 1543)
-
-[node name="EnemyBase4" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(5463, 1545)
-
-[node name="EnemyBase5" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(5852, 1557)
-
-[node name="EnemyBase6" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(6143, 1559)
-
-[node name="EnemyBase7" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(6574, 1560)
-
-[node name="EnemyBase8" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(6865, 1562)
-
 [node name="Platform3" parent="." instance=ExtResource("1_m6wkf")]
 position = Vector2(3997.9998, 1737)
 scale = Vector2(10, -1.184)
+
+[node name="EnemyMultiAttack" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(5484, 1462)
+
+[node name="EnemyMultiAttack2" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(1338, 1437)
