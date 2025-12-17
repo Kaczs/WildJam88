@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://c6dg1bfb0my0g"]
+[gd_scene load_steps=33 format=3 uid="uid://c6dg1bfb0my0g"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_fsmrq"]
 [ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_fsmrq"]
@@ -52,7 +52,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath("Sprite2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -64,7 +64,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("Sprite2D:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -81,10 +81,22 @@ tracks/4/path = NodePath("Sprite2D:self_modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.96666664),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_4215w"]
@@ -213,6 +225,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles2D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_4hyqu"]
@@ -346,10 +370,10 @@ tracks/2/path = NodePath("Sprite2D:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.13333334),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.16078432, 0.28627452, 1, 1)]
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0.33551362, 0.2695955, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_78hcn"]
@@ -373,6 +397,36 @@ radius = 1500.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(82, 184)
+
+[sub_resource type="Gradient" id="Gradient_ykmd2"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.34285715, 0.8666667)
+colors = PackedColorArray(1, 0.5023, 0.43550968, 1, 0.45540285, 2.0696223e-06, 9.1448425e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_aq7fh"]
+gradient = SubResource("Gradient_ykmd2")
+
+[sub_resource type="Curve" id="Curve_dtb1l"]
+_data = [Vector2(0.025423728, 0.47598624), 0.0, 0.0, 0, 0, Vector2(0.33050847, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.6966293), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fpk6q"]
+curve = SubResource("Curve_dtb1l")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dtb1l"]
+lifetime_randomness = 0.9
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 26.09
+initial_velocity_max = 270.83
+gravity = Vector3(0, 250, 0)
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_fpk6q")
+color_ramp = SubResource("GradientTexture1D_aq7fh")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [node name="Zombie Archer" type="RigidBody2D"]
 collision_layer = 9
@@ -438,5 +492,13 @@ position = Vector2(11, -11)
 shape = SubResource("RectangleShape2D_rx00m")
 disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-5, -9)
+emitting = false
+amount = 50000
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_dtb1l")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

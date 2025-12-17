@@ -27,4 +27,4 @@ rotation = -1.5581607
 scale = Vector2(0.02219671, 22.275415)
 
 [node name="Zombie Archer" parent="." instance=ExtResource("4_j6uhw")]
-position = Vector2(1795, 354)
+position = Vector2(1646, 370)
