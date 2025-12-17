@@ -37,6 +37,8 @@ func phys_update(_delta: float):
 
 func check_areas_for_parry(body):
 	print("body found for parry: " + body.name)
+	var enemy_brain:EnemyBrainComponent = body.get_node("EnemyBrainComponent")
+	enemy_brain.parry(2)
 	#if projectile destroy
 	#body.parrydisguy
 
