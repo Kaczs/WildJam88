@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blfvt05u33g4l"]
+[gd_scene load_steps=7 format=3 uid="uid://b6x6ldn4fhf54"]
 
 [ext_resource type="Script" uid="uid://clagu774pepgn" path="res://Scripts/projectile.gd" id="1_wvs7k"]
 [ext_resource type="Texture2D" uid="uid://b6qq1bydocvwo" path="res://Assets/EnemySprites/Arrow.png" id="2_5c6n0"]
