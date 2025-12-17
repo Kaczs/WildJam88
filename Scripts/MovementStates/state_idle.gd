@@ -20,7 +20,7 @@ func phys_update(_delta: float):
 		finished.emit("StateCrouch")
 	elif Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):
 		finished.emit("StateRunning")
-	elif Input.is_action_just_pressed("Up") and player_body.is_on_floor():
+	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")	
 	player_body.move_and_slide()
 

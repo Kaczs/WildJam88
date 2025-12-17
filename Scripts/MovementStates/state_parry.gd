@@ -8,7 +8,7 @@ func enter(_previous_state_path: String, _data := {}):
 	# Go find the parry area if we haven't yet (first time changing to this state)
 	if parry_area == null:
 		parry_area = owner.find_child("ParryArea")
-	parry_area.connect("area_entered", check_areas_for_parry)
+	parry_area.connect("body_entered", check_areas_for_parry)
 	animation_player.play("parry")
 
 func phys_update(_delta: float):
@@ -35,10 +35,12 @@ func phys_update(_delta: float):
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
-func check_areas_for_parry():
-	pass
+func check_areas_for_parry(body):
+	print("body found for parry: " + body.name)
+	#if projectile destroy
+	#body.parrydisguy
 
 func exit() -> void:
 	# Dont want this state doing anything unless it's the active one
-	parry_area.disconnect("area_entered", check_areas_for_parry)
+	#parry_area.disconnect("area_entered", check_areas_for_parry)
 	player_body.velocity.x = 0
