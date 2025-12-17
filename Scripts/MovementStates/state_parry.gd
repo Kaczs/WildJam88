@@ -45,7 +45,8 @@ func check_bodies_for_parry(body):
 		enemy_brain.parry(2)
 
 func check_areas_for_parry(_area_rid, area, _area_index, _local_shape_index):
-	var projectile:Projectile = area.get_node_or_null("Projectile")
+	print("body found for parry: " + area.name)
+	var projectile:Projectile = area.get_parent()
 	if projectile != null:
 		projectile.die()
 
