@@ -4,7 +4,6 @@ func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play falling animation
 	animation_player.play("falling")
-	pass
 
 func phys_update(_delta: float):
 	# Multiple gravity when falling by 2, feels better

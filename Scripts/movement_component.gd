@@ -17,7 +17,7 @@ var particles:Node2D
 @export var damage_mod := 1.0
 ## The animation player will change this based on how much damage an attack should do
 ## this allows for multiattack animations to have different damage
-@export var attack_damage := 50
+@export var attack_damage := 50.0
 ## Animation player should change the amount of hitstop an attack causes
 @export var hitstop := 0.08
 ## This is the time that a player has to wait after performing an attack
