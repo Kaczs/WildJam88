@@ -5,6 +5,10 @@ func enter(_previous_state_path: String, _data := {}):
 	# Flip hitbox depending on facing
 	if sprite.flip_h == true:
 		parent.flip_character()
+	# Go find the parry area if we haven't yet (first time changing to this state)
+	if parry_area == null:
+		parry_area = owner.find_child("ParryArea")
+	parry_area.connect("area_entered", check_areas_for_parry)
 	animation_player.play("parry")
 
 func phys_update(_delta: float):
@@ -31,5 +35,10 @@ func phys_update(_delta: float):
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
+func check_areas_for_parry():
+	pass
+
 func exit() -> void:
+	# Dont want this state doing anything unless it's the active one
+	parry_area.disconnect("area_entered", check_areas_for_parry)
 	player_body.velocity.x = 0

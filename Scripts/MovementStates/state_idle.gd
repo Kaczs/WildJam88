@@ -12,6 +12,8 @@ func phys_update(_delta: float):
 	# if were cancel
 	elif Input.is_action_just_pressed("Attack"):
 		finished.emit("StateStandingAttack")
+	elif Input.is_action_just_pressed("Parry"):
+		finished.emit("StateParry")
 	elif Input.is_action_just_pressed("special1"):
 		finished.emit("StateRadiantDash")
 	elif Input.is_action_pressed("Down"):
