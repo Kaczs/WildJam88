@@ -15,14 +15,24 @@ position = Vector2(4481, 1311)
 scale = Vector2(1, -1.184)
 
 [node name="Platform4" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(4017, 1505)
-scale = Vector2(1, -1.184)
+position = Vector2(8145, 3041)
+rotation = 1.5707964
+scale = Vector2(4, 1)
+
+[node name="Platform5" parent="." instance=ExtResource("1_m6wkf")]
+position = Vector2(7371, 3054)
+rotation = 1.5707964
+scale = Vector2(4, 1)
+
+[node name="Platform6" parent="." instance=ExtResource("1_m6wkf")]
+position = Vector2(7700, 4746)
+scale = Vector2(3, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
-position = Vector2(3452, 729)
+position = Vector2(7232, 1341)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(0, 95)
+position = Vector2(0, 109)
 offset = Vector2(0, -260)
 process_callback = 0
 position_smoothing_enabled = true
