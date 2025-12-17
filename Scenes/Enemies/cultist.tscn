@@ -1,6 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://cs6qws5ir6f75"]
+[gd_scene load_steps=28 format=3 uid="uid://d0uss1ghtluwf"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
+[ext_resource type="Script" uid="uid://byrcl4rsx7gnk" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="2_3xlbi"]
 [ext_resource type="Texture2D" uid="uid://nj5jwreni6lo" path="res://Assets/EnemySprites/CultistBase.png" id="3_hbqep"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="5_o5xwb"]
@@ -571,7 +571,7 @@ radius = 1000.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(299, 117)
 
-[node name="EnemyMultiAttack" type="RigidBody2D"]
+[node name="Cultist" type="RigidBody2D"]
 collision_layer = 9
 lock_rotation = true
 script = ExtResource("1_fw8pk")
@@ -585,6 +585,7 @@ script = ExtResource("2_3xlbi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_hbqep")
+flip_h = true
 
 [node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("5_o5xwb")]
 initial_state = NodePath("EnemySearch")

@@ -9,6 +9,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
+		speed = Vector2.ZERO
 		body.get_node("HealthComponent").take_damage(damage)
 		$AnimationPlayer.play("Hit")
 
