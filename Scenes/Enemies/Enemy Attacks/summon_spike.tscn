@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://45ap5t70jf8u"]
+
+[ext_resource type="Script" uid="uid://ds16lb8dljnci" path="res://Scenes/Enemies/Enemy Attacks/Attack Scripts/summon_spike.gd" id="1_hdyon"]
+
+[node name="SummonSpike" type="Node"]
+script = ExtResource("1_hdyon")

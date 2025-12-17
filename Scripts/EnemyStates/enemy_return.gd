@@ -6,6 +6,8 @@ var direction_to_start
 var facing_left
 var area:Area2D
 
+var return_slowdown:= 0.6
+
 @onready var audio:AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
@@ -36,7 +38,7 @@ func phys_update(_delta: float):
 	#adds a deadzone to the start posision 
 	if distacne_to_start < 30 and -30 < distacne_to_start:
 		finished.emit("EnemySearch")
-	enemy_body.position.x += get_parent().move_speed * _delta * direction_to_start
+	enemy_body.position.x += get_parent().move_speed * return_slowdown * _delta * direction_to_start
 
 func _on_audio_stream_player_2d_finished() -> void:
 	if is_current_state:

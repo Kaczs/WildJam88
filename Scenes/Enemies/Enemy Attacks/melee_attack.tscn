@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvivvfh2x6t7d"]
+
+[ext_resource type="Script" uid="uid://civt5fvw0tqrd" path="res://Scenes/Enemies/Enemy Attacks/Attack Scripts/melee_attack.gd" id="1_fe8x1"]
+
+[node name="MeleeAttack" type="Node"]
+script = ExtResource("1_fe8x1")
