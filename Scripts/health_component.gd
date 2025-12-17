@@ -1,10 +1,9 @@
 class_name HealthComponent extends Node
 
 @export var max_health := 100
-var current_health
-var is_dead := false
+var current_health:int
 
-signal on_hit(stagger_duration:float, is_dead:bool)
+signal on_hit(stagger_duration:float, current_health:int)
 
 func _ready():
 	current_health = max_health
@@ -18,9 +17,7 @@ func heal(amount):
 ##Deal damage by given amount
 func take_damage(amount:int, stagger:float = 0):
 	current_health -= amount
-	if current_health <= 0:
-		is_dead = true
-	on_hit.emit(stagger, is_dead)
+	on_hit.emit(stagger, current_health)
 
 ##Change max_health by given amount
 func adjust_max_health(amount):

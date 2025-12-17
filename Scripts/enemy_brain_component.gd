@@ -9,9 +9,11 @@ var starting_position:Vector2
 var enemy_body: RigidBody2D
 var health_component:HealthComponent
 var animation_player:AnimationPlayer
-var animated_sprite_2d:AnimatedSprite2D
+var animated_sprite_2d:Sprite2D
 var player_detector:Area2D
 var hit_box:Area2D
+
+var is_dead := false
 
 @export var initial_state: EnemyState
 
@@ -27,7 +29,7 @@ func _ready():
 		initial_state = get_node("EnemySearch")
 	health_component = get_parent().get_node("HealthComponent") 
 	animation_player = get_parent().get_node("AnimationPlayer") 
-	animated_sprite_2d = get_parent().get_node("AnimatedSprite2D") 
+	animated_sprite_2d = get_parent().get_node("Sprite2D")
 	player_detector = get_parent().get_node("PlayerDetector")
 	hit_box = get_parent().get_node("HitBox")
 	starting_position = self.get_global_position()
@@ -68,8 +70,14 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state.enter(previous_state_path, data)
 	print(current_state.name)
 
-func enemy_hit(stagger_duration:int, is_dead:bool):
+func enemy_hit(stagger_duration:int, current_health:int):
+	if current_health <= 0:
+		is_dead = true
 	if is_dead:
 		transition_to_next_state("EnemyDeath")
 		return
 	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
+
+func parry(stagger_duration:int):
+	if current_state.name == "EnemyAttack" and not is_dead:
+		transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
