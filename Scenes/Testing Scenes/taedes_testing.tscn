@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Scenes/Testing Scenes/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
-[ext_resource type="PackedScene" uid="uid://pmjmneqjkbxm" path="res://Scenes/Enemies/zombie_archer.tscn" id="4_j6uhw"]
+[ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="4_j6uhw"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_jh8am")
@@ -27,4 +27,4 @@ rotation = -1.5581607
 scale = Vector2(0.02219671, 22.275415)
 
 [node name="Zombie Archer" parent="." instance=ExtResource("4_j6uhw")]
-position = Vector2(1795, 354)
+position = Vector2(1646, 370)
