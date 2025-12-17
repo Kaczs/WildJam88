@@ -14,16 +14,15 @@ func enter(_previous_state_path: String, _data := {}):
 		animation_player.play("radiantdashair")
 		player_body.velocity.x = 0
 		is_doing_air = true
-		# Dont gravity
 	else:
 		animation_player.play("radiantdash")
 
 func phys_update(_delta: float):
-	# Gravity
+	# Gravity, if doing the air variant slow gravity a lot
 	if is_doing_air == false:
 		player_body.velocity.y += gravity * _delta
 	else:
-		player_body.velocity.y = 0
+		player_body.velocity.y += (gravity * 0.3 ) * _delta
 	# Start running based on player input
 	var horizontal_input = Input.get_axis("Left", "Right")
 	# Stopped crouching when trying to run? Stand and run

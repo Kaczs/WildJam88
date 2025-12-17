@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=53 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://2lvftdnocr37" path="res://Assets/Sprites/LouGlaiveStrike-Sheet.png" id="25_vfarp"]
 [ext_resource type="Texture2D" uid="uid://cnmeuknmqd7w2" path="res://Assets/Sprites/LouGlaiveEndFall-Sheet.png" id="26_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://bxpsljg31vwa8" path="res://Assets/Sprites/LouRealDaggerAttack.png" id="26_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://byo1gmo40xk3n" path="res://Assets/Sprites/LouFlinch-Sheet.png" id="30_wohnl"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -273,6 +274,18 @@ tracks/19/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/20/type = "value"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("Sprite2D:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
@@ -1080,7 +1093,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2(1, 35)]
+"values": [Vector2(1, 8)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1663,11 +1676,77 @@ tracks/12/keys = {
 "values": [0.1]
 }
 
+[sub_resource type="Animation" id="Animation_36dho"]
+resource_name = "flinch"
+length = 0.2
+step = 0.066
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("30_wohnl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MovementComponent:cannot_cancel")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.066, 0.132),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.54102784, 0.5573358, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
 &"RESET": SubResource("Animation_ukyrk"),
 &"crouching": SubResource("Animation_h4iuc"),
 &"falling": SubResource("Animation_qqcod"),
+&"flinch": SubResource("Animation_36dho"),
 &"glaivefall": SubResource("Animation_vfarp"),
 &"glaivelanding": SubResource("Animation_y6uwr"),
 &"idle": SubResource("Animation_f1ek2"),
@@ -1734,6 +1813,8 @@ script = ExtResource("11_0gysh")
 
 [node name="StateGlaiveLanding" type="Node" parent="MovementComponent"]
 script = ExtResource("12_83xs0")
+
+[node name="StateFlinch" type="Node" parent="MovementComponent"]
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
