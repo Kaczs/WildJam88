@@ -15,14 +15,17 @@ func phys_update(_delta: float):
 		sprite.flip_h = true
 	elif horizontal_input > 0:
 		sprite.flip_h = false
-	if player_body.is_on_floor() and abs(horizontal_input) > 0:
-		finished.emit("StateRunning")
-	elif player_body.is_on_floor():
-		finished.emit("StateIdle")
-	elif player_body.velocity.y >= 0:
-		finished.emit("StateFalling")
-	elif Input.is_action_just_pressed("special1"):
-		finished.emit("StateRadiantDash")
+	if parent.cannot_cancel == false:
+		if player_body.is_on_floor() and abs(horizontal_input) > 0:
+			finished.emit("StateRunning")
+		elif player_body.is_on_floor():
+			finished.emit("StateIdle")
+		elif player_body.velocity.y >= 0:
+			finished.emit("StateFalling")
+		elif Input.is_action_just_pressed("Attack"):
+			finished.emit("StateGlaiveFall")
+		elif Input.is_action_just_pressed("special1"):
+			finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
 func exit() -> void:
