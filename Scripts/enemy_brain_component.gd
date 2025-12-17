@@ -78,6 +78,6 @@ func enemy_hit(stagger_duration:int, current_health:int):
 		return
 	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
 
-func parry(stagger_duration:int):
+func parry(stagger_duration:float):
 	if current_state.name == "EnemyAttack" and not is_dead:
 		transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
