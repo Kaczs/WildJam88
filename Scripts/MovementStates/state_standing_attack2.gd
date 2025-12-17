@@ -12,9 +12,9 @@ func phys_update(_delta: float):
 	# Slide the player forward as they attack
 	if parent.slide_forward == true:
 		if sprite.flip_h == true:
-			player_body.velocity.x = -300.0
+			player_body.velocity.x = -600.0
 		else:
-			player_body.velocity.x = 300.0
+			player_body.velocity.x = 600.0
 	else:
 		player_body.velocity.x = 0
 # Stuff we need to Cancel into

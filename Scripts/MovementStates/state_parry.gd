@@ -42,5 +42,5 @@ func check_areas_for_parry(body):
 
 func exit() -> void:
 	# Dont want this state doing anything unless it's the active one
-	#parry_area.disconnect("area_entered", check_areas_for_parry)
+	parry_area.disconnect("body_entered", check_areas_for_parry)
 	player_body.velocity.x = 0

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemies/enemy_multi_attack.tscn" id="3_ovenk"]
+[ext_resource type="PackedScene" uid="uid://cs6qws5ir6f75" path="res://Scenes/Enemies/enemy_multi_attack.tscn" id="3_ovenk"]
 
 [node name="PlayerTesting" type="Node2D"]
 
@@ -11,17 +11,18 @@ position = Vector2(-762, 1485)
 scale = Vector2(5, -1.184)
 
 [node name="Platform2" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(2843, 1163)
+position = Vector2(4481, 1311)
 scale = Vector2(1, -1.184)
 
 [node name="Platform4" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(4067, 1182)
+position = Vector2(4017, 1505)
 scale = Vector2(1, -1.184)
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
 position = Vector2(3452, 729)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 95)
 offset = Vector2(0, -260)
 process_callback = 0
 position_smoothing_enabled = true
@@ -36,3 +37,18 @@ position = Vector2(5484, 1462)
 
 [node name="EnemyMultiAttack2" parent="." instance=ExtResource("3_ovenk")]
 position = Vector2(1338, 1437)
+
+[node name="EnemyMultiAttack3" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(1771, 1487)
+
+[node name="EnemyMultiAttack4" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(2124, 1443)
+
+[node name="EnemyMultiAttack5" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(-57, 1237)
+
+[node name="EnemyMultiAttack6" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(376, 1287)
+
+[node name="EnemyMultiAttack7" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(1059, 1437)
