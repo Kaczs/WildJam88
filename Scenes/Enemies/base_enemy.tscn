@@ -1,0 +1,80 @@
+[gd_scene load_steps=14 format=3 uid="uid://b8m36ohyot6ay"]
+
+[ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_nvufx"]
+[ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_jw5pm"]
+[ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_vhyvu"]
+[ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_sjjs4"]
+[ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="5_78hcn"]
+[ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_attack.tscn" id="6_4hyqu"]
+[ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="7_xaoea"]
+[ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="8_bx70j"]
+[ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_qipe1"]
+[ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_ybvhf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
+radius = 62.0
+height = 326.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
+radius = 1000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
+size = Vector2(82, 184)
+
+[node name="Base Enemy" type="RigidBody2D"]
+collision_layer = 9
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, -3)
+shape = SubResource("CapsuleShape2D_ef3uv")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_nvufx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_jw5pm")
+hframes = 6
+
+[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_vhyvu")]
+initial_state = NodePath("EnemySearch")
+move_speed = 100.0
+lose_player_distance = 1500
+attack_distance = 700
+
+[node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_sjjs4")]
+
+[node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("5_78hcn")]
+
+[node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("6_4hyqu")]
+animation_sprite = ""
+
+[node name="EnemyDeath" parent="EnemyBrainComponent" instance=ExtResource("7_xaoea")]
+
+[node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_bx70j")]
+
+[node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_qipe1")]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_rx00m")
+disabled = true
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(100, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(11, -11)
+shape = SubResource("RectangleShape2D_rx00m")
+disabled = true
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+script = ExtResource("12_ybvhf")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
