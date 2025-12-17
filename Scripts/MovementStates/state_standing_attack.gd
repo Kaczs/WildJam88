@@ -24,7 +24,7 @@ func phys_update(_delta: float):
 		if abs(horizontal_input) > 0:
 			finished.emit("StateRunning")
 		# Next attack in the chain
-		elif Input.is_action_just_pressed("Attack"):
+		elif Input.is_action_pressed("Attack"):
 			finished.emit("StateStandingAttack2")
 		# Trying to jump?
 		elif Input.is_action_pressed("Up") and player_body.is_on_floor():

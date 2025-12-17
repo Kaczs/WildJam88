@@ -10,6 +10,7 @@ var animation_player: AnimationPlayer
 var player_sprite: Sprite2D
 var hit_box_area:Area2D
 var particles:Node2D
+var health_component:HealthComponent
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
@@ -20,10 +21,6 @@ var particles:Node2D
 @export var attack_damage := 50.0
 ## Animation player should change the amount of hitstop an attack causes
 @export var hitstop := 0.08
-## This is the time that a player has to wait after performing an attack
-## however if they land an attack they have the ability to forgo this delay
-## and startup another attack depending on the one they hit
-@export var attack_recovery := 0.16
 ## This bool is flipped to true when the hitbox deals damage, used in states to determine cancelling
 @export var dealt_damage := false
 ## Flipped by the AnimationPlayer, generally when attacking to lend weight and forward motion
@@ -36,10 +33,13 @@ func _ready():
 	animation_player = owner.find_child("AnimationPlayer")
 	player_sprite = owner.find_child("Sprite2D")
 	hit_box_area = owner.find_child("AttackArea")
-	hit_box_area = owner.find_child("AttackArea")
+	health_component = owner.find_child("HealthComponent")
 	particles = owner.find_child("Particles")
 	if player_body is not CharacterBody2D:
 		push_error("The owner of the MovementComponent must be a CharacterBody2D")
+	# If we're using health component connect up the stagger
+	if health_component != null:
+		health_component.connect("on_hit", flinch)
 	# Grab the first state on the object if one wasn't set 
 	if initial_state == null:
 		if get_child_count() > 0:
@@ -59,7 +59,6 @@ func _unhandled_input(event: InputEvent):
 
 func _process(delta: float):
 	current_state.update(delta)
-	#print(current_state.name)
 
 func _physics_process(delta: float) -> void:
 	current_state.phys_update(delta)
@@ -87,6 +86,12 @@ func transition_to_next_state(target_state_path: String, _data: Dictionary = {})
 func flip_character():
 	hit_box_area.scale.x = -1
 	particles.scale.x = -1
+
+## Linked up to the health component take damage
+## giving player static flinch time
+func flinch(_duration, _current_health):
+	print("Transitioning to flinch state")
+	call_deferred("transition_to_next_state", "StateFlinch")
 
 ## This forces the state back to idle, generally called in the AnimationPlayer at the end of animations
 ## that dont loop or idle well

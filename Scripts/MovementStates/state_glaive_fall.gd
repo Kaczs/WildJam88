@@ -10,7 +10,6 @@ func phys_update(_delta: float):
 	falling_factor += (_delta*2)
 	# Scale gravity as you go
 	player_body.velocity.y += (gravity * _delta) * falling_factor
-	print(falling_factor)
 	var horizontal_input = Input.get_axis("Left", "Right")
 	player_body.velocity.x = horizontal_input * speed
 	# Flip sprite by direction
