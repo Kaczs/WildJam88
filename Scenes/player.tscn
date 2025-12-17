@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=54 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://d0to131eb554g" path="res://Assets/Sprites/LouJumpAnimated-Sheet.png" id="13_wpjfl"]
 [ext_resource type="Script" uid="uid://ddymp414fdqv1" path="res://Scripts/MovementStates/state_standing_attack3.gd" id="13_xuaoq"]
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scripts/attack_area.gd" id="14_7dp3o"]
+[ext_resource type="Script" uid="uid://c8mohq75c12ix" path="res://Scripts/MovementStates/state_flinch.gd" id="14_36dho"]
 [ext_resource type="Texture2D" uid="uid://cxptxuecqdkfa" path="res://Assets/Sprites/LouJump.png" id="14_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
 [ext_resource type="Texture2D" uid="uid://cjnns2n88n5i2" path="res://Assets/Sprites/LouFirstSlashAttack-Sheet.png" id="19_2ijsl"]
@@ -1740,6 +1741,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 0.54102784, 0.5573358, 1)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MovementComponent")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"force_idle"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
@@ -1815,6 +1830,7 @@ script = ExtResource("11_0gysh")
 script = ExtResource("12_83xs0")
 
 [node name="StateFlinch" type="Node" parent="MovementComponent"]
+script = ExtResource("14_36dho")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
