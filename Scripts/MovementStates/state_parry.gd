@@ -8,7 +8,8 @@ func enter(_previous_state_path: String, _data := {}):
 	# Go find the parry area if we haven't yet (first time changing to this state)
 	if parry_area == null:
 		parry_area = owner.find_child("ParryArea")
-	parry_area.connect("body_entered", check_areas_for_parry)
+	parry_area.connect("body_entered", check_bodies_for_parry)
+	parry_area.connect("area_shape_entered", check_areas_for_parry)
 	animation_player.play("parry")
 
 func phys_update(_delta: float):
@@ -35,14 +36,21 @@ func phys_update(_delta: float):
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
-func check_areas_for_parry(body):
+## Enemies are rigidbodies, so check for those and let them
+## know they're being parried
+func check_bodies_for_parry(body):
 	print("body found for parry: " + body.name)
-	var enemy_brain:EnemyBrainComponent = body.get_node("EnemyBrainComponent")
-	enemy_brain.parry(2)
-	#if projectile destroy
-	#body.parrydisguy
+	var enemy_brain:EnemyBrainComponent = body.get_node_or_null("EnemyBrainComponent")
+	if enemy_brain != null:
+		enemy_brain.parry(2)
+
+func check_areas_for_parry(_area_rid, area, _area_index, _local_shape_index):
+	var projectile:Projectile = area.get_node_or_null("Projectile")
+	if projectile != null:
+		projectile.die()
 
 func exit() -> void:
 	# Dont want this state doing anything unless it's the active one
-	parry_area.disconnect("body_entered", check_areas_for_parry)
+	parry_area.disconnect("body_entered", check_bodies_for_parry)
+	parry_area.disconnect("area_shape_entered", check_areas_for_parry)
 	player_body.velocity.x = 0
