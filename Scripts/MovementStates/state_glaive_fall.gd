@@ -1,4 +1,5 @@
 extends MovementState
+var falling_factor := 2.0
 
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
@@ -6,8 +7,10 @@ func enter(_previous_state_path: String, _data := {}):
 	animation_player.play("glaivefall")
 
 func phys_update(_delta: float):
+	falling_factor += (_delta*2)
 	# Scale gravity as you go
-	player_body.velocity.y += (gravity * _delta) * 2
+	player_body.velocity.y += (gravity * _delta) * falling_factor
+	print(falling_factor)
 	var horizontal_input = Input.get_axis("Left", "Right")
 	player_body.velocity.x = horizontal_input * speed
 	# Flip sprite by direction
@@ -22,4 +25,4 @@ func phys_update(_delta: float):
 	player_body.move_and_slide()
 
 func exit() -> void:
-	pass
+	falling_factor = 2.0
