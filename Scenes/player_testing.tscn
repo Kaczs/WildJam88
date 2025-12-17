@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://0sy6ahx75jo0"]
+[gd_scene load_steps=5 format=3 uid="uid://0sy6ahx75jo0"]
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
-[ext_resource type="PackedScene" uid="uid://bajc1pulyaeh7" path="res://Scenes/Enemies/enemy_base.tscn" id="4_6ej57"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/cultist.tscn" id="3_ovenk"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/zombie_archer.tscn" id="4_k6022"]
 
 [node name="PlayerTesting" type="Node2D"]
 
@@ -11,46 +12,39 @@ position = Vector2(-762, 1485)
 scale = Vector2(5, -1.184)
 
 [node name="Platform2" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(2843, 1163)
+position = Vector2(4481, 1311)
 scale = Vector2(1, -1.184)
 
 [node name="Platform4" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(4067, 1182)
-scale = Vector2(1, -1.184)
+position = Vector2(8145, 3041)
+rotation = 1.5707964
+scale = Vector2(4, 1)
+
+[node name="Platform5" parent="." instance=ExtResource("1_m6wkf")]
+position = Vector2(7371, 3054)
+rotation = 1.5707964
+scale = Vector2(4, 1)
+
+[node name="Platform6" parent="." instance=ExtResource("1_m6wkf")]
+position = Vector2(7700, 4746)
+scale = Vector2(3, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
-position = Vector2(3452, 729)
+position = Vector2(7232, 1341)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 109)
 offset = Vector2(0, -260)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
-[node name="EnemyBase" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(2067, 1529)
-
-[node name="EnemyBase2" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(2266, 1532)
-
-[node name="EnemyBase3" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(5172, 1543)
-
-[node name="EnemyBase4" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(5463, 1545)
-
-[node name="EnemyBase5" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(5852, 1557)
-
-[node name="EnemyBase6" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(6143, 1559)
-
-[node name="EnemyBase7" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(6574, 1560)
-
-[node name="EnemyBase8" parent="." instance=ExtResource("4_6ej57")]
-position = Vector2(6865, 1562)
-
 [node name="Platform3" parent="." instance=ExtResource("1_m6wkf")]
 position = Vector2(3997.9998, 1737)
 scale = Vector2(10, -1.184)
+
+[node name="Cultist" parent="." instance=ExtResource("3_ovenk")]
+position = Vector2(5574, 1485)
+
+[node name="Zombie Archer" parent="." instance=ExtResource("4_k6022")]
+position = Vector2(4675, 1078)
