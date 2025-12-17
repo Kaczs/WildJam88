@@ -2,7 +2,7 @@
 ## Adding different states will give whatever you add this to different movement abilities, run, crouch, jump etc.
 ## Whatever you attach this to needs to be a CharacterBody2D. Additionally there should be a sprite 2d (animated  sprite actually)
 ## as a child of that rigidbody
-extends Node2D
+class_name EnemyBrainComponent extends Node2D
 var current_state: EnemyState
 var last_facing:bool
 var starting_position:Vector2
