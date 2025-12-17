@@ -2,12 +2,14 @@ extends EnemyState
 
 var attack:Node
 var attacks_list:Array
+var bodies_hit:Array
 var attack_number := 0
 ##If true attacks are done in order else they are picked at random
 @export var sequens_attacks := false 
 
-
-
+func _ready() -> void:
+	await get_parent().get_parent().ready
+	get_parent().hit_box.connect("body_entered", _hit_box_body_entered)
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	player = _data["player"]
@@ -17,6 +19,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 
 func phys_update(_delta: float):
 	if not animation_player.is_playing():
+		bodies_hit.clear()
 		animation_player.play("RESET")
 		if sequens_attacks:
 			next_attack()
@@ -51,3 +54,8 @@ func pick_random_attack():
 	else:
 		current_attack.attack(player, animation_player, enemy_body)
 		attack = null
+
+func _hit_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") and not bodies_hit.has(body):
+		body.get_node("HealthComponent").take_damage(get_parent().damage)
+		bodies_hit.append(body)

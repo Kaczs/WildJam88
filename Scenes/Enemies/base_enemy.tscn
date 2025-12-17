@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b8m36ohyot6ay"]
+[gd_scene load_steps=19 format=3 uid="uid://b8m36ohyot6ay"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_nvufx"]
 [ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_jw5pm"]
@@ -20,6 +20,36 @@ radius = 1000.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(82, 184)
+
+[sub_resource type="Gradient" id="Gradient_jw5pm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.34285715, 0.8666667)
+colors = PackedColorArray(1, 0.5023, 0.43550968, 1, 0.45540285, 2.0696223e-06, 9.1448425e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q2b2k"]
+gradient = SubResource("Gradient_jw5pm")
+
+[sub_resource type="Curve" id="Curve_nvufx"]
+_data = [Vector2(0.025423728, 0.47598624), 0.0, 0.0, 0, 0, Vector2(0.33050847, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.6966293), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4215w"]
+curve = SubResource("Curve_nvufx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vhyvu"]
+lifetime_randomness = 0.9
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 26.09
+initial_velocity_max = 270.83
+gravity = Vector3(0, 250, 0)
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_4215w")
+color_ramp = SubResource("GradientTexture1D_q2b2k")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
 
 [node name="Base Enemy" type="RigidBody2D"]
 collision_layer = 9
@@ -76,5 +106,13 @@ debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 script = ExtResource("12_ybvhf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-5, -9)
+emitting = false
+amount = 50000
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_vhyvu")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
