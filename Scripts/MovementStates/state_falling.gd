@@ -19,6 +19,8 @@ func phys_update(_delta: float):
 		finished.emit("StateRunning")
 	elif player_body.is_on_floor():
 		finished.emit("StateIdle")
+	elif Input.is_action_just_pressed("special1"):
+		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
 func exit() -> void:

@@ -3,7 +3,11 @@ extends MovementState
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
-	animation_player.play("radiantdash")
+	if abs(player_body.velocity.y) > 0:
+		animation_player.play("radiantdashair")
+		# Dont gravity
+	else:
+		animation_player.play("radiantdash")
 	if sprite.flip_h == false:
 		player_body.position.x += 700
 	else:
