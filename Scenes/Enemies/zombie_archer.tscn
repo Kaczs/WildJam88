@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="5_aq7fh"]
 [ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_attack.tscn" id="6_dtb1l"]
 [ext_resource type="PackedScene" uid="uid://eay840vmwhmj" path="res://Scenes/Enemies/Enemy Attacks/range_attack.tscn" id="7_fpk6q"]
-[ext_resource type="PackedScene" uid="uid://b6x6ldn4fhf54" path="res://Scenes/Enemies/Enemy Attacks/Attack Scenes/arrow.tscn" id="8_t1cl0"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/Enemy Attacks/Attack Scenes/arrow.tscn" id="8_t1cl0"]
 [ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="9_2ewnb"]
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="10_gybwa"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="11_t8vxe"]
