@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://0sy6ahx75jo0"]
+[gd_scene load_steps=7 format=3 uid="uid://0sy6ahx75jo0"]
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
-[ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="4_k6022"]
+[ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="4_6ej57"]
+[ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="5_3mukk"]
+[ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="5_6ej57"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ovenk"]
 polygon = PackedVector2Array(7416, 1686, 7414, 4423, 7322, 4426, 7326, 1792, 563, 1793, 566, 1679)
@@ -45,13 +47,24 @@ position_smoothing_speed = 3.0
 position = Vector2(3997.9998, 1737)
 scale = Vector2(10, -1.184)
 
-[node name="Zombie Archer" parent="." instance=ExtResource("4_k6022")]
-position = Vector2(4499, 1517)
-
-[node name="Zombie Archer2" parent="." instance=ExtResource("4_k6022")]
-position = Vector2(4716, 1522)
-
 [node name="Timer" type="Timer" parent="."]
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_ovenk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("4_6ej57")]
+script = ExtResource("5_6ej57")
+
+[node name="Zombie Grunt" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(5335, 1479)
+
+[node name="Zombie Grunt2" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(5009, 1472)
+
+[node name="Zombie Grunt3" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(4662, 1031)
+
+[node name="Zombie Grunt4" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(4341, 1015)
