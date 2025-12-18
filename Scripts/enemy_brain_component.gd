@@ -27,11 +27,11 @@ var is_dead := false
 func _ready():
 	if not initial_state:
 		initial_state = get_node("EnemySearch")
-	health_component = get_parent().get_node("HealthComponent") 
-	animation_player = get_parent().get_node("AnimationPlayer") 
-	animated_sprite_2d = get_parent().get_node("Sprite2D")
-	player_detector = get_parent().get_node("PlayerDetector")
-	hit_box = get_parent().get_node("HitBox")
+	health_component = owner.find_child("HealthComponent") 
+	animation_player = owner.find_child("AnimationPlayer") 
+	animated_sprite_2d = owner.find_child("Sprite2D")
+	player_detector = owner.find_child("PlayerDetector")
+	hit_box = owner.find_child("HitBox")	
 	starting_position = self.get_global_position()
 	enemy_body = get_parent()
 	# Grab the first state on the object if one wasn't set 
@@ -59,6 +59,9 @@ func _physics_process(delta: float) -> void:
 ## Function will take a path to the state you want to transition to
 ## and will do that
 func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
+	animation_player.play("RESET")
+	animation_player.advance(0)
+	print("Transitioning Enemy to State: " + current_state.name)
 	# if the given node path is invalid return
 	if not has_node(target_state_path):
 		push_error("Tried to transition to state : " + target_state_path + " but it doesn't exist")
@@ -75,9 +78,9 @@ func enemy_hit(stagger_duration:float, current_health:int):
 		is_dead = true
 	if is_dead:
 		transition_to_next_state("EnemyDeath")
-		return
-	transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
+	else:
+		transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
 
 func parry(stagger_duration:float):
 	if current_state.name == "EnemyAttack" and not is_dead:
-		transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})
+		call_deferred("transition_to_next_state", "EnemyStun", {"stun duration": stagger_duration})

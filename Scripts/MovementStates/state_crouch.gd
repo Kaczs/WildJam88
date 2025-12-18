@@ -4,6 +4,7 @@ var player_collider:CollisionShape2D
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	animation_player.play("crouching")
+	player_body.velocity.x = 0
 	# Change collider size (do this in animation player later)
 
 func phys_update(_delta: float):

@@ -5,13 +5,10 @@ var attacks_list:Array
 var bodies_hit:Array
 var attack_number := 0
 ##If true attacks are done in order else they are picked at random
-@export var sequens_attacks := false 
-
-func _ready() -> void:
-	await get_parent().get_parent().ready
-	get_parent().hit_box.connect("body_entered", _hit_box_body_entered)
+@export var sequens_attacks := false 	
 
 func enter(_previous_state_path: String, _data:Dictionary):
+	brain_component.hit_box.connect("body_entered", _hit_box_body_entered)
 	player = _data["player"]
 	attacks_list = get_children()
 	animation_player.play("RESET")
@@ -27,7 +24,7 @@ func phys_update(_delta: float):
 			pick_random_attack()
 
 func next_attack():
-	var distance_to_player = abs(player.global_position.x - get_parent().global_position.x)
+	var distance_to_player = abs(player.global_position.x - brain_component.global_position.x)
 	var current_attack = attacks_list[attack_number]
 	if current_attack.min_range > distance_to_player:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.min_range, "player": player, "reverse":true})
@@ -42,7 +39,7 @@ func next_attack():
 		attack_number = 0
 
 func pick_random_attack():
-	var distance_to_player = abs(player.global_position.x - get_parent().global_position.x)
+	var distance_to_player = abs(player.global_position.x - brain_component.global_position.x)
 	var current_attack = get_children().pick_random()
 	if attack:
 		current_attack = attack
@@ -57,5 +54,8 @@ func pick_random_attack():
 
 func _hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player") and not bodies_hit.has(body):
-		body.get_node("HealthComponent").take_damage(get_parent().damage)
+		body.get_node("HealthComponent").take_damage(brain_component.damage)
 		bodies_hit.append(body)
+
+func exit() -> void:
+	brain_component.hit_box.disconnect("body_entered", _hit_box_body_entered)
