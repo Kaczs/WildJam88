@@ -16,7 +16,6 @@ func phys_update(_delta: float):
 		sprite.flip_h = true
 	elif horizontal_input > 0:
 		sprite.flip_h = false
-	player_body.velocity.x = horizontal_input * speed
 	# Stopped crouching when trying to run? Stand and run
 	if not Input.is_action_pressed("Down") and abs(horizontal_input) > 0:
 		finished.emit("StateRunning")
