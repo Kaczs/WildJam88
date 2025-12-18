@@ -13,6 +13,8 @@ func enter(_previous_state_path: String, _data := {}):
 	if not player_body.is_on_floor():
 		animation_player.play("radiantdashair")
 		player_body.velocity.x = 0
+		# Need to cancel any velocity from jumps first
+		player_body.velocity.y = 0
 		is_doing_air = true
 	else:
 		animation_player.play("radiantdash")

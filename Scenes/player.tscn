@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=55 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scripts/attack_area.gd" id="14_7dp3o"]
 [ext_resource type="Script" uid="uid://c8mohq75c12ix" path="res://Scripts/MovementStates/state_flinch.gd" id="14_36dho"]
 [ext_resource type="Texture2D" uid="uid://cxptxuecqdkfa" path="res://Assets/Sprites/LouJump.png" id="14_wpjfl"]
+[ext_resource type="Script" uid="uid://bxe0qxx4yvhhw" path="res://Scripts/impulsiveness_component.gd" id="16_yh6i2"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
 [ext_resource type="Texture2D" uid="uid://cjnns2n88n5i2" path="res://Assets/Sprites/LouFirstSlashAttack-Sheet.png" id="19_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://cwvjueuedxoh0" path="res://Assets/Sprites/KatanaVanish-Sheet.png" id="20_wpjfl"]
@@ -1834,6 +1835,11 @@ script = ExtResource("14_36dho")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
+
+[node name="ImpulsivenessComponent" type="Node" parent="."]
+script = ExtResource("16_yh6i2")
+points_damage_taken = 1.0
+points_damage_dealt = 3.0
 
 [node name="Particles" type="Node2D" parent="."]
 
