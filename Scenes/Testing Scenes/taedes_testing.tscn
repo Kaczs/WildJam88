@@ -1,9 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfo58k83dyuyq"]
+[gd_scene load_steps=9 format=3 uid="uid://bfo58k83dyuyq"]
 
 [ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Scenes/Testing Scenes/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
+[ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="4_j6uhw"]
+[ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="5_4mcpw"]
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="5_gaqya"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j6uhw"]
+polygon = PackedVector2Array(-9, 558, 1999, 582, 1999, 606, -10, 578)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gaqya"]
+polygon = PackedVector2Array(-3055, 968, 5306, 962, 5343, 1268, -3709, 1268)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_jh8am")
@@ -26,5 +34,18 @@ position = Vector2(997, 579)
 rotation = -1.5581607
 scale = Vector2(0.02219671, 22.275415)
 
+[node name="Cultist" parent="." instance=ExtResource("4_j6uhw")]
+position = Vector2(920, 313)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(0, -1)
+occluder = SubResource("OccluderPolygon2D_j6uhw")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_gaqya")
+
+[node name="Zombie Archer" parent="." instance=ExtResource("5_4mcpw")]
+position = Vector2(1334, 339)
+
 [node name="Zombie Grunt" parent="." instance=ExtResource("5_gaqya")]
-position = Vector2(1086, 361)
+position = Vector2(1694, 321)

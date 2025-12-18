@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://0sy6ahx75jo0"]
+[gd_scene load_steps=5 format=3 uid="uid://0sy6ahx75jo0"]
 
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="1_m6wkf"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_2xm0r"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="4_k6022"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ovenk"]
+polygon = PackedVector2Array(7416, 1686, 7414, 4423, 7322, 4426, 7326, 1792, 563, 1793, 566, 1679)
 
 [node name="PlayerTesting" type="Node2D"]
 
@@ -49,3 +52,6 @@ position = Vector2(4499, 1517)
 position = Vector2(4716, 1522)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_ovenk")
