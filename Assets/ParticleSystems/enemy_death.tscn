@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://clxy5yn3v06sl"]
+
+[sub_resource type="Gradient" id="Gradient_8gy5h"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.68095237, 1)
+colors = PackedColorArray(0.9052549, 0.00012735397, 6.093353e-05, 1, 0.63222295, 1.5233382e-05, 7.0752203e-06, 1, 0.45540285, 2.0696223e-06, 9.1448425e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xnal3"]
+gradient = SubResource("Gradient_8gy5h")
+
+[sub_resource type="Curve" id="Curve_8gy5h"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ykmd2"]
+curve = SubResource("Curve_8gy5h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ykmd2"]
+lifetime_randomness = 0.9
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_max = 307.22998
+gravity = Vector3(0, 500, 0)
+scale_min = 0.5
+scale_max = 8.0
+color_initial_ramp = SubResource("GradientTexture1D_xnal3")
+turbulence_enabled = true
+turbulence_initial_displacement_min = 4.2000017
+turbulence_initial_displacement_max = 4.2000017
+turbulence_influence_over_life = SubResource("CurveTexture_ykmd2")
+collision_mode = 1
+collision_friction = 0.1
+collision_bounce = 0.3
+
+[node name="Enemy Death" type="GPUParticles2D"]
+self_modulate = Color(1, 0, 0, 1)
+emitting = false
+amount = 500
+lifetime = 3.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ykmd2")
