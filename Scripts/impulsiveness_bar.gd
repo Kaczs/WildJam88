@@ -6,4 +6,4 @@ func _ready():
 		.connect("gained_impulsiveness", update_ui)
 
 func update_ui(amount):
-	value += amount
+	value = amount
