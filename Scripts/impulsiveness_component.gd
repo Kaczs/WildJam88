@@ -1,7 +1,7 @@
 ## This will manage the character's implusivness value, basically "point" score that unlocks
 ## new abilites as you beat the shit outta mobs. It'll listen for the various signals yield
 ## "points", calculate combo, and update ui
-extends Node
+class_name ImpulsivenessComponent extends Node
 var combo_factor:float = 1
 var current_impulsiveness:float = 0
 var combo_timer:Timer
@@ -25,7 +25,7 @@ func took_damage(_stagger, _current_health):
 	add_points(points_damage_taken)
 
 func dealt_damage():
-	# Reset the combo duration, and start it if its not running
+	# Reset the combo duration, or start it if its not running
 	combo_timer.start()
 	# We dealt damage so increase how many points we get for doing more
 	combo_factor += combo_factor_increase_amount

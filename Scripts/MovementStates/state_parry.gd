@@ -32,7 +32,7 @@ func phys_update(_delta: float):
 		# 0.16s after animation then unlock player > nother attack > jump > move > parry
 		# kill 0.16s delay if hit a guy
 # Can freely cancel anytime
-	elif Input.is_action_just_pressed("special1"):
+	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25:
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 

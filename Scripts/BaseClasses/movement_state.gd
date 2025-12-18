@@ -19,6 +19,8 @@ var animation_player: AnimationPlayer:
 	get: return parent.animation_player
 var sprite: Sprite2D:
 	get: return parent.player_sprite
+var impulsiveness_component: ImpulsivenessComponent:
+	get: return parent.impulsiveness_component
 
 ## Called by the movement component receiving unhandled input events.
 func handle_input(_event: InputEvent):

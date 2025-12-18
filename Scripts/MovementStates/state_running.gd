@@ -22,7 +22,7 @@ func phys_update(_delta: float):
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
-	elif Input.is_action_just_pressed("special1"):
+	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25:
 		finished.emit("StateRadiantDash")
 	elif Input.is_action_pressed("Down"):
 		finished.emit("StateCrouch")

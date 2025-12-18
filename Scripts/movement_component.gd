@@ -11,6 +11,7 @@ var player_sprite: Sprite2D
 var hit_box_area:Area2D
 var particles:Node2D
 var health_component:HealthComponent
+var impulsiveness_component:ImpulsivenessComponent
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
@@ -34,6 +35,7 @@ func _ready():
 	player_sprite = owner.find_child("Sprite2D")
 	hit_box_area = owner.find_child("AttackArea")
 	health_component = owner.find_child("HealthComponent")
+	impulsiveness_component =  owner.find_child("ImpulsivenessComponent")
 	particles = owner.find_child("Particles")
 	if player_body is not CharacterBody2D:
 		push_error("The owner of the MovementComponent must be a CharacterBody2D")
