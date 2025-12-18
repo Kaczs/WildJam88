@@ -5,7 +5,7 @@ var is_current_state:bool
 
 func enter(_previous_state_path: String, _data:Dictionary):
 	is_current_state = true
-	area = get_parent().player_detector
+	area = brain_component.player_detector
 	if not area.body_entered.is_connected(body_entered):
 		area.body_entered.connect(body_entered)
 	#set animation

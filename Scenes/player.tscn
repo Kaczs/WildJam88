@@ -1455,6 +1455,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MovementComponent:attack_damage")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25.0]
+}
 
 [sub_resource type="Animation" id="Animation_wohnl"]
 resource_name = "standingattack2"
@@ -1593,6 +1605,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.06]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MovementComponent:attack_damage")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25.0]
 }
 
 [sub_resource type="Animation" id="Animation_xuaoq"]
@@ -1742,7 +1766,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [100]
+"values": [50.0]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -1833,6 +1857,8 @@ script = ExtResource("12_83xs0")
 [node name="StateFlinch" type="Node" parent="MovementComponent"]
 script = ExtResource("14_36dho")
 
+[node name="StateMicroDash" type="Node" parent="MovementComponent"]
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
 
@@ -1904,6 +1930,14 @@ shape = SubResource("CircleShape2D_wpjfl")
 disabled = true
 debug_color = Color(0.6995013, 0.76621455, 0, 0.41960785)
 metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, 109)
+offset = Vector2(0, -260)
+zoom = Vector2(0.778, 0.778)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
 
 [connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="AttackArea" to="AttackArea" method="_on_body_shape_entered"]

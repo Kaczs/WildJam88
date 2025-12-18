@@ -19,7 +19,7 @@
 radius = 1000.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
-size = Vector2(81.755, 141)
+size = Vector2(105.5, 80)
 
 [sub_resource type="Animation" id="Animation_scpst"]
 resource_name = "AttackLeft"
@@ -332,7 +332,7 @@ tracks/6/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.01),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -481,7 +481,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(-197, -70)
+position = Vector2(-26.25, 31)
 shape = SubResource("RectangleShape2D_rx00m")
 disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
@@ -492,7 +492,7 @@ libraries = {
 }
 script = ExtResource("10_a0lqs")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(14, -3)
 shape = SubResource("CapsuleShape2D_ef3uv")
 
