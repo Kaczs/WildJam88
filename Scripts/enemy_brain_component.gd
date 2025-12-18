@@ -68,7 +68,7 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	current_state.exit()
 	current_state = get_node(target_state_path)
 	current_state.enter(previous_state_path, data)
-	print(current_state.name)
+	#print(current_state.name)
 
 func enemy_hit(stagger_duration:float, current_health:int):
 	if current_health <= 0:

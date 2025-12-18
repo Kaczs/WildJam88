@@ -39,6 +39,7 @@ position = Vector2(7149, 1267)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 109)
 offset = Vector2(0, -260)
+zoom = Vector2(0.778, 0.778)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
@@ -63,8 +64,20 @@ position = Vector2(5335, 1479)
 [node name="Zombie Grunt2" parent="." instance=ExtResource("5_3mukk")]
 position = Vector2(5009, 1472)
 
+[node name="Zombie Grunt5" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(5165, 1484)
+
+[node name="Zombie Grunt7" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(4250, 1072)
+
+[node name="Zombie Grunt8" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(4618, 1508)
+
+[node name="Zombie Grunt6" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(6008, 1453)
+
 [node name="Zombie Grunt3" parent="." instance=ExtResource("5_3mukk")]
-position = Vector2(4662, 1031)
+position = Vector2(5661, 1012)
 
 [node name="Zombie Grunt4" parent="." instance=ExtResource("5_3mukk")]
-position = Vector2(4341, 1015)
+position = Vector2(3645, 1442)
