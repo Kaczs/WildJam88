@@ -24,7 +24,7 @@ func phys_update(_delta: float):
 	if is_doing_air == false:
 		player_body.velocity.y += gravity * _delta
 	else:
-		player_body.velocity.y += (gravity * 0.3 ) * _delta
+		player_body.velocity.y += (gravity * 0.2 ) * _delta
 	# Start running based on player input
 	var horizontal_input = Input.get_axis("Left", "Right")
 	# Stopped crouching when trying to run? Stand and run
