@@ -7,10 +7,15 @@ var current_impulsiveness:float = 0
 var combo_timer:Timer
 
 signal gained_impulsiveness
+# there's an argument to be made that we should go off the signal on hitarea
+# however, this needs to be reset on the timer that's here
+signal did_damage
+var combohits:int = 0
 @export var points_damage_taken: float
 @export var points_damage_dealt: float
 @export var combo_duration: float
 @export var combo_factor_increase_amount:float
+
 
 func _ready():
 	# Need to connect the various signals
@@ -25,6 +30,8 @@ func took_damage(_stagger, _current_health):
 	add_points(points_damage_taken)
 
 func dealt_damage():
+	combohits += 1
+	did_damage.emit(combohits)
 	# Reset the combo duration, or start it if its not running
 	combo_timer.start()
 	# We dealt damage so increase how many points we get for doing more
@@ -39,4 +46,6 @@ func add_points(amount):
 
 ## When the combo duration runs out, reset the factor.
 func reset_combo():
+	combohits = 0
 	combo_factor = 1
+	did_damage.emit(combohits)

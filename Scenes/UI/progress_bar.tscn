@@ -42,3 +42,15 @@ offset_right = 450.0
 offset_bottom = 66.0
 texture = ExtResource("1_q3csh")
 expand_mode = 1
+
+[node name="ComboText" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 665.0
+offset_top = -10.999977
+offset_right = 764.0
+offset_bottom = 88.00002
+rotation = 0.27917475
+theme_override_colors/font_color = Color(1, 0.20285092, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "1x"
