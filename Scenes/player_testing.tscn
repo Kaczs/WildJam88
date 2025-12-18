@@ -39,6 +39,7 @@ position = Vector2(7149, 1267)
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 109)
 offset = Vector2(0, -260)
+zoom = Vector2(0.778, 0.778)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 3.0
