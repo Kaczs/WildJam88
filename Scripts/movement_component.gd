@@ -13,6 +13,9 @@ var particles:Node2D
 var health_component:HealthComponent
 var impulsiveness_component:ImpulsivenessComponent
 
+var standing_combo:Array[String] = ["StateStandingAttack", "StateStandingAttack2", "StateStandingAttack3"]
+var current_attack_combo:Array[String] = []
+
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
 ## This can be modified by upgrades and such to increase damage in a scaling way
@@ -94,6 +97,12 @@ func flip_character():
 func flinch(_duration, _current_health):
 	print("Transitioning to flinch state")
 	call_deferred("transition_to_next_state", "StateFlinch")
+
+## Return the next move in combo
+func advance_combo():
+	if current_attack_combo.is_empty():
+		current_attack_combo += standing_combo
+	transition_to_next_state(current_attack_combo.pop_front())
 
 ## This forces the state back to idle, generally called in the AnimationPlayer at the end of animations
 ## that dont loop or idle well
