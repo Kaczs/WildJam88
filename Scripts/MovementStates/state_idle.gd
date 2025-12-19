@@ -16,7 +16,7 @@ func phys_update(_delta: float):
 		finished.emit("StateParry")
 	elif Input.is_action_pressed("Down"):
 		finished.emit("StateCrouch")
-	elif Input.is_action_pressed("dash"):
+	elif Input.is_action_pressed("dash") and parent.dash_timer.is_stopped():
 		finished.emit("StateMicroDash")
 	elif Input.is_action_pressed("Left") or Input.is_action_pressed("Right"):
 		finished.emit("StateRunning")

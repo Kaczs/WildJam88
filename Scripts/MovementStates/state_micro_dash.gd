@@ -2,7 +2,7 @@ extends MovementState
 var target:Vector2
 
 func enter(_previous_state_path: String, _data := {}):
-	
+	parent.dash_timer.start()
 	# cancel out any momentum
 	if sprite.flip_h == false:
 		target = Vector2(player_body.position.x+400, player_body.position.y)
@@ -20,9 +20,9 @@ func phys_update(_delta: float):
 	if not player_body.is_on_floor():
 		finished.emit("StateFalling")
 	# if were cancel
-	elif Input.is_action_just_pressed("Attack"):
+	elif Input.is_action_pressed("Attack"):
 		finished.emit("StateComboDecide")
-	elif Input.is_action_just_pressed("Parry"):
+	elif Input.is_action_pressed("Parry"):
 		finished.emit("StateParry")
 	elif Input.is_action_pressed("Down"):
 		finished.emit("StateCrouch")
