@@ -51,9 +51,8 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[node name="Base Enemy" type="RigidBody2D"]
+[node name="Base Enemy" type="CharacterBody2D"]
 collision_layer = 9
-lock_rotation = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, -3)
