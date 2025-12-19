@@ -243,4 +243,8 @@ collision_mask = 12
 position = Vector2(-115.5, -52.5)
 shape = SubResource("RectangleShape2D_yvr84")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(854, -5)
+target_position = Vector2(0, 10000)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

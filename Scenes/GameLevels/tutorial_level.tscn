@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://marjum7oehw3"]
+[gd_scene load_steps=24 format=4 uid="uid://marjum7oehw3"]
 
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="1_f0tg5"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_ej3xh"]
@@ -8,9 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="4_pl5oj"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="5_d054f"]
 [ext_resource type="Texture2D" uid="uid://bu6gveygagik1" path="res://Assets/MapTiles/JustExtrasBrickSet.png" id="5_gb0dk"]
-[ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="8_gb0dk"]
 [ext_resource type="PackedScene" uid="uid://dqttirg4fvyxs" path="res://Assets/ParticleSystems/snow_particles.tscn" id="9_eicsn"]
-[ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="10_x0o02"]
+[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/necromancer.tscn" id="10_e8spf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb0dk"]
 texture = ExtResource("4_pl5oj")
@@ -483,8 +482,5 @@ position = Vector2(10644, 2486)
 [node name="Zombie Grunt8" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(11033, 2486)
 
-[node name="Zombie Archer" parent="." instance=ExtResource("10_x0o02")]
-position = Vector2(4449, 1663)
-
-[node name="Cultist" parent="." instance=ExtResource("8_gb0dk")]
-position = Vector2(4088, 1685)
+[node name="Base Enemy" parent="." instance=ExtResource("10_e8spf")]
+position = Vector2(1939, 1704)
