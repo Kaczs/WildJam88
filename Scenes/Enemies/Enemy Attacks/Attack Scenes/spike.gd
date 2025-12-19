@@ -4,7 +4,12 @@ var damage:int
 var bodies_hit:Array
 
 func _ready() -> void:
-	$AnimationPlayer.play("spike eruption")
+	$RayCast2D.force_raycast_update()
+	if $RayCast2D.is_colliding():
+		self.global_position = $RayCast2D.get_collision_point()
+		$AnimationPlayer.play("spike eruption")
+	else:
+		die()
 
 
 func die():

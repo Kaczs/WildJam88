@@ -12,6 +12,7 @@ var animation_player:AnimationPlayer
 var sprite_2d:Sprite2D
 var player_detector:Area2D
 var hit_box:Area2D
+var hurt_box:CollisionShape2D #is also physics colider
 
 var is_dead := false
 
@@ -33,6 +34,7 @@ func _ready():
 	sprite_2d = owner.find_child("Sprite2D")
 	player_detector = owner.find_child("PlayerDetector")
 	hit_box = owner.find_child("HitBox")
+	hurt_box = owner.find_child("Hurtbox")
 	starting_position = self.get_global_position()
 	# Grab the first state on the object if one wasn't set 
 	if initial_state == null:
@@ -86,4 +88,4 @@ func enemy_hit(stagger_duration:float, current_health:int):
 
 func parry(stagger_duration:float):
 	if current_state.name == "EnemyAttack" and not is_dead:
-		call_deferred("transition_to_next_state", "EnemyStun", {"stun duration": stagger_duration})
+		call_deferred("transition_to_next_state", "EnemyStun", {"stun duration": stagger_duration, "parried":true})
