@@ -18,13 +18,10 @@ func phys_update(_delta: float):
 	# Gravity
 	player_body.velocity.y += gravity * _delta
 	# Start running based on player input
-	var horizontal_input = Input.get_axis("Left", "Right")
 # Stuff we need to cancel into
 	if parent.cannot_cancel == false:
-		if abs(horizontal_input) > 0:
-			finished.emit("StateRunning")
 		# Next attack in the chain
-		elif Input.is_action_just_pressed("Attack"):
+		if Input.is_action_just_pressed("Attack"):
 			finished.emit("StateStandingAttack2")
 		# Trying to jump?
 		elif Input.is_action_pressed("Up") and player_body.is_on_floor():

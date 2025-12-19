@@ -100,7 +100,6 @@ func flip_character():
 ## Linked up to the health component take damage
 ## giving player static flinch time
 func flinch(_duration, _current_health):
-	print("Transitioning to flinch state")
 	call_deferred("transition_to_next_state", "StateFlinch")
 
 ## Return the next move in combo
