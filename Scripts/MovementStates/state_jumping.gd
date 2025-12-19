@@ -20,6 +20,8 @@ func phys_update(_delta: float):
 			finished.emit("StateRunning")
 		elif player_body.is_on_floor():
 			finished.emit("StateIdle")
+		elif Input.is_action_just_pressed("dash"):
+			finished.emit("StateMicroDash")
 		elif player_body.velocity.y >= 0:
 			finished.emit("StateFalling")
 		elif Input.is_action_just_pressed("Attack"):

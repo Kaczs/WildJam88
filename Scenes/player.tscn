@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=57 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://bcdf8v4y07eum" path="res://Scripts/attack_area.gd" id="14_7dp3o"]
 [ext_resource type="Script" uid="uid://c8mohq75c12ix" path="res://Scripts/MovementStates/state_flinch.gd" id="14_36dho"]
 [ext_resource type="Texture2D" uid="uid://cxptxuecqdkfa" path="res://Assets/Sprites/LouJump.png" id="14_wpjfl"]
+[ext_resource type="Script" uid="uid://ipeutbykvyum" path="res://Scripts/MovementStates/state_micro_dash.gd" id="15_nv4vc"]
 [ext_resource type="Script" uid="uid://bxe0qxx4yvhhw" path="res://Scripts/impulsiveness_component.gd" id="16_yh6i2"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
 [ext_resource type="Texture2D" uid="uid://cjnns2n88n5i2" path="res://Assets/Sprites/LouFirstSlashAttack-Sheet.png" id="19_2ijsl"]
@@ -288,6 +289,18 @@ tracks/20/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/21/type = "value"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("Sprite2D:visible")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_h4iuc"]
@@ -1781,6 +1794,71 @@ tracks/12/keys = {
 "values": [0.1]
 }
 
+[sub_resource type="Animation" id="Animation_nv4vc"]
+resource_name = "microdash"
+length = 0.3
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_tx1dd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [19]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Particles/DashParticles:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
 &"RESET": SubResource("Animation_ukyrk"),
@@ -1791,6 +1869,7 @@ _data = {
 &"glaivelanding": SubResource("Animation_y6uwr"),
 &"idle": SubResource("Animation_f1ek2"),
 &"jumping": SubResource("Animation_fd4e3"),
+&"microdash": SubResource("Animation_nv4vc"),
 &"parry": SubResource("Animation_p1odr"),
 &"radiantdash": SubResource("Animation_2ijsl"),
 &"radiantdashair": SubResource("Animation_0gysh"),
@@ -1858,6 +1937,7 @@ script = ExtResource("12_83xs0")
 script = ExtResource("14_36dho")
 
 [node name="StateMicroDash" type="Node" parent="MovementComponent"]
+script = ExtResource("15_nv4vc")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
@@ -1865,7 +1945,7 @@ script = ExtResource("7_3smsa")
 [node name="ImpulsivenessComponent" type="Node" parent="."]
 script = ExtResource("16_yh6i2")
 points_damage_taken = 1.0
-points_damage_dealt = 2.0
+points_damage_dealt = 5.0
 combo_duration = 6.0
 combo_factor_increase_amount = 0.1
 
@@ -1874,7 +1954,7 @@ combo_factor_increase_amount = 0.1
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="DashParticles" parent="Particles" instance=ExtResource("25_p1odr")]
-position = Vector2(-800, 0)
+position = Vector2(-400, 0)
 
 [node name="SlashParticles" parent="Particles" instance=ExtResource("22_wpjfl")]
 process_mode = 3
