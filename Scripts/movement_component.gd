@@ -18,7 +18,9 @@ var current_attack_combo:Array[String] = []
 
 @export var move_speed := 200.0
 @export var jump_power := 1000.0
+# Cooldowns
 @export var dash_cooldown := 2.0
+@export var radiant_cooldown := 10.0
 ## This can be modified by upgrades and such to increase damage in a scaling way
 @export var damage_mod := 1.0
 ## The animation player will change this based on how much damage an attack should do
@@ -32,12 +34,17 @@ var current_attack_combo:Array[String] = []
 @export var slide_forward := false
 @export var cannot_cancel := false
 var dash_timer:Timer
+var radiantd_timer:Timer
 
 func _ready():
 	# Set startup variables
 	player_body = owner
+	# Timers and cooldowns
 	dash_timer = owner.find_child("DashTimer")
 	dash_timer.wait_time =  dash_cooldown
+	radiantd_timer = owner.find_child("RadiantTimer")
+	radiantd_timer.wait_time = radiant_cooldown
+	
 	animation_player = owner.find_child("AnimationPlayer")
 	player_sprite = owner.find_child("Sprite2D")
 	hit_box_area = owner.find_child("AttackArea")

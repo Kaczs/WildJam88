@@ -2027,6 +2027,9 @@ position_smoothing_speed = 3.0
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="RadiantTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="AttackArea" to="AttackArea" method="_on_body_shape_entered"]
 [connection signal="dealt_damage" from="AttackArea" to="MovementComponent" method="_on_attack_area_dealt_damage"]

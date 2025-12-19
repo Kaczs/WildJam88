@@ -3,6 +3,7 @@ extends MovementState
 var target:Vector2
 
 func enter(_previous_state_path: String, _data := {}):
+	parent.radiantd_timer.start()
 	# cancel out any momentum
 	# play idle animation
 	if sprite.flip_h == false:
@@ -21,6 +22,7 @@ func enter(_previous_state_path: String, _data := {}):
 		is_doing_air = true
 	else:
 		animation_player.play("radiantdash")
+	player_body.velocity.x = 0
 
 func phys_update(_delta: float):
 	# Gravity, if doing the air variant slow gravity a lot
@@ -29,13 +31,11 @@ func phys_update(_delta: float):
 	else:
 		player_body.velocity.y += (gravity * 0.2 ) * _delta
 	# Start running based on player input
-	var horizontal_input = Input.get_axis("Left", "Right")
-	# Stopped crouching when trying to run? Stand and run
-	if abs(horizontal_input) > 0:
-		finished.emit("StateRunning")
 	# Trying to jump?
-	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
+	if Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
+	elif Input.is_action_just_pressed("Parry"):
+		finished.emit("StateParry")
 	player_body.move_and_slide()
 
 func exit() -> void:
