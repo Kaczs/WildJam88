@@ -50,7 +50,7 @@ func _ready():
 			push_error("Movement component has no assigned states")
 	# Connect the finished signals of it's children
 	for state_node: MovementState in find_children("*", "MovementState"):
-		state_node.player_body = player_body
+		#state_node.player_body = player_body
 		state_node.finished.connect(transition_to_next_state)
 	current_state = initial_state
 	await owner.ready

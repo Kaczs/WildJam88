@@ -398,6 +398,9 @@ position = Vector2(3737, 1288)
 [node name="Zombie Grunt6" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(4285, 1292)
 
+[node name="Zombie Grunt7" parent="." instance=ExtResource("3_ej3xh")]
+position = Vector2(6932, 1307)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("4_gkpbb")]
