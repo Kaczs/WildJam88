@@ -13,6 +13,7 @@ func enter(_previous_state_path: String, _data := {}):
 	parry_area.connect("body_entered", check_bodies_for_parry)
 	parry_area.connect("area_shape_entered", check_areas_for_parry)
 	animation_player.play("parry")
+	player_body.velocity.x = 0
 
 func phys_update(_delta: float):
 	# Gravity

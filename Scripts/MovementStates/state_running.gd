@@ -24,6 +24,8 @@ func phys_update(_delta: float):
 		finished.emit("StateJumping")
 	elif Input.is_action_just_pressed("Attack"):
 		finished.emit("StateComboDecide")
+	elif Input.is_action_just_pressed("Parry"):
+		finished.emit("StateParry")
 	elif Input.is_action_just_pressed("dash") and parent.dash_timer.is_stopped():
 		finished.emit("StateMicroDash")
 	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25:
