@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://marjum7oehw3"]
+[gd_scene load_steps=24 format=4 uid="uid://marjum7oehw3"]
 
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="1_f0tg5"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_ej3xh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="5_d054f"]
 [ext_resource type="Texture2D" uid="uid://bu6gveygagik1" path="res://Assets/MapTiles/JustExtrasBrickSet.png" id="5_gb0dk"]
 [ext_resource type="PackedScene" uid="uid://dqttirg4fvyxs" path="res://Assets/ParticleSystems/snow_particles.tscn" id="9_eicsn"]
+[ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="10_e8spf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb0dk"]
 texture = ExtResource("4_pl5oj")
@@ -460,10 +461,13 @@ position = Vector2(9334, 2495)
 position = Vector2(12165, 2470)
 
 [node name="Zombie Grunt6" parent="." instance=ExtResource("3_ej3xh")]
-position = Vector2(12711, 2435)
+position = Vector2(13235, 2397)
 
 [node name="Zombie Grunt7" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(10644, 2486)
 
 [node name="Zombie Grunt8" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(11033, 2486)
+
+[node name="LevelGoal" parent="." instance=ExtResource("10_e8spf")]
+position = Vector2(13308, 2447)
