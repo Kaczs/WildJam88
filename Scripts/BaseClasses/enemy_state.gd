@@ -5,8 +5,8 @@ signal finished(next_state_path: String, data: Dictionary)
 var player: CharacterBody2D
 var brain_component: EnemyBrainComponent:
 	get: return get_parent() as EnemyBrainComponent
-var enemy_body: RigidBody2D:
-	get: return brain_component.enemy_body as RigidBody2D
+var enemy_body: CharacterBody2D:
+	get: return brain_component.enemy_body as CharacterBody2D
 var animation_player:AnimationPlayer:
 	get: return brain_component.animation_player as AnimationPlayer
 var sprite_2d:Sprite2D:

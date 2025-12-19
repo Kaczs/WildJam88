@@ -6,7 +6,7 @@ class_name EnemyBrainComponent extends Node2D
 var current_state: EnemyState
 var last_facing:bool
 var starting_position:Vector2
-var enemy_body: RigidBody2D
+var enemy_body: CharacterBody2D
 var health_component:HealthComponent
 var animation_player:AnimationPlayer
 var sprite_2d:Sprite2D
@@ -32,7 +32,7 @@ func _ready():
 	animation_player = owner.find_child("AnimationPlayer") 
 	sprite_2d = owner.find_child("Sprite2D")
 	player_detector = owner.find_child("PlayerDetector")
-	hit_box = owner.find_child("HitBox")	
+	hit_box = owner.find_child("HitBox")
 	starting_position = self.get_global_position()
 	# Grab the first state on the object if one wasn't set 
 	if initial_state == null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://marjum7oehw3"]
+[gd_scene load_steps=20 format=4 uid="uid://marjum7oehw3"]
 
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="1_f0tg5"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_ej3xh"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="4_gkpbb"]
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="4_pl5oj"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="5_d054f"]
-[ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="8_gb0dk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb0dk"]
 texture = ExtResource("4_pl5oj")
@@ -403,12 +402,3 @@ position = Vector2(4285, 1292)
 
 [node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("4_gkpbb")]
 script = ExtResource("5_d054f")
-
-[node name="Cultist" parent="." instance=ExtResource("8_gb0dk")]
-position = Vector2(1024, 1361)
-
-[node name="Cultist2" parent="." instance=ExtResource("8_gb0dk")]
-position = Vector2(628, 1367)
-
-[node name="Cultist3" parent="." instance=ExtResource("8_gb0dk")]
-position = Vector2(1358, 1350)
