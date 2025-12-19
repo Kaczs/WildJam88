@@ -13,7 +13,7 @@ var arrow:Projectile
 
 func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:CharacterBody2D):
 	if not sprite:
-		sprite = enemy.get_node("EnemyBrainComponent").animated_sprite_2d
+		sprite = enemy.get_node("EnemyBrainComponent").sprite_2d
 	arrow = projectile.instantiate()
 	var angle_to_player = enemy.position.angle_to_point(player.position)
 	var direction_to_player = player.global_position.x - enemy.global_position.x

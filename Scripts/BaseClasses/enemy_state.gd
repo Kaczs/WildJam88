@@ -11,6 +11,8 @@ var animation_player:AnimationPlayer:
 	get: return brain_component.animation_player as AnimationPlayer
 var sprite_2d:Sprite2D:
 	get: return brain_component.sprite_2d as Sprite2D
+var collider:CollisionShape2D:
+	get: return brain_component.hurt_box as CollisionShape2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var animation_sprite:String
 
