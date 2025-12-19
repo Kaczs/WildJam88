@@ -1,12 +1,17 @@
 extends MovementState
+var target:Vector2
 
 func enter(_previous_state_path: String, _data := {}):
+	
 	# cancel out any momentum
 	if sprite.flip_h == false:
-		player_body.position.x += 400
+		target = Vector2(player_body.position.x+400, player_body.position.y)
 	else:
 		parent.flip_character()
-		player_body.position.x -= 400
+		target = Vector2(player_body.position.x-400, player_body.position.y)
+	var safe_pos = TeleportFinder.find_valid_position(player_body, target)
+
+	player_body.position = safe_pos
 	animation_player.play("microdash")
 
 func phys_update(_delta: float):

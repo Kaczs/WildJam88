@@ -1,5 +1,4 @@
-extends Node
-
+class_name TeleportFinder extends Node
 
 ## Takes a physBody2D and point, and tries to find a valid spot to teleport to
 ## step count determines the amount of steps back to try

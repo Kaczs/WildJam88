@@ -1,14 +1,17 @@
 extends MovementState
 @export var is_doing_air := false
+var target:Vector2
 
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play idle animation
 	if sprite.flip_h == false:
-		player_body.position.x += 700
+		target = Vector2(player_body.position.x+800, player_body.position.y)
 	else:
 		parent.flip_character()
-		player_body.position.x -= 700
+		target = Vector2(player_body.position.x-800, player_body.position.y)
+	var safe_pos = TeleportFinder.find_valid_position(player_body, target)
+	player_body.position = safe_pos
 	# Wait
 	if not player_body.is_on_floor():
 		animation_player.play("radiantdashair")
