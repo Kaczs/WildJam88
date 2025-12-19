@@ -47,6 +47,7 @@ func _ready():
 	current_state = initial_state
 	await owner.ready
 	health_component.on_hit.connect(enemy_hit)
+	print(animation_player)
 	current_state.enter("",{})
 
 func _process(delta: float):

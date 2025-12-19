@@ -2,6 +2,8 @@ extends MovementState
 var parry_area:Area2D
 
 func enter(_previous_state_path: String, _data := {}):
+	# Clear current attack combo
+	parent.current_attack_combo.clear()
 	# Flip hitbox depending on facing
 	if sprite.flip_h == true:
 		parent.flip_character()

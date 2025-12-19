@@ -22,7 +22,8 @@ func phys_update(_delta: float):
 		var horizontal_input = Input.get_axis("Left", "Right")
 		# Next attack in sequence
 		if Input.is_action_pressed("Attack"):
-			finished.emit("StateStandingAttack3")
+			parent.advance_combo()
+			#check combo tracker
 		# Start running based on player input
 		elif abs(horizontal_input) > 0:
 			finished.emit("StateRunning")

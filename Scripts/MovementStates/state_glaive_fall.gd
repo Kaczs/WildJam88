@@ -2,6 +2,8 @@ extends MovementState
 var falling_factor := 2.0
 
 func enter(_previous_state_path: String, _data := {}):
+	# Clear current attack combo
+	parent.current_attack_combo.clear()
 	# cancel out any momentum
 	# play falling animation
 	animation_player.play("glaivefall")

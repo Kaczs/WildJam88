@@ -370,7 +370,7 @@ tile_map_data = PackedByteArray("AAD//wEAAAAAAAQAAAAAAAEAAAABAAAAAAABAAEAAAABAAA
 tile_set = SubResource("TileSet_opncs")
 
 [node name="Player" parent="." instance=ExtResource("2_ej3xh")]
-position = Vector2(2418, 772)
+position = Vector2(1265, 1365)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player"]
 current = true
@@ -382,21 +382,31 @@ tile_set = SubResource("TileSet_pl5oj")
 
 [node name="Zombie Grunt" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(2806, 1322)
+script = null
 
 [node name="Zombie Grunt2" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(3458, 1279)
+script = null
 
 [node name="Zombie Grunt3" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(4020, 1275)
+script = null
 
 [node name="Zombie Grunt4" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(3119, 1296)
+script = null
 
 [node name="Zombie Grunt5" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(3737, 1288)
+script = null
 
 [node name="Zombie Grunt6" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(4285, 1292)
+script = null
+
+[node name="Zombie Grunt7" parent="." instance=ExtResource("3_ej3xh")]
+position = Vector2(6932, 1307)
+script = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

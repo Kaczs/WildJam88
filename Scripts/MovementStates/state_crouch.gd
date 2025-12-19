@@ -2,6 +2,8 @@ extends MovementState
 var player_collider:CollisionShape2D
 
 func enter(_previous_state_path: String, _data := {}):
+	# Clear current attack combo
+	parent.current_attack_combo.clear()
 	# cancel out any momentum
 	animation_player.play("crouching")
 	player_body.velocity.x = 0
@@ -23,6 +25,8 @@ func phys_update(_delta: float):
 	# Stopped crouching while idle
 	elif not Input.is_action_pressed("Down"):
 		finished.emit("StateIdle")
+	elif not Input.is_action_pressed("Attack"):
+		finished.emit("StateComboDecide")
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")

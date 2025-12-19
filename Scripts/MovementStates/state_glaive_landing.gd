@@ -3,6 +3,7 @@ extends MovementState
 func enter(_previous_state_path: String, _data := {}):
 	# cancel out any momentum
 	# play falling animation
+	player_body.velocity.x = 0
 	animation_player.play("glaivelanding")
 
 func phys_update(_delta: float):
