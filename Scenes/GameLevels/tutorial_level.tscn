@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://marjum7oehw3"]
+[gd_scene load_steps=23 format=4 uid="uid://marjum7oehw3"]
 
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="1_f0tg5"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_ej3xh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="4_pl5oj"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="5_d054f"]
 [ext_resource type="Texture2D" uid="uid://bu6gveygagik1" path="res://Assets/MapTiles/JustExtrasBrickSet.png" id="5_gb0dk"]
+[ext_resource type="PackedScene" uid="uid://dqttirg4fvyxs" path="res://Assets/ParticleSystems/snow_particles.tscn" id="9_eicsn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb0dk"]
 texture = ExtResource("4_pl5oj")
@@ -413,6 +414,10 @@ sources/0 = SubResource("TileSetAtlasSource_d054f")
 sources/1 = SubResource("TileSetAtlasSource_eicsn")
 
 [node name="TutorialLevel" type="Node2D"]
+
+[node name="SnowParticles" parent="." instance=ExtResource("9_eicsn")]
+position = Vector2(6422, 1137)
+scale = Vector2(4, 4)
 
 [node name="TileMapLayerBackground" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAB9AAgAAAABAAAAAACGAAgAAAAKAAAAAACPAAgAAAABAAAAAACYAAgAAAAKAAAAAAB4AAgAAAABAAAAAACBAAgAAAAKAAAAAAA=")
