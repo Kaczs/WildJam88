@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqttirg4fvyxs"]
+
+[sub_resource type="Gradient" id="Gradient_ouylv"]
+offsets = PackedFloat32Array(0.43121693, 0.56613755)
+colors = PackedColorArray(1, 1, 1, 0.23200001, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wdmml"]
+gradient = SubResource("Gradient_ouylv")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ouylv"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -200, 0)
+emission_shape = 3
+emission_box_extents = Vector3(700, 1, 1)
+gravity = Vector3(45, 200, 0)
+scale_min = 4.0
+scale_max = 8.0
+color_initial_ramp = SubResource("GradientTexture1D_wdmml")
+turbulence_enabled = true
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.020000001
+turbulence_influence_max = 0.080000006
+
+[node name="SnowParticles" type="GPUParticles2D"]
+amount = 1000
+lifetime = 10.0
+preprocess = 30.0
+visibility_rect = Rect2(-700, -200, 700, 400)
+process_material = SubResource("ParticleProcessMaterial_ouylv")
