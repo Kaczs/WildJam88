@@ -1,6 +1,7 @@
-[gd_scene load_steps=26 format=3 uid="uid://bsdwdjt7ngsdt"]
+[gd_scene load_steps=30 format=3 uid="uid://bsdwdjt7ngsdt"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_1a5dh"]
+[ext_resource type="Script" uid="uid://h4t376isiqip" path="res://Scenes/Enemies/Enemy Scripts/zombie_grunt.gd" id="1_fm8vn"]
 [ext_resource type="Texture2D" uid="uid://fe03wv67va6t" path="res://Assets/EnemySprites/ZombieBase.png" id="2_1a5dh"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_wdmh3"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_wmeet"]
@@ -12,8 +13,11 @@
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_fm8vn"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="10_a0lqs"]
 [ext_resource type="Texture2D" uid="uid://dij4wdjmmogg4" path="res://Assets/EnemySprites/ZombieAttack-Sheet.png" id="11_wdmh3"]
+[ext_resource type="Texture2D" uid="uid://c3llncs8p2cwx" path="res://Assets/EnemySprites/ZombieDeath.png" id="12_0pyay"]
 [ext_resource type="Texture2D" uid="uid://b2gkkkx8omnlv" path="res://Assets/EnemySprites/ZombieShamble-Sheet.png" id="12_wmeet"]
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="14_scpst"]
+[ext_resource type="Texture2D" uid="uid://cdfkut3vp5xs2" path="res://Assets/EnemySprites/ZombieArm.png" id="15_cccnr"]
+[ext_resource type="Texture2D" uid="uid://c7bsag4byg2pe" path="res://Assets/EnemySprites/ZombieLeg.png" id="16_2wblh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
 radius = 1000.0
@@ -202,23 +206,35 @@ resource_name = "Death"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/path = NodePath("Enemy Death Arms:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.3),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Color(1, 1, 1, 0)]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Enemy Death:emitting")
+tracks/1/path = NodePath("Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.23333333),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_0pyay")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemy Death Legs:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -304,22 +320,10 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Enemy Death:emitting")
+tracks/4/path = NodePath("HitBox/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("HitBox/CollisionShape2D:disabled")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0.01),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -426,6 +430,7 @@ height = 326.0
 [node name="Zombie Grunt" type="RigidBody2D"]
 collision_layer = 9
 lock_rotation = true
+script = ExtResource("1_fm8vn")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("1_1a5dh")
@@ -484,7 +489,13 @@ script = ExtResource("10_a0lqs")
 position = Vector2(14, -3)
 shape = SubResource("CapsuleShape2D_ef3uv")
 
-[node name="Enemy Death" parent="." instance=ExtResource("14_scpst")]
-position = Vector2(-3, -16)
+[node name="Enemy Death Arms" parent="." instance=ExtResource("14_scpst")]
+position = Vector2(-18, -48)
+texture = ExtResource("15_cccnr")
 
+[node name="Enemy Death Legs" parent="." instance=ExtResource("14_scpst")]
+position = Vector2(-3, 81)
+texture = ExtResource("16_2wblh")
+
+[connection signal="texture_changed" from="Sprite2D" to="." method="_on_sprite_2d_texture_changed"]
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

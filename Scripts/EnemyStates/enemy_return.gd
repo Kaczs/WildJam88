@@ -24,7 +24,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		direction_to_start = -1
 		facing_left = true
 	animation_player.play(animation_sprite)
-	brain_component.animated_sprite_2d.flip_h = facing_left
+	sprite_2d.flip_h = facing_left
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	audio.play()
@@ -37,7 +37,7 @@ func phys_update(_delta: float):
 	#adds a deadzone to the start posision 
 	if distacne_to_start < 30 and -30 < distacne_to_start:
 		finished.emit("EnemySearch")
-	enemy_body.position.x += brain_component.move_speed * return_slowdown * _delta * direction_to_start
+	enemy_body.apply_force(Vector2(brain_component.move_speed * distacne_to_start,0))
 
 func _on_audio_stream_player_2d_finished() -> void:
 	if is_current_state:

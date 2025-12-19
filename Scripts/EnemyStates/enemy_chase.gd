@@ -19,7 +19,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		direction_to_player = -1
 		facing_left = true
 	animation_player.play(animation_sprite)
-	brain_component.animated_sprite_2d.flip_h = facing_left
+	sprite_2d.flip_h = facing_left
 	#start playing foot step sound here then will play the rest from the _on_audio_stream_player_2d_finished function
 	audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 	is_current_state = true
@@ -39,16 +39,16 @@ func phys_update(_delta: float):
 		direction_to_player = -1
 		facing_left = true
 	animation_player.play(animation_sprite)
-	if reverse:
-		enemy_body.global_position.x += brain_component.move_speed * _delta * -direction_to_player
-		if abs(player.global_position.x - brain_component.global_position.x) >= attack_range:
-			finished.emit("EnemyAttack", {"player": player})
-	else:
-		enemy_body.global_position.x += brain_component.move_speed * _delta * direction_to_player
-		if abs(player.global_position.x - brain_component.global_position.x) <= attack_range:
-			finished.emit("EnemyAttack", {"player": player})
-		elif abs(player.global_position.x - brain_component.global_position.x) >= brain_component.lose_player_distance:
-			finished.emit("EnemyReturn")
+	#if reverse:
+		#enemy_body.apply_force(Vector2(brain_component.move_speed * -direction_to_player,0))
+		#if abs(player.global_position.x - brain_component.global_position.x) >= attack_range:
+			#finished.emit("EnemyAttack", {"player": player})
+	#else:
+		#enemy_body.apply_force(Vector2(brain_component.move_speed * direction_to_player,0))
+		#if abs(player.global_position.x - brain_component.global_position.x) <= attack_range:
+			#finished.emit("EnemyAttack", {"player": player})
+		#elif abs(player.global_position.x - brain_component.global_position.x) >= brain_component.lose_player_distance:
+			#finished.emit("EnemyReturn")
 
 func exit() -> void:
 	is_current_state = false
@@ -67,4 +67,4 @@ func _on_audio_stream_player_2d_finished() -> void:
 		audio.stream = load(SoundFiles.snowy_footsteps.pick_random())
 		audio.play()
 		#we only updata animation if this is curent state
-		brain_component.animated_sprite_2d.flip_h = facing_left
+		sprite_2d.flip_h = facing_left
