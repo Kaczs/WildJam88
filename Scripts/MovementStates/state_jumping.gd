@@ -22,13 +22,14 @@ func phys_update(_delta: float):
 			finished.emit("StateRunning")
 		elif player_body.is_on_floor():
 			finished.emit("StateIdle")
-		elif Input.is_action_just_pressed("dash"):
+		elif Input.is_action_just_pressed("dash") and parent.dash_timer.is_stopped():
 			finished.emit("StateMicroDash")
 		elif player_body.velocity.y >= 0:
 			finished.emit("StateFalling")
 		elif Input.is_action_just_pressed("Attack"):
 			finished.emit("StateGlaiveFall")
-		elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25:
+		elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25\
+		and parent.radiantd_timer.is_stopped():
 			finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 

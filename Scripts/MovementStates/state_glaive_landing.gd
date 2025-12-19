@@ -9,7 +9,8 @@ func enter(_previous_state_path: String, _data := {}):
 func phys_update(_delta: float):
 	# Scale gravity as you go
 	player_body.velocity.y += (gravity * _delta)
-	if Input.is_action_just_pressed("special1"):
+	if Input.is_action_just_pressed("special1") and parent.radiantd_timer.is_stopped()\
+	and impulsiveness_component.current_impulsiveness >=25:
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
