@@ -59,6 +59,9 @@ func _physics_process(delta: float) -> void:
 ## Function will take a path to the state you want to transition to
 ## and will do that
 func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
+	if is_dead and not target_state_path == "EnemyDeath":
+		print(enemy_body.name + "cant revieve")
+		return
 	animation_player.play("RESET")
 	animation_player.advance(0)
 	print("Transitioning Enemy to State: " + current_state.name)

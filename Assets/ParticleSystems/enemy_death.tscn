@@ -1,4 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://clxy5yn3v06sl"]
+[gd_scene load_steps=8 format=3 uid="uid://clxy5yn3v06sl"]
+
+[ext_resource type="Texture2D" uid="uid://ckmprkkcw2mab" path="res://Assets/EnemySprites/CultistDeath.png" id="1_y3r7f"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5fn02"]
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 65.689995
+initial_velocity_max = 65.689995
+gravity = Vector3(0, 98, 0)
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.9
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 20
 
 [sub_resource type="Gradient" id="Gradient_8gy5h"]
 interpolation_mode = 2
@@ -34,10 +50,19 @@ collision_friction = 0.1
 collision_bounce = 0.3
 
 [node name="Enemy Death" type="GPUParticles2D"]
-self_modulate = Color(1, 0, 0, 1)
 emitting = false
-amount = 500
-lifetime = 3.0
+amount = 2
+sub_emitter = NodePath("GPUParticles2D")
+texture = ExtResource("1_y3r7f")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_5fn02")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 2000
+lifetime = 5.0
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_ykmd2")
