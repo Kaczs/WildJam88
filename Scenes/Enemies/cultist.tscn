@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0uss1ghtluwf"]
+[gd_scene load_steps=31 format=3 uid="uid://d0uss1ghtluwf"]
 
 [ext_resource type="Script" uid="uid://byrcl4rsx7gnk" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="2_3xlbi"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c8n1e7dp0dimm" path="res://Assets/EnemySprites/CultistMoving-Sheet.png" id="13_hbqep"]
 [ext_resource type="Texture2D" uid="uid://ckmprkkcw2mab" path="res://Assets/EnemySprites/CultistDeath.png" id="13_u1qm0"]
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="15_leejk"]
+[ext_resource type="Texture2D" uid="uid://b851dq8nfn2hj" path="res://Assets/EnemySprites/CultistArm.png" id="17_l1am0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
 radius = 62.0
@@ -577,5 +578,6 @@ debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="Enemy Death" parent="." instance=ExtResource("15_leejk")]
 position = Vector2(1, -10)
+texture = ExtResource("17_l1am0")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

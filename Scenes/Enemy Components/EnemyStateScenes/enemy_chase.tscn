@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjq22nqaeaqqk" path="res://Scripts/EnemyStates/enemy_chase.gd" id="1_hy7vr"]
 
-[node name="EnemyChase" type="Node"]
+[node name="EnemyChase" type="Node2D"]
 script = ExtResource("1_hy7vr")
 animation_sprite = "Run"
 

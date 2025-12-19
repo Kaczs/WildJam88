@@ -9,7 +9,7 @@ var starting_position:Vector2
 var enemy_body: RigidBody2D
 var health_component:HealthComponent
 var animation_player:AnimationPlayer
-var animated_sprite_2d:Sprite2D
+var sprite_2d:Sprite2D
 var player_detector:Area2D
 var hit_box:Area2D
 
@@ -27,13 +27,13 @@ var is_dead := false
 func _ready():
 	if not initial_state:
 		initial_state = get_node("EnemySearch")
+	enemy_body = owner
 	health_component = owner.find_child("HealthComponent") 
 	animation_player = owner.find_child("AnimationPlayer") 
-	animated_sprite_2d = owner.find_child("Sprite2D")
+	sprite_2d = owner.find_child("Sprite2D")
 	player_detector = owner.find_child("PlayerDetector")
 	hit_box = owner.find_child("HitBox")	
 	starting_position = self.get_global_position()
-	enemy_body = get_parent()
 	# Grab the first state on the object if one wasn't set 
 	if initial_state == null:
 		if get_child_count() > 0:
@@ -42,7 +42,6 @@ func _ready():
 			push_error("Movement component has no assigned states")
 	# Connect the finished signals of it's children
 	for state_node: EnemyState in find_children("*", "EnemyState"):
-		state_node.enemy_body = enemy_body
 		state_node.finished.connect(transition_to_next_state)
 		state_node.animation_player = animation_player
 	current_state = initial_state
