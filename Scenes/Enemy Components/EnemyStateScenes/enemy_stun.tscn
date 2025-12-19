@@ -4,7 +4,8 @@
 
 [node name="EnemyStun" type="Node"]
 script = ExtResource("1_x4x0q")
-animation_sprite = "Stun"
+animation_sprite2 = "ParryStun"
+animation_sprite = "HitStun"
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

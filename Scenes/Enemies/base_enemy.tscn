@@ -54,7 +54,7 @@ collision_bounce = 0.0
 [node name="Base Enemy" type="CharacterBody2D"]
 collision_layer = 9
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(14, -3)
 shape = SubResource("CapsuleShape2D_ef3uv")
 

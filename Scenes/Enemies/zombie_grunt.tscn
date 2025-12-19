@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bsdwdjt7ngsdt"]
+[gd_scene load_steps=31 format=3 uid="uid://bsdwdjt7ngsdt"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_1a5dh"]
 [ext_resource type="Script" uid="uid://h4t376isiqip" path="res://Scenes/Enemies/Enemy Scripts/zombie_grunt.gd" id="1_fm8vn"]
@@ -373,7 +373,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_wdmh3"]
-resource_name = "Stun"
+resource_name = "HitStun"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -412,15 +412,56 @@ tracks/2/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_fm8vn"]
+resource_name = "ParryStun"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_1a5dh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(0.12156863, 0.34901962, 0.7529412, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_scpst"]
 _data = {
 &"AttackLeft": SubResource("Animation_scpst"),
 &"AttackRight": SubResource("Animation_cccnr"),
 &"Death": SubResource("Animation_ehi6e"),
+&"HitStun": SubResource("Animation_wdmh3"),
 &"Idle": SubResource("Animation_0pyay"),
+&"ParryStun": SubResource("Animation_fm8vn"),
 &"RESET": SubResource("Animation_wmeet"),
-&"Run": SubResource("Animation_2wblh"),
-&"Stun": SubResource("Animation_wdmh3")
+&"Run": SubResource("Animation_2wblh")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]

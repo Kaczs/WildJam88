@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d0uss1ghtluwf"]
+[gd_scene load_steps=32 format=3 uid="uid://d0uss1ghtluwf"]
 
 [ext_resource type="Script" uid="uid://byrcl4rsx7gnk" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="2_3xlbi"]
@@ -438,8 +438,25 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_lfjdt"]
+resource_name = "Summon"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"summon_now"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_8sg68"]
-resource_name = "Stun"
+resource_name = "HitStun"
 length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -478,21 +495,44 @@ tracks/2/keys = {
 "values": [Color(1, 0.33551362, 0.2695955, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_lfjdt"]
-resource_name = "Summon"
-tracks/0/type = "method"
+[sub_resource type="Animation" id="Animation_l1am0"]
+resource_name = "ParryStun"
+length = 0.2
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/path = NodePath("Sprite2D:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.8333333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"summon_now"
-}]
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_hbqep")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(0.12156863, 0.34901962, 0.7529412, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuqf4"]
@@ -500,11 +540,12 @@ _data = {
 &"AttackLeft": SubResource("Animation_c2fo8"),
 &"AttackRight": SubResource("Animation_qkjgn"),
 &"Death": SubResource("Animation_tuqf4"),
+&"HitStun": SubResource("Animation_8sg68"),
 &"Idle": SubResource("Animation_cqif6"),
+&"ParryStun": SubResource("Animation_l1am0"),
 &"RESET": SubResource("Animation_rx00m"),
 &"RangeAttack": SubResource("Animation_hbqep"),
 &"Run": SubResource("Animation_6gj7t"),
-&"Stun": SubResource("Animation_8sg68"),
 &"Summon": SubResource("Animation_lfjdt")
 }
 
