@@ -27,4 +27,3 @@ func enter(_previous_state_path: String, _data:Dictionary):
 ## Called when changing the state away from this one, should clean up
 func exit() -> void:
 	pass
-
