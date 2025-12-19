@@ -25,7 +25,7 @@ func phys_update(_delta: float):
 	# Stopped crouching while idle
 	elif not Input.is_action_pressed("Down"):
 		finished.emit("StateIdle")
-	elif not Input.is_action_pressed("Attack"):
+	elif Input.is_action_pressed("Attack"):
 		finished.emit("StateComboDecide")
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
