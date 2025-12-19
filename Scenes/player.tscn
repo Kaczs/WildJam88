@@ -1897,6 +1897,7 @@ collision_layer = 7
 [node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
 move_speed = 600.0
 jump_power = 700.0
+dash_cooldown = 1.0
 
 [node name="StateIdle" type="Node" parent="MovementComponent"]
 script = ExtResource("3_vgqql")
@@ -2024,6 +2025,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 3.0
 
 [node name="DashTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]
 [connection signal="body_shape_entered" from="AttackArea" to="AttackArea" method="_on_body_shape_entered"]

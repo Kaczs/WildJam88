@@ -67,6 +67,7 @@ func _unhandled_input(event: InputEvent):
 	current_state.handle_input(event)
 
 func _process(delta: float):
+	print(dash_timer.time_left)
 	current_state.update(delta)
 
 func _physics_process(delta: float) -> void:
