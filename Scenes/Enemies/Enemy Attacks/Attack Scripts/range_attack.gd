@@ -11,7 +11,7 @@ var arrow:Projectile
 @export var sprite:Node2D
 @export var spawn_offset := Vector2.ZERO
 
-func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:RigidBody2D):
+func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:CharacterBody2D):
 	if not sprite:
 		sprite = enemy.get_node("EnemyBrainComponent").animated_sprite_2d
 	arrow = projectile.instantiate()

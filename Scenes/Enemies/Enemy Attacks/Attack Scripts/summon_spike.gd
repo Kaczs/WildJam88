@@ -7,7 +7,7 @@ const min_range := 400
 
 var spike_scene:PackedScene = load("res://Scenes/Enemies/Enemy Attacks/Attack Scenes/spike.tscn")
 
-func attack(player:CharacterBody2D, animation_player:AnimationPlayer, _enemy:RigidBody2D):
+func attack(player:CharacterBody2D, animation_player:AnimationPlayer, _enemy:CharacterBody2D):
 	var spike:Spike = spike_scene.instantiate()
 	spike.position = Vector2(player.position.x, player.position.y + 200)
 	spike.scale = Vector2(0.2,0.2)

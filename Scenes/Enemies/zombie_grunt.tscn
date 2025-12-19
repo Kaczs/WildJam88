@@ -427,9 +427,8 @@ _data = {
 radius = 62.0
 height = 326.0
 
-[node name="Zombie Grunt" type="RigidBody2D"]
+[node name="Zombie Grunt" type="CharacterBody2D"]
 collision_layer = 9
-lock_rotation = true
 script = ExtResource("1_fm8vn")
 
 [node name="HealthComponent" type="Node" parent="."]
@@ -450,7 +449,8 @@ attack_distance = 700
 [node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("5_scpst")]
 
 [node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("6_cccnr")]
-animation_sprite = ""
+sequens_attacks = null
+animation_sprite = null
 
 [node name="MeleeAttack" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("7_ehi6e")]
 
@@ -496,6 +496,3 @@ texture = ExtResource("15_cccnr")
 [node name="Enemy Death Legs" parent="." instance=ExtResource("14_scpst")]
 position = Vector2(-3, 81)
 texture = ExtResource("16_2wblh")
-
-[connection signal="texture_changed" from="Sprite2D" to="." method="_on_sprite_2d_texture_changed"]
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

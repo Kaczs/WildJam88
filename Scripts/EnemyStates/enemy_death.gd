@@ -7,7 +7,6 @@ func enter(_previous_state_path: String, _data:Dictionary):
 		collider = enemy_body.find_child("Hurtbox")
 	#if we dont disable gravity the we will fall through the floor when the colider is diabled
 	#could do this by changing the colision mask to let the player through and stay on the floor
-	enemy_body.gravity_scale = 0
 	animation_player.play(animation_sprite)
 	#this allows the player to walk through deffeted enemies
 	collider.set_deferred("disabled", true)
