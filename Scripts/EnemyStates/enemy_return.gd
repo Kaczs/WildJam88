@@ -38,6 +38,8 @@ func phys_update(_delta: float):
 	if distacne_to_start < 30 and -30 < distacne_to_start:
 		finished.emit("EnemySearch")
 	enemy_body.velocity.x = brain_component.move_speed * distacne_to_start
+	enemy_body.velocity.y = gravity
+	enemy_body.move_and_slide()
 
 func _on_audio_stream_player_2d_finished() -> void:
 	if is_current_state:

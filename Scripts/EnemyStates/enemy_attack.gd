@@ -22,6 +22,8 @@ func phys_update(_delta: float):
 			next_attack()
 		else:
 			pick_random_attack()
+	enemy_body.velocity.y = gravity
+	enemy_body.move_and_slide()
 
 func next_attack():
 	var distance_to_player = abs(player.global_position.x - brain_component.global_position.x)

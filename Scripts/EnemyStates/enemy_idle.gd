@@ -19,10 +19,13 @@ func enter(_previous_state_path: String, _data:Dictionary):
 			return
 	area.get_child(0).call_deferred("set_disabled",false)
 
-
 func body_entered(body:Node2D):
 	if body.is_in_group("player"):
 		finished.emit("EnemyChase", {"player": body})
+
+func phys_update(_delta: float):
+	enemy_body.velocity.y = gravity
+	enemy_body.move_and_slide()
 
 func exit() -> void:
 	area.get_child(0).call_deferred("set_disabled",true)
