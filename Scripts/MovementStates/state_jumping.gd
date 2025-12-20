@@ -24,6 +24,8 @@ func phys_update(_delta: float):
 			finished.emit("StateIdle")
 		elif Input.is_action_just_pressed("dash") and parent.dash_timer.is_stopped():
 			finished.emit("StateMicroDash")
+		elif Input.is_action_just_pressed("Parry"):
+			finished.emit("StateParry")
 		elif player_body.velocity.y >= 0:
 			finished.emit("StateFalling")
 		elif Input.is_action_just_pressed("Attack"):
