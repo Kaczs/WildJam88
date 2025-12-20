@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="12_3ypud"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_njkd6"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gb0dk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_njkd6"]
 texture = ExtResource("4_pl5oj")
 texture_region_size = Vector2i(32, 32)
 1:0/size_in_atlas = Vector2i(7, 16)
@@ -26,7 +26,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_eicsn"]
 tile_size = Vector2i(48, 192)
-sources/0 = SubResource("TileSetAtlasSource_gb0dk")
+sources/0 = SubResource("TileSetAtlasSource_njkd6")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pl5oj"]
 polygon = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
@@ -46,7 +46,7 @@ polygon = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_3ypud"]
 polygon = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f0tg5"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70seo"]
 texture = ExtResource("1_f0tg5")
 texture_region_size = Vector2i(192, 192)
 0:0/next_alternative_id = 3
@@ -61,6 +61,7 @@ texture_region_size = Vector2i(192, 192)
 0:0/1 = 1
 0:0/1/terrain_set = 0
 0:0/1/terrain = 0
+0:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 0:0/1/terrains_peering_bit/right_side = 0
 0:0/1/terrains_peering_bit/bottom_right_corner = 0
 0:0/1/terrains_peering_bit/bottom_side = 0
@@ -68,6 +69,7 @@ texture_region_size = Vector2i(192, 192)
 0:0/2 = 2
 0:0/2/terrain_set = 0
 0:0/2/terrain = 0
+0:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 0:0/2/terrains_peering_bit/right_side = 0
 0:0/2/terrains_peering_bit/bottom_right_corner = 0
 0:0/2/terrains_peering_bit/bottom_side = 0
@@ -113,6 +115,7 @@ texture_region_size = Vector2i(192, 192)
 2:0/1 = 1
 2:0/1/terrain_set = 0
 2:0/1/terrain = 0
+2:0/1/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 2:0/1/terrains_peering_bit/bottom_right_corner = 0
 2:0/1/terrains_peering_bit/bottom_side = 0
 2:0/1/terrains_peering_bit/bottom_left_corner = 0
@@ -120,6 +123,7 @@ texture_region_size = Vector2i(192, 192)
 2:0/2 = 2
 2:0/2/terrain_set = 0
 2:0/2/terrain = 0
+2:0/2/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 2:0/2/terrains_peering_bit/bottom_side = 0
 2:0/2/terrains_peering_bit/bottom_left_corner = 0
 2:0/2/terrains_peering_bit/left_side = 0
@@ -212,6 +216,7 @@ texture_region_size = Vector2i(192, 192)
 0:2/1 = 1
 0:2/1/terrain_set = 0
 0:2/1/terrain = 0
+0:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 0:2/1/terrains_peering_bit/right_side = 0
 0:2/1/terrains_peering_bit/top_left_corner = 0
 0:2/1/terrains_peering_bit/top_side = 0
@@ -219,6 +224,7 @@ texture_region_size = Vector2i(192, 192)
 0:2/2 = 2
 0:2/2/terrain_set = 0
 0:2/2/terrain = 0
+0:2/2/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 0:2/2/terrains_peering_bit/right_side = 0
 0:2/2/terrains_peering_bit/bottom_right_corner = 0
 0:2/2/terrains_peering_bit/top_side = 0
@@ -264,6 +270,7 @@ texture_region_size = Vector2i(192, 192)
 2:2/1 = 1
 2:2/1/terrain_set = 0
 2:2/1/terrain = 0
+2:2/1/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 2:2/1/terrains_peering_bit/left_side = 0
 2:2/1/terrains_peering_bit/top_left_corner = 0
 2:2/1/terrains_peering_bit/top_side = 0
@@ -271,6 +278,7 @@ texture_region_size = Vector2i(192, 192)
 2:2/2 = 2
 2:2/2/terrain_set = 0
 2:2/2/terrain = 0
+2:2/2/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 2:2/2/terrains_peering_bit/bottom_left_corner = 0
 2:2/2/terrains_peering_bit/left_side = 0
 2:2/2/terrains_peering_bit/top_left_corner = 0
@@ -286,17 +294,20 @@ texture_region_size = Vector2i(192, 192)
 4:2/2/flip_v = true
 4:2/2/terrain_set = 0
 4:2/2/terrain = 0
+4:2/2/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 4:2/2/terrains_peering_bit/top_side = 0
 4:2/3 = 3
 4:2/3/transpose = true
 4:2/3/terrain_set = 0
 4:2/3/terrain = 0
+4:2/3/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 4:2/3/terrains_peering_bit/right_side = 0
 4:2/4 = 4
 4:2/4/flip_h = true
 4:2/4/transpose = true
 4:2/4/terrain_set = 0
 4:2/4/terrain = 0
+4:2/4/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 4:2/4/terrains_peering_bit/left_side = 0
 4:3/0 = 0
 4:3/0/terrain_set = 0
@@ -358,7 +369,7 @@ texture_region_size = Vector2i(192, 192)
 2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-96, -96, 96, -96, 96, 96, -96, 96)
 2:6/0/terrains_peering_bit/left_side = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0o02"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy5wo"]
 texture = ExtResource("4_e8spf")
 texture_region_size = Vector2i(192, 32)
 4:0/size_in_atlas = Vector2i(1, 6)
@@ -552,10 +563,10 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.22352941, 0.70980394, 0.1882353, 1)
 terrain_set_0/terrain_1/name = "Terrain 1"
 terrain_set_0/terrain_1/color = Color(0.84257305, 0.8425909, 0.84895176, 1)
-sources/0 = SubResource("TileSetAtlasSource_f0tg5")
-sources/1 = SubResource("TileSetAtlasSource_x0o02")
+sources/0 = SubResource("TileSetAtlasSource_70seo")
+sources/1 = SubResource("TileSetAtlasSource_qy5wo")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d054f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ip6t"]
 texture = ExtResource("3_d054f")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
@@ -623,7 +634,7 @@ texture_region_size = Vector2i(128, 128)
 1:1/1/flip_h = true
 1:1/1/texture_origin = Vector2i(-40, 0)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eicsn"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uhgdk"]
 texture = ExtResource("5_gb0dk")
 texture_region_size = Vector2i(192, 192)
 0:0/0 = 0
@@ -643,8 +654,8 @@ texture_region_size = Vector2i(192, 192)
 
 [sub_resource type="TileSet" id="TileSet_pl5oj"]
 tile_size = Vector2i(48, 192)
-sources/0 = SubResource("TileSetAtlasSource_d054f")
-sources/1 = SubResource("TileSetAtlasSource_eicsn")
+sources/0 = SubResource("TileSetAtlasSource_1ip6t")
+sources/1 = SubResource("TileSetAtlasSource_uhgdk")
 
 [node name="TutorialLevel" type="Node2D"]
 
@@ -787,7 +798,7 @@ text = "Increasing the bar will unlock new
 abilities for the level (Try pressing Q)"
 
 [node name="Zombie Archer" parent="." instance=ExtResource("12_3ypud")]
-position = Vector2(28709, 1649)
+position = Vector2(28214, 1727)
 
 [node name="Cultist" parent="." instance=ExtResource("13_njkd6")]
 position = Vector2(21906, 2257)
