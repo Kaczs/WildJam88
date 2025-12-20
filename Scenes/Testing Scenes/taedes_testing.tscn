@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Scenes/Testing Scenes/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
-[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/necromancer.tscn" id="4_j6uhw"]
+[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/ice_mage.tscn" id="4_j6uhw"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j6uhw"]
 polygon = PackedVector2Array(-9, 558, 1999, 582, 1999, 606, -10, 578)
@@ -15,7 +15,7 @@ polygon = PackedVector2Array(-3055, 968, 5306, 962, 5343, 1268, -3709, 1268)
 script = ExtResource("1_jh8am")
 
 [node name="Player" parent="." instance=ExtResource("1_mcy4d")]
-position = Vector2(243, 281)
+position = Vector2(169, 387)
 
 [node name="Platform" parent="." instance=ExtResource("2_jh8am")]
 position = Vector2(823, 1011)
