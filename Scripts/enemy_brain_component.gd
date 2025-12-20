@@ -15,6 +15,7 @@ var hit_box:Area2D
 var hurt_box:CollisionShape2D #is also physics colider
 
 var is_dead := false
+signal enemy_died
 
 @export var initial_state: EnemyState
 
@@ -82,6 +83,7 @@ func enemy_hit(stagger_duration:float, current_health:int):
 	if current_health <= 0:
 		is_dead = true
 	if is_dead:
+		enemy_died.emit()
 		transition_to_next_state("EnemyDeath")
 	else:
 		transition_to_next_state("EnemyStun", {"stun duration": stagger_duration})

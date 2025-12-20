@@ -1,17 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://ml1crx1n6yon"]
+[gd_scene load_steps=5 format=3 uid="uid://ml1crx1n6yon"]
 
 [ext_resource type="Script" uid="uid://ijpcuhjv8wv6" path="res://Scenes/enemy_locked_door.gd" id="1_8xttg"]
+[ext_resource type="Texture2D" uid="uid://bb4jnnlkyf84r" path="res://Assets/MapTiles/DoorOpen.png" id="2_efi0l"]
+[ext_resource type="Texture2D" uid="uid://ccsgy4wbhld7l" path="res://Assets/MapTiles/DoorClosed.png" id="2_mxt7i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxt7i"]
-size = Vector2(96, 128)
+size = Vector2(1199, 1283)
 
 [node name="EnemyLockedDoor" type="Node2D"]
+z_index = -1
 script = ExtResource("1_8xttg")
+open_texture = ExtResource("2_efi0l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mxt7i")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(38, 54)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(547.5, -447.5)
 shape = SubResource("RectangleShape2D_mxt7i")
