@@ -11,11 +11,11 @@ var captured_enemies: Array[Node2D] = []
 var pinned: bool = false
 
 func _ready() -> void:
-	if flipped == false:
-		sprite.flip_h = true
 	pickup_area.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
+	if flipped == true and sprite.flip_h == false:
+		sprite.flip_h = true
 	var collision:KinematicCollision2D = null
 	# If we've hit the wall dont do anything
 	if pinned:
@@ -79,10 +79,6 @@ func release_enemies() -> void:
 		remove_child(enemy)
 		# Spear exists seperate from player
 		get_tree().get_root().add_child(enemy)
-		print(safe_pos)
 		enemy.global_position = Vector2((safe_pos.x + spacing), safe_pos.y)
-		
-		#if enemy.has_method("set_captured"):
-		#    enemy.set_captured(false)
 	
 	captured_enemies.clear()
