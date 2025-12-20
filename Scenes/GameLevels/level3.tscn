@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://d3on1lwclo3pw"]
+
+[ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="1_d5fg6"]
+[ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_dsnia"]
+[ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="3_gvm8f"]
+[ext_resource type="TileSet" uid="uid://dscn7wch6bcg0" path="res://Scenes/GameLevels/forground_tileset.tres" id="4_w67pf"]
+[ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="5_gvm8f"]
+[ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="6_w67pf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tgsc"]
+texture = ExtResource("1_d5fg6")
+texture_region_size = Vector2i(32, 32)
+1:0/size_in_atlas = Vector2i(7, 16)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -32)
+10:0/size_in_atlas = Vector2i(10, 16)
+10:0/0 = 0
+10:0/0/texture_origin = Vector2i(0, -32)
+
+[sub_resource type="TileSet" id="TileSet_y48cx"]
+tile_size = Vector2i(48, 192)
+sources/0 = SubResource("TileSetAtlasSource_4tgsc")
+
+[node name="Level3" type="Node2D"]
+
+[node name="TileMapLayerBackground" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_y48cx")
+metadata/_edit_lock_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-2, 0)
+tile_set = ExtResource("2_dsnia")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="." instance=ExtResource("3_gvm8f")]
+position = Vector2(-1317, -163)
+
+[node name="TileMapLayerForeground" type="TileMapLayer" parent="."]
+position = Vector2(-2, 0)
+tile_set = ExtResource("4_w67pf")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("5_gvm8f")]
+script = ExtResource("6_w67pf")
