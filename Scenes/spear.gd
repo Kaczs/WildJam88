@@ -11,7 +11,7 @@ var captured_enemies: Array[Node2D] = []
 var pinned: bool = false
 
 func _ready() -> void:
-	if flipped == true:
+	if flipped == false:
 		sprite.flip_h = true
 	pickup_area.body_entered.connect(_on_body_entered)
 
