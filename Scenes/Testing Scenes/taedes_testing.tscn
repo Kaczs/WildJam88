@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfo58k83dyuyq"]
+[gd_scene load_steps=7 format=3 uid="uid://bfo58k83dyuyq"]
 
 [ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Scenes/Testing Scenes/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
-[ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="4_j6uhw"]
-[ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="5_4mcpw"]
-[ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="5_gaqya"]
+[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/necromancer.tscn" id="4_j6uhw"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_j6uhw"]
 polygon = PackedVector2Array(-9, 558, 1999, 582, 1999, 606, -10, 578)
@@ -19,12 +17,6 @@ script = ExtResource("1_jh8am")
 [node name="Player" parent="." instance=ExtResource("1_mcy4d")]
 position = Vector2(243, 281)
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-offset = Vector2(0, -260)
-process_callback = 0
-position_smoothing_enabled = true
-position_smoothing_speed = 3.0
-
 [node name="Platform" parent="." instance=ExtResource("2_jh8am")]
 position = Vector2(823, 1011)
 scale = Vector2(11.280003, 1)
@@ -34,9 +26,6 @@ position = Vector2(997, 579)
 rotation = -1.5581607
 scale = Vector2(0.02219671, 22.275415)
 
-[node name="Cultist" parent="." instance=ExtResource("4_j6uhw")]
-position = Vector2(920, 313)
-
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2(0, -1)
 occluder = SubResource("OccluderPolygon2D_j6uhw")
@@ -44,8 +33,5 @@ occluder = SubResource("OccluderPolygon2D_j6uhw")
 [node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_gaqya")
 
-[node name="Zombie Archer" parent="." instance=ExtResource("5_4mcpw")]
-position = Vector2(1334, 339)
-
-[node name="Zombie Grunt" parent="." instance=ExtResource("5_gaqya")]
-position = Vector2(1694, 321)
+[node name="Necromancer" parent="." instance=ExtResource("4_j6uhw")]
+position = Vector2(2362, 733)

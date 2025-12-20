@@ -574,7 +574,6 @@ flip_h = true
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
 lose_player_distance = 1500
-attack_distance = 700
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("6_irpb7")]
 
@@ -600,10 +599,12 @@ script = ExtResource("12_3xlbi")
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_rx00m")
 disabled = true
+metadata/_edit_lock_ = true
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(100, 0)
