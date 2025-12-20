@@ -37,7 +37,7 @@ func phys_update(_delta: float):
 	#adds a deadzone to the start posision 
 	if distacne_to_start < 30 and -30 < distacne_to_start:
 		finished.emit("EnemySearch")
-	enemy_body.velocity.x = brain_component.move_speed * distacne_to_start
+	enemy_body.velocity.x = brain_component.move_speed * direction_to_start
 	enemy_body.velocity.y = gravity
 	enemy_body.move_and_slide()
 

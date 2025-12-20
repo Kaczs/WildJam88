@@ -11,8 +11,6 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	brain_component.hit_box.connect("body_entered", _hit_box_body_entered)
 	player = _data["player"]
 	attacks_list = get_children()
-	animation_player.play("RESET")
-
 
 func phys_update(_delta: float):
 	if not animation_player.is_playing():
@@ -47,6 +45,7 @@ func pick_random_attack():
 		current_attack = attack
 	if current_attack.min_range > distance_to_player:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.min_range, "player": player, "reverse":true})
+		attack = current_attack
 	elif distance_to_player > current_attack.max_range:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		attack = current_attack

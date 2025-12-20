@@ -66,7 +66,7 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 		return
 	animation_player.play("RESET")
 	animation_player.advance(0)
-	print("Transitioning Enemy to State: " + current_state.name)
+	print("Transitioning " + enemy_body.name + " to State: " + current_state.name)
 	# if the given node path is invalid return
 	if not has_node(target_state_path):
 		push_error("Tried to transition to state : " + target_state_path + " but it doesn't exist")
