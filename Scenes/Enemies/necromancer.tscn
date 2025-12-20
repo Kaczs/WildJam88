@@ -22,7 +22,7 @@
 size = Vector2(224, 312)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
-radius = 1000.0
+radius = 2000.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(82, 184)
@@ -374,8 +374,7 @@ flip_h = true
 [node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_vebwt")]
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
-lose_player_distance = 1500
-attack_distance = 700
+lose_player_distance = 2500
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_b5r4q")]
 
@@ -395,6 +394,7 @@ animation_sprite = ""
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_rx00m")
