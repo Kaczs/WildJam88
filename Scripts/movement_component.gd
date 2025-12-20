@@ -106,16 +106,23 @@ func flip_character():
 ## Linked up to the health component take damage
 ## giving player static flinch time
 func flinch(_duration, _current_health):
-	var tween = create_tween()
-	tween.tween_property(player_body, "modulate", Color.RED, 0.05)
-	tween.tween_interval(0.2)
-	tween.tween_property(player_body, "modulate", Color.WHITE, 0.05)
+	if health_component.current_health <= 0:
+		transition_to_next_state("StateDie")
+	else:
+		var tween = create_tween()
+		tween.tween_property(player_body, "modulate", Color.RED, 0.05)
+		tween.tween_interval(0.2)
+		tween.tween_property(player_body, "modulate", Color.WHITE, 0.05)
+	
 
 ## Return the next move in combo
 func advance_combo():
 	if current_attack_combo.is_empty():
 		current_attack_combo += standing_combo
 	transition_to_next_state(current_attack_combo.pop_front())
+
+func die():
+	get_tree().reload_current_scene()
 
 ## This forces the state back to idle, generally called in the AnimationPlayer at the end of animations
 ## that dont loop or idle well

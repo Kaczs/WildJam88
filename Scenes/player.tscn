@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=61 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://cvi6bgv62c5t0" path="res://Scripts/MovementStates/state_combo_decide.gd" id="16_8gxox"]
 [ext_resource type="Script" uid="uid://bxe0qxx4yvhhw" path="res://Scripts/impulsiveness_component.gd" id="16_yh6i2"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
+[ext_resource type="Script" uid="uid://ypf0cjcdfdx" path="res://Scripts/MovementStates/state_die.gd" id="18_11gg7"]
 [ext_resource type="Texture2D" uid="uid://cjnns2n88n5i2" path="res://Assets/Sprites/LouFirstSlashAttack-Sheet.png" id="19_2ijsl"]
 [ext_resource type="Texture2D" uid="uid://cwvjueuedxoh0" path="res://Assets/Sprites/KatanaVanish-Sheet.png" id="20_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://wks3dicdnhat" path="res://Assets/Sprites/LouBusterswordAttack-Sheet.png" id="21_p1odr"]
@@ -36,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cnmeuknmqd7w2" path="res://Assets/Sprites/LouGlaiveEndFall-Sheet.png" id="26_y6uwr"]
 [ext_resource type="Texture2D" uid="uid://bxpsljg31vwa8" path="res://Assets/Sprites/LouRealDaggerAttack.png" id="26_ypfnu"]
 [ext_resource type="Texture2D" uid="uid://byo1gmo40xk3n" path="res://Assets/Sprites/LouFlinch-Sheet.png" id="30_wohnl"]
+[ext_resource type="Texture2D" uid="uid://be10yd8huuihc" path="res://Assets/Sprites/LouDeath-Sheet.png" id="36_qpa8y"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -403,6 +405,60 @@ tracks/7/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2(-5.25, 78.9375)]
+}
+
+[sub_resource type="Animation" id="Animation_sbwqj"]
+resource_name = "die"
+step = 0.07
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("36_qpa8y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14, 0.21000001, 0.28, 0.35, 0.42000002, 0.49, 0.56, 0.63, 0.7, 0.77, 0.84000003),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MovementComponent")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"die"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_qqcod"]
@@ -1864,6 +1920,7 @@ tracks/12/keys = {
 _data = {
 &"RESET": SubResource("Animation_ukyrk"),
 &"crouching": SubResource("Animation_h4iuc"),
+&"die": SubResource("Animation_sbwqj"),
 &"falling": SubResource("Animation_qqcod"),
 &"flinch": SubResource("Animation_36dho"),
 &"glaivefall": SubResource("Animation_vfarp"),
@@ -1947,8 +2004,12 @@ position = Vector2(-400, 0)
 [node name="StateComboDecide" type="Node" parent="MovementComponent"]
 script = ExtResource("16_8gxox")
 
+[node name="StateDie" type="Node" parent="MovementComponent"]
+script = ExtResource("18_11gg7")
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
+max_health = 1
 
 [node name="ImpulsivenessComponent" type="Node" parent="."]
 script = ExtResource("16_yh6i2")
