@@ -12,6 +12,10 @@ func _on_body_entered(body: Node) -> void:
 		speed = Vector2.ZERO
 		body.get_node("HealthComponent").take_damage(damage)
 		$AnimationPlayer.play("Hit")
+	elif body == StaticBody2D:
+		speed = Vector2.ZERO
+		die()
+		$AnimationPlayer.play("Hit")
 
 func die():
 	self.queue_free()
