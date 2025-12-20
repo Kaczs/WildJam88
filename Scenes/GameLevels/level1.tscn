@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b5mytmso2qpdw"]
+[gd_scene load_steps=25 format=4 uid="uid://b5mytmso2qpdw"]
 
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="1_h3o3b"]
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="2_w6lax"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="6_w6lax"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="7_sshya"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="8_mfrwb"]
+[ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="9_wwsxs"]
+[ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="10_yogri"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwsxs"]
 texture = ExtResource("1_h3o3b")
@@ -701,3 +703,8 @@ theme_override_font_sizes/font_size = 50
 text = "Hitting more enemies in
 short sucession will increase
 your Impulsiveness faster."
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("9_wwsxs")]
+script = ExtResource("10_yogri")
