@@ -6,5 +6,6 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	collider.set_deferred("disabled", true)
 
 func phys_update(_delta: float):
+	enemy_body.velocity.x = 0
 	enemy_body.velocity.y = gravity
 	enemy_body.move_and_slide()

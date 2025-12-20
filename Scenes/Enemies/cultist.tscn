@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://d0uss1ghtluwf"]
+[gd_scene load_steps=33 format=3 uid="uid://d0uss1ghtluwf"]
 
 [ext_resource type="Script" uid="uid://byrcl4rsx7gnk" path="res://Scenes/Enemies/Enemy Scripts/enemy_multi_attack.gd" id="1_fw8pk"]
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="2_3xlbi"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="10_ubvm2"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="11_7j32b"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_3xlbi"]
+[ext_resource type="PackedScene" uid="uid://dy2jv7b1o1gxc" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_pinned.tscn" id="12_454sp"]
 [ext_resource type="Texture2D" uid="uid://cvyw4d0wk08vk" path="res://Assets/EnemySprites/CultistAttack-Sheet.png" id="12_lfjdt"]
 [ext_resource type="Texture2D" uid="uid://c8n1e7dp0dimm" path="res://Assets/EnemySprites/CultistMoving-Sheet.png" id="13_hbqep"]
 [ext_resource type="Texture2D" uid="uid://ckmprkkcw2mab" path="res://Assets/EnemySprites/CultistDeath.png" id="13_u1qm0"]
@@ -589,6 +590,8 @@ animation_sprite = ""
 [node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("10_ubvm2")]
 
 [node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("11_7j32b")]
+
+[node name="EnemyPinned" parent="EnemyBrainComponent" instance=ExtResource("12_454sp")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

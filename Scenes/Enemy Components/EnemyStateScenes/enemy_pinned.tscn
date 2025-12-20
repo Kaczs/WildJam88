@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dy2jv7b1o1gxc"]
+
+[ext_resource type="Script" path="res://Scripts/EnemyStates/enemy_pinned.gd" id="1_6qe45"]
+
+[node name="EnemyPinned" type="Node"]
+script = ExtResource("1_6qe45")

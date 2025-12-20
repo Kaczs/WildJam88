@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://qqnx64wcypi3"]
+[gd_scene load_steps=30 format=3 uid="uid://qqnx64wcypi3"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_74yno"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_vebwt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_h5457"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="10_2ylpe"]
 [ext_resource type="Texture2D" uid="uid://beukxyvh1kywk" path="res://Assets/EnemySprites/IceMageDeath.png" id="11_7f8hp"]
+[ext_resource type="PackedScene" uid="uid://dy2jv7b1o1gxc" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_pinned.tscn" id="11_ly5bo"]
 [ext_resource type="Texture2D" uid="uid://b2l8n7p5jf7f0" path="res://Assets/EnemySprites/IceMageBase.png" id="12_h5457"]
 [ext_resource type="Texture2D" uid="uid://cu0i1qnioroo4" path="res://Assets/EnemySprites/IcemageWalk-Sheet.png" id="12_wbyrw"]
 [ext_resource type="Texture2D" uid="uid://bcd46ahn52b07" path="res://Assets/EnemySprites/IceMageAttack-Sheet.png" id="13_h5457"]
@@ -390,6 +391,8 @@ animation_sprite = ""
 [node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_wbyrw")]
 
 [node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_h5457")]
+
+[node name="EnemyPinned" parent="EnemyBrainComponent" instance=ExtResource("11_ly5bo")]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
