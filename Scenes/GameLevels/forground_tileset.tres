@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dscn7wch6bcg0"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cxi0ry3mihw5m"]
 
 [ext_resource type="Texture2D" uid="uid://betk44fn16540" path="res://Assets/MapTiles/TileSetSnowyBusheSnowmounds.png" id="1_6eyj1"]
 [ext_resource type="Texture2D" uid="uid://bu6gveygagik1" path="res://Assets/MapTiles/JustExtrasBrickSet.png" id="2_0pds3"]
@@ -89,6 +89,10 @@ texture_region_size = Vector2i(192, 192)
 5:0/size_in_atlas = Vector2i(2, 3)
 5:0/0 = 0
 5:0/0/texture_origin = Vector2i(-156, -64)
+1:2/0 = 0
+2:1/size_in_atlas = Vector2i(2, 2)
+2:1/0 = 0
+2:1/0/texture_origin = Vector2i(-28, 96)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vsdj4"]
 texture = ExtResource("3_0pds3")
