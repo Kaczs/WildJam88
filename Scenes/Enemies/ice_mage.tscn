@@ -10,10 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="8_wbyrw"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_h5457"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="10_2ylpe"]
+[ext_resource type="Texture2D" uid="uid://beukxyvh1kywk" path="res://Assets/EnemySprites/IceMageDeath.png" id="11_7f8hp"]
 [ext_resource type="Texture2D" uid="uid://b2l8n7p5jf7f0" path="res://Assets/EnemySprites/IceMageBase.png" id="12_h5457"]
 [ext_resource type="Texture2D" uid="uid://cu0i1qnioroo4" path="res://Assets/EnemySprites/IcemageWalk-Sheet.png" id="12_wbyrw"]
 [ext_resource type="Texture2D" uid="uid://bcd46ahn52b07" path="res://Assets/EnemySprites/IceMageAttack-Sheet.png" id="13_h5457"]
-[ext_resource type="Texture2D" uid="uid://cdljpvju2t45n" path="res://Assets/EnemySprites/NecromancerDeath.png" id="13_wbyrw"]
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="14_4nv85"]
 [ext_resource type="Texture2D" uid="uid://dnk2hrvnmjdw2" path="res://Assets/EnemySprites/NecromancerArm.png" id="15_f46sl"]
 [ext_resource type="Texture2D" uid="uid://dmuckhbcdost5" path="res://Assets/EnemySprites/NecromancerLeg.png" id="16_wbyrw"]
@@ -63,7 +63,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_wbyrw")]
+"values": [ExtResource("11_7f8hp")]
 }
 
 [sub_resource type="Animation" id="Animation_25781"]
