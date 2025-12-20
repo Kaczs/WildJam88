@@ -1,18 +1,19 @@
 extends MovementState
 var target:Vector2
+var dash_particles:CPUParticles2D
 
 func enter(_previous_state_path: String, _data := {}):
+	if dash_particles == null:
+		dash_particles = find_child("DashParticles")
 	parent.dash_timer.start()
-	# cancel out any momentum
-	if sprite.flip_h == false:
-		target = Vector2(player_body.position.x+400, player_body.position.y)
-	else:
+	var direction = player_body.velocity.normalized()
+	if sprite.flip_h == true:
 		parent.flip_character()
-		target = Vector2(player_body.position.x-400, player_body.position.y)
+	target = player_body.global_position + (direction * 400)
 	var safe_pos = TeleportFinder.find_valid_position(player_body, target)
-
+	dash_particles.position = player_body.position
+	dash_particles.emitting = true
 	player_body.position = safe_pos
-	animation_player.play("microdash")
 
 func phys_update(_delta: float):
 	player_body.velocity.y += gravity * _delta

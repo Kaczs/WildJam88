@@ -1896,7 +1896,7 @@ collision_layer = 7
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
 move_speed = 600.0
-jump_power = 700.0
+jump_power = 800.0
 dash_cooldown = 1.0
 
 [node name="StateIdle" type="Node" parent="MovementComponent"]
@@ -1940,6 +1940,9 @@ script = ExtResource("14_36dho")
 
 [node name="StateMicroDash" type="Node" parent="MovementComponent"]
 script = ExtResource("15_nv4vc")
+
+[node name="DashParticles" parent="MovementComponent/StateMicroDash" instance=ExtResource("25_p1odr")]
+position = Vector2(-400, 0)
 
 [node name="StateComboDecide" type="Node" parent="MovementComponent"]
 script = ExtResource("16_8gxox")
