@@ -11,10 +11,8 @@ func _ready() -> void:
 	else:
 		die()
 
-
 func die():
 	self.queue_free()
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not bodies_hit.has(body):

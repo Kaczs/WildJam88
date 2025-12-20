@@ -1,6 +1,6 @@
 extends EnemyState
 
-var attack_range:int
+var stop_chasing_range:int
 var is_current_state:=true
 var direction_to_player
 var facing_left:bool
@@ -26,10 +26,9 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	is_current_state = true
 	audio.play()
 	if _data.has("temp attack range"):
-		attack_range = _data["temp attack range"]
+		stop_chasing_range = _data["temp attack range"]
 	else:
-		attack_range = brain_component.attack_distance
-
+		stop_chasing_range = brain_component.lose_player_distance
 
 func phys_update(_delta: float):
 	direction_to_player = player.global_position.x - brain_component.global_position.x
@@ -41,11 +40,11 @@ func phys_update(_delta: float):
 		facing_left = true
 	if reverse:
 		enemy_body.velocity.x = brain_component.move_speed * -direction_to_player
-		if abs(player.global_position.x - brain_component.global_position.x) >= attack_range:
+		if abs(player.global_position.x - brain_component.global_position.x) >= stop_chasing_range:
 			finished.emit("EnemyAttack", {"player": player})
 	else:
 		enemy_body.velocity.x = brain_component.move_speed * direction_to_player
-		if abs(player.global_position.x - brain_component.global_position.x) <= attack_range:
+		if abs(player.global_position.x - brain_component.global_position.x) <= stop_chasing_range:
 			finished.emit("EnemyAttack", {"player": player})
 		elif abs(player.global_position.x - brain_component.global_position.x) >= brain_component.lose_player_distance:
 			finished.emit("EnemyReturn")

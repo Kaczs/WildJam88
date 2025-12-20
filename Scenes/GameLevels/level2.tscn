@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="9_yjet8"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="10_4dmcx"]
 [ext_resource type="PackedScene" uid="uid://ml1crx1n6yon" path="res://Scenes/enemy_locked_door.tscn" id="11_18v86"]
-[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/necromancer.tscn" id="12_4piq1"]
+[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/ice_mage.tscn" id="12_4piq1"]
 [ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="12_18v86"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_4piq1"]
 [ext_resource type="Texture2D" uid="uid://brswpmdig7q63" path="res://Assets/MapTiles/BackgroundNight.png" id="13_ir2me"]

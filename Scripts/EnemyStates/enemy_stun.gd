@@ -12,6 +12,9 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	else:
 		animation_player.play(animation_sprite)
 
+func phys_update(_delta: float):
+	enemy_body.velocity.y = gravity
+	enemy_body.move_and_slide()
 
 func _on_timer_timeout() -> void:
 	finished.emit("EnemyReturn")

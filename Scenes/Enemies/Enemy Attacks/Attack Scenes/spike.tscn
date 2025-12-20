@@ -1,63 +1,63 @@
 [gd_scene load_steps=9 format=3 uid="uid://pvm0jr3ocx44"]
 
 [ext_resource type="Script" uid="uid://bu3rq40wqo3oe" path="res://Scenes/Enemies/Enemy Attacks/Attack Scenes/spike.gd" id="1_qwvw3"]
-[ext_resource type="Texture2D" uid="uid://d1l8ujmaqho6" path="res://Assets/Sprites/Ice spike.png" id="2_yvr84"]
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="3_57cd2"]
+[ext_resource type="Texture2D" uid="uid://bc4jtk35niwit" path="res://Assets/EnemySprites/IceSpike.png" id="3_yvr84"]
 
 [sub_resource type="Animation" id="Animation_toykc"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("IceSpike:position")
+tracks/0/path = NodePath("GPUParticles2D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(35.000008, 879.99994)]
+"update": 1,
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("IceSpike2:position")
+tracks/1/path = NodePath("Area2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(121.000015, 1099)]
+"values": [Vector2(0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("IceSpike3:position")
+tracks/2/path = NodePath("Area2D/CollisionShape2D:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-289.00006, 946)]
+"values": [Vector2(0, -909)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("IceSpike6:position")
+tracks/3/path = NodePath("IceSpike:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(621, 598)]
+"values": [Vector2(-6, 164)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("GPUParticles2D:emitting")
+tracks/4/path = NodePath("Area2D/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -69,104 +69,105 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D:position")
+tracks/5/path = NodePath("IceSpike:self_modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_e8515"]
 resource_name = "spike eruption"
 length = 4.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("IceSpike:position")
+tracks/0/path = NodePath("GPUParticles2D:emitting")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.53333336, 0.8666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-12, 1000), Vector2(75, -816)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("IceSpike2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.56666666, 0.8666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(121.000015, 1099), Vector2(-310, -717)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("IceSpike3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.6, 0.83333325),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-289.00006, 946), Vector2(286.00018, -167.00012)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("IceSpike6:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.56666666, 0.93333334),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(621, 598), Vector2(-565, -582)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("GPUParticles2D:emitting")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.2),
+"times": PackedFloat32Array(0, 0.95),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath(".")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(2),
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
 "method": &"die"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.55, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 164), Vector2(0, -125)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IceSpike:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.55, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-6, 164), Vector2(-6, -125)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Area2D:position")
+tracks/6/path = NodePath("IceSpike:self_modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.53333336, 0.96666664),
+"times": PackedFloat32Array(1.6, 2.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 1075), Vector2(0, -700)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c2gme"]
@@ -176,22 +177,20 @@ _data = {
 }
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vb5l8"]
-lifetime_randomness = 0.61
 particle_flag_disable_z = true
 angle_min = -720.0
 angle_max = 720.0
-spread = 70.0
-initial_velocity_min = 86.33
-initial_velocity_max = 798.56
-gravity = Vector3(0, 98, 0)
-scale_min = 0.049999997
-scale_max = 0.14999999
+initial_velocity_min = 24.289999
+initial_velocity_max = 112.439995
+gravity = Vector3(0, 50, 0)
+scale_min = 0.01
+scale_max = 0.049999997
 color = Color(1.018131, 1.018131, 1.018131, 0.27450982)
 hue_variation_min = -0.06000002
 hue_variation_max = 0.009999977
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yvr84"]
-size = Vector2(777, 1489)
+size = Vector2(126, 252)
 
 [node name="Spike" type="Node2D"]
 script = ExtResource("1_qwvw3")
@@ -202,49 +201,28 @@ libraries = {
 }
 
 [node name="IceSpike" type="Sprite2D" parent="."]
-position = Vector2(35.000008, 879.99994)
-rotation = 0.05069815
-scale = Vector2(30, 30.878)
-texture = ExtResource("2_yvr84")
-
-[node name="IceSpike6" type="Sprite2D" parent="."]
-position = Vector2(621, 598)
-rotation = -0.84505814
-scale = Vector2(20, 20.585)
-texture = ExtResource("2_yvr84")
-
-[node name="IceSpike2" type="Sprite2D" parent="."]
-position = Vector2(121.000015, 1099)
-rotation = -0.21041691
-scale = Vector2(30, 30.878)
-texture = ExtResource("2_yvr84")
-
-[node name="IceSpike3" type="Sprite2D" parent="."]
-position = Vector2(-289.00006, 946)
-rotation = 0.37768263
-scale = Vector2(25, 25.731)
-texture = ExtResource("2_yvr84")
+position = Vector2(-6, 164)
+texture = ExtResource("3_yvr84")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(-3.0000005, 23.000004)
+position = Vector2(1, 11.000001)
 rotation = -1.620127
 emitting = false
-amount = 10000
+amount = 1000
 texture = ExtResource("3_57cd2")
-lifetime = 3.0
+lifetime = 2.0
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_vb5l8")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 1000)
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-115.5, -52.5)
+position = Vector2(0, -909)
 shape = SubResource("RectangleShape2D_yvr84")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(854, -5)
-target_position = Vector2(0, 10000)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

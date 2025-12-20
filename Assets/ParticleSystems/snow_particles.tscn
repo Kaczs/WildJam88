@@ -9,9 +9,8 @@ gradient = SubResource("Gradient_ouylv")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ouylv"]
 particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -200, 0)
 emission_shape = 3
-emission_box_extents = Vector3(700, 1, 1)
+emission_box_extents = Vector3(700, 0, 1)
 gravity = Vector3(45, 200, 0)
 scale_min = 4.0
 scale_max = 8.0
@@ -20,10 +19,14 @@ turbulence_enabled = true
 turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.020000001
 turbulence_influence_max = 0.080000006
+collision_mode = 1
+collision_friction = 0.9
+collision_bounce = 0.0
 
 [node name="SnowParticles" type="GPUParticles2D"]
-amount = 1000
-lifetime = 10.0
-preprocess = 30.0
+scale = Vector2(1100, 1100)
+amount = 1000000
+lifetime = 50.0
+preprocess = 50.0
 visibility_rect = Rect2(-700, -200, 700, 400)
 process_material = SubResource("ParticleProcessMaterial_ouylv")

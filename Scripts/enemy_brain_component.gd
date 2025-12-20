@@ -24,7 +24,6 @@ signal enemy_died
 @export var damage := 5
 @export_subgroup("detection")
 @export var lose_player_distance := 500
-@export var attack_distance := 100
 
 func _ready():
 	if not initial_state:

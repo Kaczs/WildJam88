@@ -1,7 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://qqnx64wcypi3"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_74yno"]
-[ext_resource type="Texture2D" uid="uid://bn3h1rjenqluw" path="res://Assets/EnemySprites/NecromancerBase.png" id="2_74yno"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_vebwt"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_b5r4q"]
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="5_4nv85"]
@@ -11,9 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="8_wbyrw"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_h5457"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="10_2ylpe"]
-[ext_resource type="Texture2D" uid="uid://b8wnl6n25oip2" path="res://Assets/EnemySprites/NecromancerWalk-Sheet.png" id="10_gotps"]
-[ext_resource type="Texture2D" uid="uid://dv7lyv3awxqy8" path="res://Assets/EnemySprites/NecromancerAttack-Sheet.png" id="11_vebwt"]
-[ext_resource type="Texture2D" uid="uid://cdljpvju2t45n" path="res://Assets/EnemySprites/NecromancerDeath.png" id="13_wbyrw"]
+[ext_resource type="Texture2D" uid="uid://beukxyvh1kywk" path="res://Assets/EnemySprites/IceMageDeath.png" id="11_7f8hp"]
+[ext_resource type="Texture2D" uid="uid://b2l8n7p5jf7f0" path="res://Assets/EnemySprites/IceMageBase.png" id="12_h5457"]
+[ext_resource type="Texture2D" uid="uid://cu0i1qnioroo4" path="res://Assets/EnemySprites/IcemageWalk-Sheet.png" id="12_wbyrw"]
+[ext_resource type="Texture2D" uid="uid://bcd46ahn52b07" path="res://Assets/EnemySprites/IceMageAttack-Sheet.png" id="13_h5457"]
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="14_4nv85"]
 [ext_resource type="Texture2D" uid="uid://dnk2hrvnmjdw2" path="res://Assets/EnemySprites/NecromancerArm.png" id="15_f46sl"]
 [ext_resource type="Texture2D" uid="uid://dmuckhbcdost5" path="res://Assets/EnemySprites/NecromancerLeg.png" id="16_wbyrw"]
@@ -22,7 +22,7 @@
 size = Vector2(224, 312)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
-radius = 1000.0
+radius = 2000.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(82, 184)
@@ -63,7 +63,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0.033333335),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_wbyrw")]
+"values": [ExtResource("11_7f8hp")]
 }
 
 [sub_resource type="Animation" id="Animation_25781"]
@@ -91,7 +91,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_74yno")]
+"values": [ExtResource("12_h5457")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -135,7 +135,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_74yno")]
+"values": [ExtResource("12_h5457")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -174,7 +174,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_74yno")]
+"values": [ExtResource("12_h5457")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -264,7 +264,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_gotps")]
+"values": [ExtResource("12_wbyrw")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -281,7 +281,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4nv85"]
 resource_name = "Summon"
-length = 5.0
+length = 2.5
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -293,7 +293,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_vebwt")]
+"values": [ExtResource("13_h5457")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -357,7 +357,7 @@ _data = {
 &"Summon": SubResource("Animation_4nv85")
 }
 
-[node name="Necromancer" type="CharacterBody2D"]
+[node name="IceMage" type="CharacterBody2D"]
 collision_layer = 9
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
@@ -368,14 +368,13 @@ shape = SubResource("RectangleShape2D_25781")
 script = ExtResource("1_74yno")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_74yno")
+texture = ExtResource("12_h5457")
 flip_h = true
 
 [node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_vebwt")]
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
-lose_player_distance = 1500
-attack_distance = 700
+lose_player_distance = 2500
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_b5r4q")]
 
@@ -395,10 +394,12 @@ animation_sprite = ""
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 2
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
 shape = SubResource("CircleShape2D_rx00m")
 disabled = true
+metadata/_edit_lock_ = true
 
 [node name="HitBox" type="Area2D" parent="."]
 position = Vector2(100, 0)
