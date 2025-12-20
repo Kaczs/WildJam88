@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://87p51cbc1s2j"]
 
-[ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="1_q3csh"]
+[ext_resource type="Texture2D" uid="uid://dsw0fk63e1syv" path="res://Assets/UI Elements/ImpulseBar.png" id="1_q3csh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fptsc"]
 bg_color = Color(0.99607843, 0.8980392, 0.5411765, 1)
@@ -10,38 +10,11 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -300.0
-offset_right = 300.0
-offset_bottom = 66.0
+offset_right = 310.0
+offset_bottom = 101.0
 grow_horizontal = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_fptsc")
 show_percentage = false
-
-[node name="Divider" type="TextureRect" parent="."]
-modulate = Color(0.61875355, 0.512489, 0.037660774, 1)
-layout_mode = 0
-offset_left = 144.0
-offset_right = 161.0
-offset_bottom = 66.0
-texture = ExtResource("1_q3csh")
-expand_mode = 1
-
-[node name="Divider2" type="TextureRect" parent="."]
-modulate = Color(0.61960787, 0.5137255, 0.039215688, 1)
-layout_mode = 0
-offset_left = 288.0
-offset_right = 305.0
-offset_bottom = 66.0
-texture = ExtResource("1_q3csh")
-expand_mode = 1
-
-[node name="Divider3" type="TextureRect" parent="."]
-modulate = Color(0.61960787, 0.5137255, 0.039215688, 1)
-layout_mode = 0
-offset_left = 433.0
-offset_right = 450.0
-offset_bottom = 66.0
-texture = ExtResource("1_q3csh")
-expand_mode = 1
 
 [node name="ComboText" type="Label" parent="."]
 visible = false
@@ -54,3 +27,7 @@ rotation = 0.27917475
 theme_override_colors/font_color = Color(1, 0.20285092, 0, 1)
 theme_override_font_sizes/font_size = 64
 text = "1x"
+
+[node name="ImpulseBar" type="Sprite2D" parent="."]
+position = Vector2(304, 50)
+texture = ExtResource("1_q3csh")
