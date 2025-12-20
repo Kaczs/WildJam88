@@ -691,3 +691,13 @@ offset_bottom = 3077.0
 theme_override_font_sizes/font_size = 50
 text = "Dash [Shift] with Jump [W/Space]
 can let you reach high places"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 2242.0
+offset_top = 2503.0
+offset_right = 3033.0
+offset_bottom = 2716.0
+theme_override_font_sizes/font_size = 50
+text = "Hitting more enemies in
+short sucession will increase
+your Impulsiveness faster."
