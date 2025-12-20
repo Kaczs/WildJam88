@@ -1,7 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://bsdwdjt7ngsdt"]
+[gd_scene load_steps=32 format=3 uid="uid://bsdwdjt7ngsdt"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_1a5dh"]
-[ext_resource type="Script" uid="uid://h4t376isiqip" path="res://Scenes/Enemies/Enemy Scripts/zombie_grunt.gd" id="1_fm8vn"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy Scripts/zombie_grunt.gd" id="1_fm8vn"]
 [ext_resource type="Texture2D" uid="uid://fe03wv67va6t" path="res://Assets/EnemySprites/ZombieBase.png" id="2_1a5dh"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_wdmh3"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_wmeet"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="10_a0lqs"]
 [ext_resource type="Texture2D" uid="uid://dij4wdjmmogg4" path="res://Assets/EnemySprites/ZombieAttack-Sheet.png" id="11_wdmh3"]
 [ext_resource type="Texture2D" uid="uid://c3llncs8p2cwx" path="res://Assets/EnemySprites/ZombieDeath.png" id="12_0pyay"]
+[ext_resource type="Script" uid="uid://ddo648txrtdo4" path="res://Scripts/EnemyStates/enemy_pinned.gd" id="12_a0lqs"]
 [ext_resource type="Texture2D" uid="uid://b2gkkkx8omnlv" path="res://Assets/EnemySprites/ZombieShamble-Sheet.png" id="12_wmeet"]
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="14_scpst"]
 [ext_resource type="Texture2D" uid="uid://cdfkut3vp5xs2" path="res://Assets/EnemySprites/ZombieArm.png" id="15_cccnr"]
@@ -499,6 +500,9 @@ animation_sprite = null
 [node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_0pyay")]
 
 [node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_fm8vn")]
+
+[node name="EnemyPinned" type="Node" parent="EnemyBrainComponent"]
+script = ExtResource("12_a0lqs")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0

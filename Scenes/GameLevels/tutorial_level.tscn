@@ -1,12 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://marjum7oehw3"]
+[gd_scene load_steps=11 format=4 uid="uid://marjum7oehw3"]
 
-[ext_resource type="TileSet" uid="uid://c4kfltofubumf" path="res://Scenes/GameLevels/main_tileset.tres" id="2_3ypud"]
+[ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_3ypud"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_ej3xh"]
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="3_ej3xh"]
 [ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="4_gkpbb"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="5_d054f"]
-[ext_resource type="TileSet" uid="uid://3xkjsssljc4v" path="res://Scenes/GameLevels/forground_tileset.tres" id="5_njkd6"]
-[ext_resource type="PackedScene" uid="uid://dqttirg4fvyxs" path="res://Assets/ParticleSystems/snow_particles.tscn" id="9_eicsn"]
+[ext_resource type="TileSet" uid="uid://dscn7wch6bcg0" path="res://Scenes/GameLevels/forground_tileset.tres" id="5_njkd6"]
 [ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="10_e8spf"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="12_3ypud"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_njkd6"]
@@ -29,11 +28,6 @@ position = Vector2(351, 1736)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="Player"]
 current = true
-metadata/_edit_lock_ = true
-
-[node name="SnowParticles" parent="Player" instance=ExtResource("9_eicsn")]
-scale = Vector2(4, 4)
-lifetime = 30.0
 metadata/_edit_lock_ = true
 
 [node name="TileMapLayerForeground" type="TileMapLayer" parent="."]

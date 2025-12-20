@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://okilir00iilq"]
+
+[ext_resource type="Texture2D" uid="uid://bpym3uab1g7qa" path="res://Assets/Sprites/LouSpear(ActualObject).png" id="1_7nbcr"]
+[ext_resource type="Script" uid="uid://d1a5dnqttygm3" path="res://Scenes/spear.gd" id="1_y4joh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nbcr"]
+size = Vector2(282, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4joh"]
+size = Vector2(324, 62)
+
+[node name="Spear" type="CharacterBody2D"]
+script = ExtResource("1_y4joh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-12, 0)
+shape = SubResource("RectangleShape2D_7nbcr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_7nbcr")
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+position = Vector2(-11, -1)
+shape = SubResource("RectangleShape2D_y4joh")
+debug_color = Color(0.678784, 0.5049016, 0, 0.41960785)

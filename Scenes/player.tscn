@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=64 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://dcugbx1x3xqal" path="res://Assets/Sprites/Block.png" id="17_qqcod"]
 [ext_resource type="Script" uid="uid://ypf0cjcdfdx" path="res://Scripts/MovementStates/state_die.gd" id="18_11gg7"]
 [ext_resource type="Texture2D" uid="uid://cjnns2n88n5i2" path="res://Assets/Sprites/LouFirstSlashAttack-Sheet.png" id="19_2ijsl"]
+[ext_resource type="Script" uid="uid://cfys5uxac8e7d" path="res://Scripts/MovementStates/state_summon_spear.gd" id="19_xwi16"]
 [ext_resource type="Texture2D" uid="uid://cwvjueuedxoh0" path="res://Assets/Sprites/KatanaVanish-Sheet.png" id="20_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://wks3dicdnhat" path="res://Assets/Sprites/LouBusterswordAttack-Sheet.png" id="21_p1odr"]
 [ext_resource type="Texture2D" uid="uid://c3xs8gawrgbas" path="res://Assets/Sprites/LouParry-Sheet.png" id="22_2ijsl"]
@@ -38,6 +39,7 @@
 [ext_resource type="Texture2D" uid="uid://bxpsljg31vwa8" path="res://Assets/Sprites/LouRealDaggerAttack.png" id="26_ypfnu"]
 [ext_resource type="Texture2D" uid="uid://byo1gmo40xk3n" path="res://Assets/Sprites/LouFlinch-Sheet.png" id="30_wohnl"]
 [ext_resource type="Texture2D" uid="uid://be10yd8huuihc" path="res://Assets/Sprites/LouDeath-Sheet.png" id="36_qpa8y"]
+[ext_resource type="Texture2D" uid="uid://cgr4ol76rxpqe" path="res://Assets/Sprites/LouSpear(ArmSweep)-Sheet.png" id="37_sbwqj"]
 
 [sub_resource type="Animation" id="Animation_ukyrk"]
 length = 0.001
@@ -1916,6 +1918,72 @@ tracks/12/keys = {
 "values": [0.1]
 }
 
+[sub_resource type="Animation" id="Animation_qpa8y"]
+resource_name = "throwspear"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("37_sbwqj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [22]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(20, -4)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45000002, 0.5, 0.55, 0.6, 0.65000004, 0.7, 0.75, 0.8, 0.85, 0.90000004, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MovementComponent/StateSummonSpear")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_spear"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tx1dd"]
 _data = {
 &"RESET": SubResource("Animation_ukyrk"),
@@ -1934,7 +2002,8 @@ _data = {
 &"running": SubResource("Animation_7dp3o"),
 &"standingattack": SubResource("Animation_igrcy"),
 &"standingattack2": SubResource("Animation_wohnl"),
-&"standingattack3": SubResource("Animation_xuaoq")
+&"standingattack3": SubResource("Animation_xuaoq"),
+&"throwspear": SubResource("Animation_qpa8y")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpjfl"]
@@ -2007,6 +2076,9 @@ script = ExtResource("16_8gxox")
 [node name="StateDie" type="Node" parent="MovementComponent"]
 script = ExtResource("18_11gg7")
 
+[node name="StateSummonSpear" type="Node" parent="MovementComponent"]
+script = ExtResource("19_xwi16")
+
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
 max_health = 1
@@ -2014,7 +2086,7 @@ max_health = 1
 [node name="ImpulsivenessComponent" type="Node" parent="."]
 script = ExtResource("16_yh6i2")
 points_damage_taken = 1.0
-points_damage_dealt = 5.0
+points_damage_dealt = 100.0
 combo_duration = 6.0
 combo_factor_increase_amount = 0.1
 
@@ -2092,6 +2164,9 @@ position_smoothing_speed = 3.0
 one_shot = true
 
 [node name="RadiantTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpearTimer" type="Timer" parent="."]
 one_shot = true
 
 [connection signal="body_entered" from="AttackArea" to="AttackArea" method="_on_body_entered"]

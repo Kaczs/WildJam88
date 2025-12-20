@@ -24,7 +24,10 @@ func phys_update(_delta: float):
 		finished.emit("StateJumping")
 	elif Input.is_action_just_pressed("special1") and parent.radiantd_timer.is_stopped() \
 	and impulsiveness_component.current_impulsiveness >= 25:
-		finished.emit("StateRadiantDash")	
+		finished.emit("StateRadiantDash")
+	elif Input.is_action_just_pressed("special2") and parent.spear_timer.is_stopped() \
+	and impulsiveness_component.current_impulsiveness >= 50:
+		finished.emit("StateSummonSpear")	
 	player_body.move_and_slide()
 
 func exit() -> void:
