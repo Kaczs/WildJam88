@@ -25,7 +25,11 @@ func phys_update(_delta: float):
 	player_body.move_and_slide()
 
 func spawn_spear():
-	var spawn_point = Vector2(player_body.global_position.x-300, player_body.global_position.y)
+	var spawn_point = Vector2(0,0)
+	if sprite.flip_h == true:
+		spawn_point = Vector2(player_body.global_position.x-300, player_body.global_position.y)
+	else:
+		spawn_point = Vector2(player_body.global_position.x+300, player_body.global_position.y)
 	var spear = spear_node.instantiate()
 	get_tree().get_root().add_child(spear)
 	spear.global_position = spawn_point
