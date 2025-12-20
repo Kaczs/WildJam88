@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://3xkjsssljc4v"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://dscn7wch6bcg0"]
 
 [ext_resource type="Texture2D" uid="uid://betk44fn16540" path="res://Assets/MapTiles/TileSetSnowyBusheSnowmounds.png" id="1_6eyj1"]
 [ext_resource type="Texture2D" uid="uid://bu6gveygagik1" path="res://Assets/MapTiles/JustExtrasBrickSet.png" id="2_0pds3"]
