@@ -43,6 +43,7 @@ func capture_enemy(enemy: Node2D) -> void:
 	captured_enemies.append(enemy)
 	# store offset so enemies stay where they were grabbed
 	# Change state so they dont do anything
+	brain.health_component.take_damage(75)
 	brain.transition_to_next_state("EnemyPinned")
 	var y_value = enemy.global_position.y - global_position.y
 	# reparent to spear
