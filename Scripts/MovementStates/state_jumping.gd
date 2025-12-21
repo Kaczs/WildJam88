@@ -10,7 +10,7 @@ func enter(_previous_state_path: String, _data := {}):
 
 func phys_update(_delta: float):
 	var horizontal_input = Input.get_axis("Left", "Right")
-	player_body.velocity.x = (horizontal_input * speed)
+	player_body.velocity.x = (horizontal_input * (speed*0.7))
 	player_body.velocity.y += gravity * _delta
 	# Flip sprite by direction
 	if horizontal_input < 0:

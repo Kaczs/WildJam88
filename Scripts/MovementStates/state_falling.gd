@@ -9,7 +9,7 @@ func phys_update(_delta: float):
 	# Multiple gravity when falling by 2, feels better
 	player_body.velocity.y += (gravity * _delta) * 2
 	var horizontal_input = Input.get_axis("Left", "Right")
-	player_body.velocity.x = horizontal_input * speed
+	player_body.velocity.x = horizontal_input * (speed*0.7)
 	# Flip sprite by direction
 	if horizontal_input < 0:
 		sprite.flip_h = true
