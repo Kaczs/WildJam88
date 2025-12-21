@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c4s3fycysvqsi"]
+[gd_scene load_steps=65 format=3 uid="uid://c4s3fycysvqsi"]
 
 [ext_resource type="PackedScene" uid="uid://dvvyfw52635a4" path="res://Scenes/movement_component.tscn" id="2_cvnsp"]
 [ext_resource type="Script" uid="uid://b81c8ns58iyer" path="res://Scripts/MovementStates/state_idle.gd" id="3_vgqql"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cwvjueuedxoh0" path="res://Assets/Sprites/KatanaVanish-Sheet.png" id="20_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://wks3dicdnhat" path="res://Assets/Sprites/LouBusterswordAttack-Sheet.png" id="21_p1odr"]
 [ext_resource type="Texture2D" uid="uid://c3xs8gawrgbas" path="res://Assets/Sprites/LouParry-Sheet.png" id="22_2ijsl"]
+[ext_resource type="Script" uid="uid://bk1crxljmk250" path="res://Scripts/music_component.gd" id="22_sweqm"]
 [ext_resource type="PackedScene" uid="uid://b4f832by4j4xq" path="res://Assets/ParticleSystems/slash_particles.tscn" id="22_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://cfjwnknt7apq4" path="res://Assets/Sprites/KatanaVanishAir-Sheet.png" id="23_p1odr"]
 [ext_resource type="PackedScene" uid="uid://lq7egalli8sh" path="res://Assets/ParticleSystems/dash_particles.tscn" id="25_p1odr"]
@@ -2152,11 +2153,12 @@ script = ExtResource("16_yh6i2")
 points_damage_taken = 1.0
 points_damage_dealt = 2.0
 combo_duration = 6.0
-combo_factor_increase_amount = 0.1
+combo_factor_increase_amount = 0.05
 
 [node name="ComboTimer" type="Timer" parent="ImpulsivenessComponent"]
 
 [node name="Music Component" type="Node" parent="."]
+script = ExtResource("22_sweqm")
 
 [node name="Particles" type="Node2D" parent="."]
 
