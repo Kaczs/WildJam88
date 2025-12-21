@@ -72,6 +72,7 @@ position = Vector2(18117, 1912)
 
 [node name="LevelGoal" parent="." instance=ExtResource("10_e8spf")]
 position = Vector2(36199, 1848)
+next_scene = "res://Scenes/GameLevels/level1.tscn"
 
 [node name="Attack Tutorial" type="Label" parent="."]
 offset_left = 3751.0
