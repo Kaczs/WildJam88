@@ -16,12 +16,11 @@ position = Vector2(-762, 1485)
 scale = Vector2(5, -1.184)
 
 [node name="Platform2" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(4481, 1311)
-scale = Vector2(1, -1.184)
+position = Vector2(4623, 1337)
+scale = Vector2(1, 10)
 
 [node name="Platform4" parent="." instance=ExtResource("1_m6wkf")]
-position = Vector2(8145, 3041)
-rotation = 1.5707964
+position = Vector2(8436, 1731)
 scale = Vector2(4, 1)
 
 [node name="Platform5" parent="." instance=ExtResource("1_m6wkf")]
@@ -34,7 +33,7 @@ position = Vector2(7700, 4746)
 scale = Vector2(3, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_2xm0r")]
-position = Vector2(7149, 1267)
+position = Vector2(9720, 1497)
 
 [node name="Platform3" parent="." instance=ExtResource("1_m6wkf")]
 position = Vector2(3997.9998, 1737)
@@ -51,13 +50,16 @@ occluder = SubResource("OccluderPolygon2D_ovenk")
 script = ExtResource("5_6ej57")
 
 [node name="Zombie Grunt" parent="." instance=ExtResource("5_3mukk")]
-position = Vector2(5307, 1446)
+position = Vector2(5814, 1500)
 
 [node name="Zombie Grunt3" parent="." instance=ExtResource("5_3mukk")]
 position = Vector2(3450, 1298)
 
 [node name="Zombie Grunt2" parent="." instance=ExtResource("5_3mukk")]
-position = Vector2(4477, 979)
+position = Vector2(5435, 1500)
 
 [node name="Zombie Grunt4" parent="." instance=ExtResource("5_3mukk")]
-position = Vector2(6160, 1420)
+position = Vector2(8904, 1484)
+
+[node name="Zombie Grunt5" parent="." instance=ExtResource("5_3mukk")]
+position = Vector2(9175, 1502)
