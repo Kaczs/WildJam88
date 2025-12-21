@@ -89,9 +89,9 @@ next_scene = "res://Scenes/GameLevels/level1.tscn"
 
 [node name="Attack Tutorial" type="Label" parent="."]
 offset_left = 3751.0
-offset_top = 1461.0
+offset_top = 1462.0
 offset_right = 4390.0
-offset_bottom = 1549.0
+offset_bottom = 1550.0
 theme_override_font_sizes/font_size = 64
 text = "Left Mouse to Attack"
 
