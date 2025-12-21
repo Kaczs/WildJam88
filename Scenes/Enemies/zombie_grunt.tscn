@@ -453,11 +453,10 @@ _data = {
 &"Run": SubResource("Animation_2wblh")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
-radius = 62.0
-height = 326.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0lqs"]
+size = Vector2(156, 284)
 
-[node name="Zombie Grunt" type="CharacterBody2D"]
+[node name="Zombie Grunt" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 9
 script = ExtResource("1_fm8vn")
 
@@ -466,7 +465,6 @@ script = ExtResource("1_1a5dh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_1a5dh")
-flip_h = true
 
 [node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_wdmh3")]
 initial_state = NodePath("EnemySearch")
@@ -518,8 +516,8 @@ libraries = {
 script = ExtResource("10_a0lqs")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(14, -3)
-shape = SubResource("CapsuleShape2D_ef3uv")
+position = Vector2(0, 18)
+shape = SubResource("RectangleShape2D_a0lqs")
 
 [node name="Enemy Death Arms" parent="." instance=ExtResource("14_scpst")]
 position = Vector2(-18, -48)

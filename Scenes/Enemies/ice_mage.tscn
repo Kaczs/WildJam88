@@ -358,7 +358,7 @@ _data = {
 &"Summon": SubResource("Animation_4nv85")
 }
 
-[node name="IceMage" type="CharacterBody2D"]
+[node name="IceMage" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 9
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dl858ko71o22o"]
+[gd_scene load_steps=26 format=3 uid="uid://c5hvgfcqfbxql"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_4wtnb"]
-[ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_smnk2"]
+[ext_resource type="Texture2D" uid="uid://b0hx806uqcd0r" path="res://Assets/EnemySprites/IceSlimeSquish-Sheet.png" id="2_smnk2"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_xagan"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_metqx"]
 [ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="5_s02ho"]
@@ -13,26 +13,131 @@
 [ext_resource type="PackedScene" uid="uid://dy2jv7b1o1gxc" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_pinned.tscn" id="10_5y8pa"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="11_4yw04"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
-radius = 62.0
-height = 326.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smnk2"]
+size = Vector2(132, 88)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
 radius = 1000.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
-size = Vector2(82, 184)
+size = Vector2(140, 96)
 
 [sub_resource type="Animation" id="Animation_jw5pm"]
 resource_name = "AttackLeft"
+length = 1.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26488942, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, -16), Vector2(-32, -48), Vector2(-64, -70), Vector2(-96, -96), Vector2(-128, -70), Vector2(-160, -48), Vector2(-160, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_smnk2")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.9, 0.9999999, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 3, 4, 5, 5, 4, 3, 1, 0]
+}
 
 [sub_resource type="Animation" id="Animation_q2b2k"]
 resource_name = "AttackRight"
 
+[sub_resource type="Animation" id="Animation_smnk2"]
+resource_name = "Death"
+
+[sub_resource type="Animation" id="Animation_xagan"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_smnk2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nvufx"]
 _data = {
 &"AttackLeft": SubResource("Animation_jw5pm"),
-&"AttackRight": SubResource("Animation_q2b2k")
+&"AttackRight": SubResource("Animation_q2b2k"),
+&"Death": SubResource("Animation_smnk2"),
+&"RESET": SubResource("Animation_xagan")
 }
 
 [sub_resource type="Gradient" id="Gradient_jw5pm"]
@@ -65,17 +170,19 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[node name="Ice Slime" type="CharacterBody2D"]
+[node name="Ice Slime" type="CharacterBody2D" groups=["enemies"]]
+position = Vector2(0, -16)
 collision_layer = 9
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(14, -3)
-shape = SubResource("CapsuleShape2D_ef3uv")
+position = Vector2(0, -44)
+shape = SubResource("RectangleShape2D_smnk2")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("1_4wtnb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -128)
 texture = ExtResource("2_smnk2")
 hframes = 6
 
@@ -111,14 +218,13 @@ shape = SubResource("CircleShape2D_rx00m")
 disabled = true
 
 [node name="HitBox" type="Area2D" parent="."]
-position = Vector2(100, 0)
+position = Vector2(-10, -32)
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(11, -11)
+position = Vector2(10, -12)
 shape = SubResource("RectangleShape2D_rx00m")
-disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

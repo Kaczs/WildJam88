@@ -19,9 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="15_leejk"]
 [ext_resource type="Texture2D" uid="uid://b851dq8nfn2hj" path="res://Assets/EnemySprites/CultistArm.png" id="17_l1am0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
-radius = 62.0
-height = 326.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l1am0"]
+size = Vector2(140, 311)
 
 [sub_resource type="Animation" id="Animation_c2fo8"]
 resource_name = "AttackLeft"
@@ -556,13 +555,13 @@ radius = 1000.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(299, 117)
 
-[node name="Cultist" type="CharacterBody2D"]
+[node name="Cultist" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 9
 script = ExtResource("1_fw8pk")
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
-position = Vector2(14, -3)
-shape = SubResource("CapsuleShape2D_ef3uv")
+position = Vector2(8, 4.5)
+shape = SubResource("RectangleShape2D_l1am0")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("2_3xlbi")

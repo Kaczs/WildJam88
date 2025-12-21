@@ -13,7 +13,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	attacks_list = get_children()
 
 func phys_update(_delta: float):
-	enemy_body.velocity.y = 0
+	enemy_body.velocity.x = 0
 	if not animation_player.is_playing():
 		bodies_hit.clear()
 		animation_player.play("RESET")
