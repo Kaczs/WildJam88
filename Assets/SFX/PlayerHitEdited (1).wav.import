@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cggh72mmnic2g"
+path="res://.godot/imported/PlayerHitEdited (1).wav-bb2bbadf56a0c9db8ae5b7ade09b39ce.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/PlayerHitEdited (1).wav"
+dest_files=["res://.godot/imported/PlayerHitEdited (1).wav-bb2bbadf56a0c9db8ae5b7ade09b39ce.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
