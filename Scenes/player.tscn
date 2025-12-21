@@ -2086,7 +2086,7 @@ platform_on_leave = 2
 
 [node name="MovementComponent" parent="." instance=ExtResource("2_cvnsp")]
 move_speed = 600.0
-jump_power = 800.0
+jump_power = 900.0
 dash_cooldown = 1.0
 
 [node name="StateIdle" type="Node" parent="MovementComponent"]
