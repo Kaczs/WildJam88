@@ -30,11 +30,7 @@ func phys_update(_delta: float):
 		player_body.velocity.y += gravity * _delta
 	else:
 		player_body.velocity.y += (gravity * 0.2 ) * _delta
-	# Start running based on player input
-	# Trying to jump?
-	if Input.is_action_pressed("Up") and player_body.is_on_floor():
-		finished.emit("StateJumping")
-	elif Input.is_action_just_pressed("Parry"):
+	if Input.is_action_just_pressed("Parry"):
 		finished.emit("StateParry")
 	player_body.move_and_slide()
 
