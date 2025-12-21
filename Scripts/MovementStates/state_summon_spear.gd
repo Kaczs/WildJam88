@@ -12,12 +12,6 @@ func phys_update(_delta: float):
 	if not player_body.is_on_floor():
 		finished.emit("StateFalling")
 	# if were cancel
-	elif Input.is_action_just_pressed("Attack"):
-		finished.emit("StateStandingAttack")
-	elif Input.is_action_just_pressed("Parry"):
-		finished.emit("StateParry")
-	elif Input.is_action_pressed("Down"):
-		finished.emit("StateCrouch")
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
 	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 33:

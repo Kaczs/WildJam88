@@ -2156,6 +2156,8 @@ combo_factor_increase_amount = 0.1
 
 [node name="ComboTimer" type="Timer" parent="ImpulsivenessComponent"]
 
+[node name="Music Component" type="Node" parent="."]
+
 [node name="Particles" type="Node2D" parent="."]
 
 [node name="DashParticles" parent="Particles" instance=ExtResource("25_p1odr")]
