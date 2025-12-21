@@ -11,6 +11,7 @@ size = Vector2(324, 62)
 
 [node name="Spear" type="CharacterBody2D"]
 script = ExtResource("1_y4joh")
+speed = 1200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-12, 0)

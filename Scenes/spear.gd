@@ -11,6 +11,7 @@ var captured_enemies: Array[Node2D] = []
 var pinned: bool = false
 
 func _ready() -> void:
+	get_tree().create_timer(6.0).timeout.connect(die)
 	pickup_area.body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:
@@ -26,7 +27,8 @@ func _physics_process(delta: float) -> void:
 		collision = move_and_collide(Vector2.LEFT * speed * delta)
 	# Have we collided with a wall?
 	if collision:
-		hit_wall()
+		if not collision.get_collider().is_in_group("player"):
+			hit_wall()
 
 # Spear ran over a guy
 func _on_body_entered(body: Node2D) -> void:
@@ -83,3 +85,7 @@ func release_enemies() -> void:
 		enemy.global_position = Vector2((safe_pos.x + spacing), safe_pos.y)
 	
 	captured_enemies.clear()
+
+func die():
+	queue_free()
+	pass
