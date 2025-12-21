@@ -13,6 +13,7 @@ func enter(_previous_state_path: String, _data:Dictionary):
 	attacks_list = get_children()
 
 func phys_update(_delta: float):
+	enemy_body.velocity.x = 0
 	if not animation_player.is_playing():
 		bodies_hit.clear()
 		animation_player.play("RESET")
@@ -32,7 +33,7 @@ func next_attack():
 	elif distance_to_player > current_attack.max_range:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		return
-	current_attack.attack(player, animation_player, enemy_body)
+	current_attack.attack(player, animation_player, enemy_body, brain_component.damage)
 	if attacks_list.size()-1 > attack_number:
 		attack_number += 1
 	else:
@@ -50,7 +51,7 @@ func pick_random_attack():
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		attack = current_attack
 	else:
-		current_attack.attack(player, animation_player, enemy_body)
+		current_attack.attack(player, animation_player, enemy_body, brain_component.damage)
 		attack = null
 
 func _hit_box_body_entered(body: Node2D) -> void:

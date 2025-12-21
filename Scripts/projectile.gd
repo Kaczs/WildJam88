@@ -12,7 +12,7 @@ func _on_body_entered(body: Node) -> void:
 		speed = Vector2.ZERO
 		body.get_node("HealthComponent").take_damage(damage)
 		$AnimationPlayer.play("Hit")
-	elif body == StaticBody2D:
+	elif not body.is_in_group("enemies"):
 		speed = Vector2.ZERO
 		die()
 		$AnimationPlayer.play("Hit")

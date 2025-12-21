@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c6dg1bfb0my0g"]
+[gd_scene load_steps=34 format=3 uid="uid://c6dg1bfb0my0g"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_fsmrq"]
 [ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_fsmrq"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="10_gybwa"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="11_t8vxe"]
 [ext_resource type="Texture2D" uid="uid://cxoexbjkja8uh" path="res://Assets/EnemySprites/ZombieArcherDeath.png" id="12_dtb1l"]
+[ext_resource type="PackedScene" uid="uid://dy2jv7b1o1gxc" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_pinned.tscn" id="12_t1cl0"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_thmho"]
 [ext_resource type="Texture2D" uid="uid://bpdlgyhoo88iv" path="res://Assets/EnemySprites/ZombieArcherAttack-Sheet.png" id="13_8gy5h"]
 [ext_resource type="PackedScene" uid="uid://clxy5yn3v06sl" path="res://Assets/ParticleSystems/enemy_death.tscn" id="15_ykmd2"]
@@ -407,7 +408,7 @@ radius = 1500.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
 size = Vector2(82, 184)
 
-[node name="Zombie Archer" type="CharacterBody2D"]
+[node name="Zombie Archer" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 9
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
@@ -443,6 +444,8 @@ spawn_offset = Vector2(-104, -19)
 [node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("10_gybwa")]
 
 [node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("11_t8vxe")]
+
+[node name="EnemyPinned" parent="EnemyBrainComponent" instance=ExtResource("12_t1cl0")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

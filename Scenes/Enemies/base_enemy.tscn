@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b8m36ohyot6ay"]
+[gd_scene load_steps=23 format=3 uid="uid://b8m36ohyot6ay"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_nvufx"]
 [ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_jw5pm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="7_xaoea"]
 [ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="8_bx70j"]
 [ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_qipe1"]
+[ext_resource type="PackedScene" uid="uid://dy2jv7b1o1gxc" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_pinned.tscn" id="10_q2b2k"]
 [ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="12_ybvhf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
@@ -63,7 +64,7 @@ collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[node name="Base Enemy" type="CharacterBody2D"]
+[node name="Base Enemy" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 9
 
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
@@ -81,7 +82,6 @@ hframes = 6
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
 lose_player_distance = 1500
-attack_distance = 700
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_sjjs4")]
 
@@ -95,6 +95,8 @@ animation_sprite = ""
 [node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_bx70j")]
 
 [node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_qipe1")]
+
+[node name="EnemyPinned" parent="EnemyBrainComponent" instance=ExtResource("10_q2b2k")]
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0
