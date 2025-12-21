@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://b5mytmso2qpdw"]
+[gd_scene load_steps=32 format=4 uid="uid://b5mytmso2qpdw"]
 
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="1_h3o3b"]
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="2_w6lax"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/ice_mage.tscn" id="12_di5fv"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_snhw6"]
 [ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="14_mfl82"]
+[ext_resource type="PackedScene" uid="uid://csngkks7ohshl" path="res://Scenes/kill_box.tscn" id="17_862uo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snhw6"]
 texture = ExtResource("1_h3o3b")
@@ -753,3 +754,6 @@ position = Vector2(30294, 5003)
 [node name="LevelGoal" parent="." instance=ExtResource("14_mfl82")]
 position = Vector2(30908, 4920)
 next_scene = "res://Scenes/GameLevels/level2.tscn"
+
+[node name="KillBox" parent="." instance=ExtResource("17_862uo")]
+position = Vector2(9934, 10142)

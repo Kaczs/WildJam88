@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://c67qa66kq58v6"]
+[gd_scene load_steps=19 format=4 uid="uid://c67qa66kq58v6"]
 
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_read0"]
 [ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_18v86"]
 [ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="2_ptr1l"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="3_4ogdv"]
-[ext_resource type="TileSet" uid="uid://dscn7wch6bcg0" path="res://Scenes/GameLevels/forground_tileset.tres" id="4_4dmcx"]
+[ext_resource type="TileSet" uid="uid://cxi0ry3mihw5m" path="res://Scenes/GameLevels/forground_tileset.tres" id="4_4dmcx"]
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="4_gikr5"]
 [ext_resource type="PackedScene" uid="uid://bwtgmvnahevxa" path="res://Scenes/spear_icon.tscn" id="7_aqksy"]
 [ext_resource type="PackedScene" uid="uid://bp47s02tqmoly" path="res://Scenes/dash_icon.tscn" id="8_sacel"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="12_18v86"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_4piq1"]
 [ext_resource type="Texture2D" uid="uid://brswpmdig7q63" path="res://Assets/MapTiles/BackgroundNight.png" id="13_ir2me"]
+[ext_resource type="PackedScene" uid="uid://csngkks7ohshl" path="res://Scenes/kill_box.tscn" id="16_sacel"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4piq1"]
 texture = ExtResource("4_gikr5")
@@ -161,3 +162,6 @@ z_index = -2
 position = Vector2(20489.488, -963.49994)
 scale = Vector2(2.9655704, 2.7744143)
 texture = ExtResource("13_ir2me")
+
+[node name="KillBox" parent="." instance=ExtResource("16_sacel")]
+position = Vector2(3273, 5034)
