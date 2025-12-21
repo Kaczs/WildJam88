@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://d3on1lwclo3pw"]
+[gd_scene load_steps=17 format=4 uid="uid://d3on1lwclo3pw"]
 
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="1_d5fg6"]
 [ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_dsnia"]
@@ -6,7 +6,9 @@
 [ext_resource type="TileSet" uid="uid://dscn7wch6bcg0" path="res://Scenes/GameLevels/forground_tileset.tres" id="4_w67pf"]
 [ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="5_gvm8f"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="6_w67pf"]
-[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/necromancer.tscn" id="7_w67pf"]
+[ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/ice_mage.tscn" id="7_w67pf"]
+[ext_resource type="PackedScene" uid="uid://bwtgmvnahevxa" path="res://Scenes/spear_icon.tscn" id="7_wnegt"]
+[ext_resource type="PackedScene" uid="uid://bp47s02tqmoly" path="res://Scenes/dash_icon.tscn" id="8_f5nbs"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="8_y48cx"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="9_pyu3u"]
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="10_chp4q"]
@@ -52,6 +54,16 @@ metadata/_edit_lock_ = true
 
 [node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("5_gvm8f")]
 script = ExtResource("6_w67pf")
+
+[node name="SpearIcon" parent="CanvasLayer" instance=ExtResource("7_wnegt")]
+offset_top = 311.0
+offset_right = 128.0
+offset_bottom = 439.0
+
+[node name="DashIcon" parent="CanvasLayer" instance=ExtResource("8_f5nbs")]
+offset_top = 84.0
+offset_right = 128.0
+offset_bottom = 212.0
 
 [node name="Necromancer" parent="." instance=ExtResource("7_w67pf")]
 position = Vector2(7151, 612)

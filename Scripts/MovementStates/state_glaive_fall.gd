@@ -22,7 +22,7 @@ func phys_update(_delta: float):
 	if player_body.is_on_floor():
 		finished.emit("StateGlaiveLanding")
 	elif Input.is_action_just_pressed("special1") and parent.radiantd_timer.is_stopped() and \
-	impulsiveness_component.current_impulsiveness >= 25:
+	impulsiveness_component.current_impulsiveness >= 33:
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 

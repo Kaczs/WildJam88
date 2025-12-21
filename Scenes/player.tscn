@@ -2101,7 +2101,7 @@ max_health = 1
 [node name="ImpulsivenessComponent" type="Node" parent="."]
 script = ExtResource("16_yh6i2")
 points_damage_taken = 1.0
-points_damage_dealt = 100.0
+points_damage_dealt = 2.0
 combo_duration = 6.0
 combo_factor_increase_amount = 0.1
 

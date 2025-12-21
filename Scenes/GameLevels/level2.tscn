@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c67qa66kq58v6"]
+[gd_scene load_steps=18 format=4 uid="uid://c67qa66kq58v6"]
 
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_read0"]
 [ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_18v86"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="3_4ogdv"]
 [ext_resource type="TileSet" uid="uid://dscn7wch6bcg0" path="res://Scenes/GameLevels/forground_tileset.tres" id="4_4dmcx"]
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="4_gikr5"]
+[ext_resource type="PackedScene" uid="uid://bwtgmvnahevxa" path="res://Scenes/spear_icon.tscn" id="7_aqksy"]
+[ext_resource type="PackedScene" uid="uid://bp47s02tqmoly" path="res://Scenes/dash_icon.tscn" id="8_sacel"]
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="9_yjet8"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="10_4dmcx"]
 [ext_resource type="PackedScene" uid="uid://ml1crx1n6yon" path="res://Scenes/enemy_locked_door.tscn" id="11_18v86"]
@@ -53,6 +55,16 @@ metadata/_edit_lock_ = true
 
 [node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("2_ptr1l")]
 script = ExtResource("3_4ogdv")
+
+[node name="SpearIcon" parent="CanvasLayer" instance=ExtResource("7_aqksy")]
+offset_top = 311.0
+offset_right = 128.0
+offset_bottom = 439.0
+
+[node name="DashIcon" parent="CanvasLayer" instance=ExtResource("8_sacel")]
+offset_top = 84.0
+offset_right = 128.0
+offset_bottom = 212.0
 
 [node name="Zombie Grunt" parent="." instance=ExtResource("9_yjet8")]
 position = Vector2(2044, -266)
@@ -136,6 +148,7 @@ enemies = [NodePath("../Cultist"), NodePath("../Cultist2")]
 
 [node name="LevelGoal" parent="." instance=ExtResource("12_18v86")]
 position = Vector2(24907, -685)
+next_scene = "res://Scenes/GameLevels/level3.tscn"
 
 [node name="BackgroundNight" type="Sprite2D" parent="."]
 z_index = -2

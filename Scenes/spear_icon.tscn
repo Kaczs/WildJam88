@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwtgmvnahevxa"]
+
+[ext_resource type="Texture2D" uid="uid://bocdcfj54rr00" path="res://Assets/UI Elements/SpearIcon.png" id="1_oi57b"]
+[ext_resource type="Script" uid="uid://b2ny63f3m7t07" path="res://Scripts/spear_icon.gd" id="2_an2dv"]
+
+[node name="SpearIcon" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_oi57b")
+script = ExtResource("2_an2dv")

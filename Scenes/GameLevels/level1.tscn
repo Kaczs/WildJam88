@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://b5mytmso2qpdw"]
+[gd_scene load_steps=31 format=4 uid="uid://b5mytmso2qpdw"]
 
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="1_h3o3b"]
 [ext_resource type="Texture2D" uid="uid://dlhnlbi6rn4o3" path="res://Assets/MapTiles/JustGroundSetSnowy.png" id="2_w6lax"]
@@ -10,9 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="8_mfrwb"]
 [ext_resource type="PackedScene" uid="uid://87p51cbc1s2j" path="res://Scenes/UI/progress_bar.tscn" id="9_wwsxs"]
 [ext_resource type="Script" uid="uid://088jnn4o8lem" path="res://Scripts/impulsiveness_bar.gd" id="10_yogri"]
+[ext_resource type="PackedScene" uid="uid://bwtgmvnahevxa" path="res://Scenes/spear_icon.tscn" id="11_keggo"]
 [ext_resource type="PackedScene" uid="uid://ml1crx1n6yon" path="res://Scenes/enemy_locked_door.tscn" id="11_yogri"]
+[ext_resource type="PackedScene" uid="uid://bp47s02tqmoly" path="res://Scenes/dash_icon.tscn" id="12_862uo"]
 [ext_resource type="PackedScene" uid="uid://qqnx64wcypi3" path="res://Scenes/Enemies/ice_mage.tscn" id="12_di5fv"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_snhw6"]
+[ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="14_mfl82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snhw6"]
 texture = ExtResource("1_h3o3b")
@@ -712,6 +715,16 @@ your Impulsiveness faster."
 [node name="ImpulsivnessBar" parent="CanvasLayer" instance=ExtResource("9_wwsxs")]
 script = ExtResource("10_yogri")
 
+[node name="SpearIcon" parent="CanvasLayer" instance=ExtResource("11_keggo")]
+offset_top = 311.0
+offset_right = 128.0
+offset_bottom = 439.0
+
+[node name="DashIcon" parent="CanvasLayer" instance=ExtResource("12_862uo")]
+offset_top = 84.0
+offset_right = 128.0
+offset_bottom = 212.0
+
 [node name="EnemyLockedDoor" parent="." node_paths=PackedStringArray("enemies") instance=ExtResource("11_yogri")]
 position = Vector2(15394, 3072)
 enemies = [NodePath("../Zombie Archer2")]
@@ -736,3 +749,7 @@ position = Vector2(29200, 5017)
 
 [node name="Cultist3" parent="." instance=ExtResource("13_snhw6")]
 position = Vector2(30294, 5003)
+
+[node name="LevelGoal" parent="." instance=ExtResource("14_mfl82")]
+position = Vector2(30908, 4920)
+next_scene = "res://Scenes/GameLevels/level2.tscn"

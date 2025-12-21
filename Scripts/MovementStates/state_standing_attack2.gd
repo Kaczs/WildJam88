@@ -31,7 +31,7 @@ func phys_update(_delta: float):
 		elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 			finished.emit("StateJumping")
 # Can freely cancel anytime
-	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25:
+	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 33:
 		finished.emit("StateRadiantDash")
 	player_body.move_and_slide()
 
