@@ -6,7 +6,9 @@ func enter(_previous_state_path: String, _data := {}):
 	if dash_particles == null:
 		dash_particles = find_child("DashParticles")
 	parent.dash_timer.start()
-	var direction = player_body.velocity.normalized()
+	var horizontal_input = Input.get_axis("Left", "Right")
+	var vertical_input = Input.get_axis("Up", "Down")
+	var direction = Vector2(horizontal_input, vertical_input)
 	if sprite.flip_h == true:
 		parent.flip_character()
 	target = player_body.global_position + (direction * 400)
