@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://d3on1lwclo3pw"]
+[gd_scene load_steps=18 format=4 uid="uid://d3on1lwclo3pw"]
 
 [ext_resource type="Texture2D" uid="uid://bjr4eel4prfv6" path="res://Assets/MapTiles/TileSetSnowyTrees.png" id="1_d5fg6"]
 [ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_dsnia"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bwtgmvnahevxa" path="res://Scenes/spear_icon.tscn" id="7_wnegt"]
 [ext_resource type="PackedScene" uid="uid://bp47s02tqmoly" path="res://Scenes/dash_icon.tscn" id="8_f5nbs"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="8_y48cx"]
+[ext_resource type="PackedScene" uid="uid://b0p3fa0tcganh" path="res://Scenes/health_bar.tscn" id="9_f5nbs"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="9_pyu3u"]
 [ext_resource type="PackedScene" uid="uid://bsdwdjt7ngsdt" path="res://Scenes/Enemies/zombie_grunt.tscn" id="10_chp4q"]
 [ext_resource type="Texture2D" uid="uid://c7d2c3omafo0v" path="res://Assets/MapTiles/BackgroundDay.png" id="11_vwfvt"]
@@ -64,6 +65,16 @@ offset_bottom = 439.0
 offset_top = 84.0
 offset_right = 128.0
 offset_bottom = 212.0
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("9_f5nbs")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 129.0
+offset_right = 250.0
+offset_bottom = 139.0
+grow_horizontal = 2
 
 [node name="Necromancer" parent="." instance=ExtResource("7_w67pf")]
 position = Vector2(7151, 612)
