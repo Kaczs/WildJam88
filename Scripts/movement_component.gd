@@ -114,7 +114,7 @@ func flip_character():
 ## giving player static flinch time
 func flinch(_duration, _current_health):
 	if health_component.current_health <= 0 and is_dying == false:
-		transition_to_next_state("StateDie")
+		call_deferred("transition_to_next_state", "StateDie")
 		is_dying = true
 	else:
 		var tween = create_tween()
