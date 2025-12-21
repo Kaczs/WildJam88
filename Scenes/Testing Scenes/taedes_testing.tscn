@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dbc4ckw7ly2nl" path="res://Scenes/Testing Scenes/taedes_testing.gd" id="1_jh8am"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="1_mcy4d"]
 [ext_resource type="PackedScene" uid="uid://coodroxcr3fl1" path="res://Scenes/platform.tscn" id="2_jh8am"]
-[ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="4_j6uhw"]
+[ext_resource type="PackedScene" uid="uid://c5hvgfcqfbxql" path="res://Scenes/Enemies/ice_slime.tscn" id="4_j6uhw"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_gaqya"]
 polygon = PackedVector2Array(-3055, 968, 5306, 962, 5343, 1268, -3709, 1268)
@@ -23,17 +23,5 @@ position = Vector2(-72.960976, -1011)
 scale = Vector2(0.08865246, 1)
 occluder = SubResource("OccluderPolygon2D_gaqya")
 
-[node name="Platform2" parent="." instance=ExtResource("2_jh8am")]
-position = Vector2(1468.9999, 316)
-scale = Vector2(11.280003, 1)
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Platform2"]
-position = Vector2(-72.960976, -1011)
-scale = Vector2(0.08865246, 1)
-occluder = SubResource("OccluderPolygon2D_gaqya")
-
-[node name="Zombie Archer" parent="." instance=ExtResource("4_j6uhw")]
-position = Vector2(485, 757)
-
-[node name="Zombie Archer2" parent="." instance=ExtResource("4_j6uhw")]
-position = Vector2(1034, 753)
+[node name="Ice Slime" parent="." instance=ExtResource("4_j6uhw")]
+position = Vector2(1719, 816)
