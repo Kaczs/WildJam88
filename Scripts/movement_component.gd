@@ -117,11 +117,11 @@ func flinch(_duration, _current_health):
 		call_deferred("transition_to_next_state", "StateDie")
 		is_dying = true
 	else:
+		SoundManager.play_global(SoundFiles.player_hit.pick_random(), "SFX", -13)
 		var tween = create_tween()
 		tween.tween_property(player_body, "modulate", Color.RED, 0.05)
 		tween.tween_interval(0.2)
 		tween.tween_property(player_body, "modulate", Color.WHITE, 0.05)
-	
 
 ## Return the next move in combo
 func advance_combo():

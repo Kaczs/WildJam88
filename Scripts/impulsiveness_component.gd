@@ -16,7 +16,6 @@ var combohits:int = 0
 @export var combo_duration: float
 @export var combo_factor_increase_amount:float
 
-
 func _ready():
 	# Need to connect the various signals
 	combo_timer = get_node("ComboTimer")
@@ -24,7 +23,6 @@ func _ready():
 	combo_timer.timeout.connect(reset_combo)
 	get_parent().find_child("HealthComponent").connect("on_hit", took_damage)
 	get_parent().find_child("AttackArea").connect("dealt_damage", dealt_damage)
-	
 
 func took_damage(_stagger, _current_health):
 	add_points(points_damage_taken)

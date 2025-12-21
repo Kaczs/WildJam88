@@ -10,5 +10,5 @@ var sheath_sword = "res://Assets/SFX/Sheath_sword.wav"
 #endregion
 
 #region music
-
+var music:Array[String] = ["res://Assets/Music/Fight_level_1.mp3", "res://Assets/Music/Fight_level_2.mp3", "res://Assets/Music/Fight_level_3.mp3"]
 #endregion

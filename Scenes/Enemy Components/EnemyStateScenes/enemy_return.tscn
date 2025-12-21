@@ -7,6 +7,7 @@ script = ExtResource("1_v4r3k")
 animation_sprite = "Run"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+volume_db = -4.0
 attenuation = 2.0705302
 bus = &"SFX"
 
