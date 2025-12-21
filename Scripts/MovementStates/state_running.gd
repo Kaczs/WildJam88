@@ -22,7 +22,7 @@ func phys_update(_delta: float):
 	# Trying to jump?
 	elif Input.is_action_pressed("Up") and player_body.is_on_floor():
 		finished.emit("StateJumping")
-	elif Input.is_action_just_pressed("Attack"):
+	elif Input.is_action_pressed("Attack"):
 		finished.emit("StateComboDecide")
 	elif Input.is_action_just_pressed("Parry"):
 		finished.emit("StateParry")

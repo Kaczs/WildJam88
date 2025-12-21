@@ -2145,7 +2145,7 @@ script = ExtResource("19_xwi16")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("7_3smsa")
-max_health = 300
+max_health = 1
 
 [node name="ImpulsivenessComponent" type="Node" parent="."]
 script = ExtResource("16_yh6i2")

@@ -39,6 +39,7 @@ var radiantd_timer:Timer
 var spear_timer:Timer
 var radiant_icon
 var spear_icon
+var is_dying:bool = false
 
 func _ready():
 	# Set startup variables
@@ -112,8 +113,9 @@ func flip_character():
 ## Linked up to the health component take damage
 ## giving player static flinch time
 func flinch(_duration, _current_health):
-	if health_component.current_health <= 0:
+	if health_component.current_health <= 0 and is_dying == false:
 		transition_to_next_state("StateDie")
+		is_dying = true
 	else:
 		var tween = create_tween()
 		tween.tween_property(player_body, "modulate", Color.RED, 0.05)
