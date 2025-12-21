@@ -37,6 +37,8 @@ var current_attack_combo:Array[String] = []
 var dash_timer:Timer
 var radiantd_timer:Timer
 var spear_timer:Timer
+var radiant_icon
+var spear_icon
 
 func _ready():
 	# Set startup variables

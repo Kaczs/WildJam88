@@ -28,9 +28,12 @@ func phys_update(_delta: float):
 		finished.emit("StateParry")
 	elif Input.is_action_just_pressed("dash") and parent.dash_timer.is_stopped():
 		finished.emit("StateMicroDash")
-	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 25\
+	elif Input.is_action_just_pressed("special1") and impulsiveness_component.current_impulsiveness >= 33\
 	and parent.radiantd_timer.is_stopped():
 		finished.emit("StateRadiantDash")
+	elif Input.is_action_just_pressed("special2") and parent.spear_timer.is_stopped() \
+	and impulsiveness_component.current_impulsiveness >= 66:
+		finished.emit("StateSummonSpear")
 	elif Input.is_action_pressed("Down"):
 		finished.emit("StateCrouch")
 	elif player_body.velocity.y >= 0 and not player_body.is_on_floor():

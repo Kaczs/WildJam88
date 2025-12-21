@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp47s02tqmoly"]
+
+[ext_resource type="Texture2D" uid="uid://je3a2sa1d68x" path="res://Assets/UI Elements/RadiantDashIcon.png" id="1_esuma"]
+[ext_resource type="Script" uid="uid://cl3t3jll7l15o" path="res://Scripts/dash_icon.gd" id="2_esuma"]
+
+[node name="DashIcon" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_esuma")
+script = ExtResource("2_esuma")
