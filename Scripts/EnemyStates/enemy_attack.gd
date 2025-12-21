@@ -33,7 +33,7 @@ func next_attack():
 	elif distance_to_player > current_attack.max_range:
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		return
-	current_attack.attack(player, animation_player, enemy_body)
+	current_attack.attack(player, animation_player, enemy_body, brain_component.damage)
 	if attacks_list.size()-1 > attack_number:
 		attack_number += 1
 	else:
@@ -51,7 +51,7 @@ func pick_random_attack():
 		finished.emit("EnemyChase", {"temp attack range": current_attack.max_range, "player": player})
 		attack = current_attack
 	else:
-		current_attack.attack(player, animation_player, enemy_body)
+		current_attack.attack(player, animation_player, enemy_body, brain_component.damage)
 		attack = null
 
 func _hit_box_body_entered(body: Node2D) -> void:

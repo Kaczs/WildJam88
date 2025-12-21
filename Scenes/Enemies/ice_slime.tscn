@@ -1,0 +1,138 @@
+[gd_scene load_steps=24 format=3 uid="uid://dl858ko71o22o"]
+
+[ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_4wtnb"]
+[ext_resource type="Texture2D" uid="uid://vr2p0oj1mfae" path="res://Assets/EnemySprites/ZombieArcherShuffle-Sheet.png" id="2_smnk2"]
+[ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_xagan"]
+[ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_metqx"]
+[ext_resource type="PackedScene" uid="uid://da5u5ir31mtxd" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_chase.tscn" id="5_s02ho"]
+[ext_resource type="PackedScene" uid="uid://b5ln8hl6t5c8r" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_attack.tscn" id="6_jvw4r"]
+[ext_resource type="PackedScene" uid="uid://d32jhpvxkg2gv" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_death.tscn" id="7_du1bj"]
+[ext_resource type="PackedScene" uid="uid://bvivvfh2x6t7d" path="res://Scenes/Enemies/Enemy Attacks/melee_attack.tscn" id="7_smnk2"]
+[ext_resource type="PackedScene" uid="uid://ccbkjecfvu0c3" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_return.tscn" id="8_063s3"]
+[ext_resource type="PackedScene" uid="uid://nweuhq3i32qu" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_stun.tscn" id="9_db3lo"]
+[ext_resource type="PackedScene" uid="uid://dy2jv7b1o1gxc" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_pinned.tscn" id="10_5y8pa"]
+[ext_resource type="Script" uid="uid://dfv2bw4tfilnk" path="res://Scenes/Enemies/Enemy Scripts/animation_player.gd" id="11_4yw04"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ef3uv"]
+radius = 62.0
+height = 326.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rx00m"]
+radius = 1000.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rx00m"]
+size = Vector2(82, 184)
+
+[sub_resource type="Animation" id="Animation_jw5pm"]
+resource_name = "AttackLeft"
+
+[sub_resource type="Animation" id="Animation_q2b2k"]
+resource_name = "AttackRight"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nvufx"]
+_data = {
+&"AttackLeft": SubResource("Animation_jw5pm"),
+&"AttackRight": SubResource("Animation_q2b2k")
+}
+
+[sub_resource type="Gradient" id="Gradient_jw5pm"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.34285715, 0.8666667)
+colors = PackedColorArray(1, 0.5023, 0.43550968, 1, 0.45540285, 2.0696223e-06, 9.1448425e-07, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_q2b2k"]
+gradient = SubResource("Gradient_jw5pm")
+
+[sub_resource type="Curve" id="Curve_nvufx"]
+_data = [Vector2(0.025423728, 0.47598624), 0.0, 0.0, 0, 0, Vector2(0.33050847, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.6966293), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4215w"]
+curve = SubResource("Curve_nvufx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vhyvu"]
+lifetime_randomness = 0.9
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 26.09
+initial_velocity_max = 270.83
+gravity = Vector3(0, 250, 0)
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_4215w")
+color_ramp = SubResource("GradientTexture1D_q2b2k")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="Ice Slime" type="CharacterBody2D"]
+collision_layer = 9
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+position = Vector2(14, -3)
+shape = SubResource("CapsuleShape2D_ef3uv")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("1_4wtnb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_smnk2")
+hframes = 6
+
+[node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_xagan")]
+initial_state = NodePath("EnemySearch")
+move_speed = 0.0
+lose_player_distance = 1000
+
+[node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_metqx")]
+
+[node name="EnemyChase" parent="EnemyBrainComponent" instance=ExtResource("5_s02ho")]
+
+[node name="EnemyAttack" parent="EnemyBrainComponent" instance=ExtResource("6_jvw4r")]
+animation_sprite = ""
+
+[node name="MeleeAttack" parent="EnemyBrainComponent/EnemyAttack" instance=ExtResource("7_smnk2")]
+max_range = 1000
+
+[node name="EnemyDeath" parent="EnemyBrainComponent" instance=ExtResource("7_du1bj")]
+
+[node name="EnemyReturn" parent="EnemyBrainComponent" instance=ExtResource("8_063s3")]
+
+[node name="EnemyStun" parent="EnemyBrainComponent" instance=ExtResource("9_db3lo")]
+
+[node name="EnemyPinned" parent="EnemyBrainComponent" instance=ExtResource("10_5y8pa")]
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("CircleShape2D_rx00m")
+disabled = true
+
+[node name="HitBox" type="Area2D" parent="."]
+position = Vector2(100, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(11, -11)
+shape = SubResource("RectangleShape2D_rx00m")
+disabled = true
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_nvufx")
+}
+script = ExtResource("11_4yw04")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-5, -9)
+emitting = false
+amount = 50000
+lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_vhyvu")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

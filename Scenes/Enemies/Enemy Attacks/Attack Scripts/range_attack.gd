@@ -1,7 +1,7 @@
 extends Node
 
-const max_range := 1000
-const min_range := 0
+@export var max_range := 1000
+@export var min_range := 0
 
 var arrow:Projectile
 
@@ -11,7 +11,7 @@ var arrow:Projectile
 @export var sprite:Node2D
 @export var spawn_offset := Vector2.ZERO
 
-func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:CharacterBody2D):
+func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:CharacterBody2D, damage:int):
 	if not sprite:
 		sprite = enemy.get_node("EnemyBrainComponent").sprite_2d
 	arrow = projectile.instantiate()
@@ -26,7 +26,7 @@ func attack(player:CharacterBody2D, animation_player:AnimationPlayer, enemy:Char
 		sprite.set_flip_h(true)
 		arrow.global_position = enemy.global_position + Vector2(spawn_offset.x, spawn_offset.y)
 	arrow.rotation = angle_to_player
-	arrow.damage = enemy.get_node("EnemyBrainComponent").damage
+	arrow.damage = damage
 	await animation_player.summon
 	if arrow:
 		arrow.speed = Vector2.RIGHT.rotated(angle_to_player) * speed
