@@ -469,6 +469,7 @@ texture = ExtResource("2_1a5dh")
 [node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_wdmh3")]
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
+damage = 20
 lose_player_distance = 1500
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_wmeet")]

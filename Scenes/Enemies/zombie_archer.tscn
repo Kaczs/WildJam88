@@ -425,6 +425,7 @@ flip_h = true
 [node name="EnemyBrainComponent" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("3_8gy5h")]
 initial_state = NodePath("EnemySearch")
 move_speed = 100.0
+damage = 25
 lose_player_distance = 1700
 
 [node name="EnemySearch" parent="EnemyBrainComponent" instance=ExtResource("4_ykmd2")]
