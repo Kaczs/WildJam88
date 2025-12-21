@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://marjum7oehw3"]
+[gd_scene load_steps=14 format=4 uid="uid://marjum7oehw3"]
 
 [ext_resource type="TileSet" uid="uid://dhvmyomlvo8m1" path="res://Scenes/GameLevels/main_tileset.tres" id="2_3ypud"]
 [ext_resource type="PackedScene" uid="uid://c4s3fycysvqsi" path="res://Scenes/player.tscn" id="2_ej3xh"]
@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://cxi0ry3mihw5m" path="res://Scenes/GameLevels/forground_tileset.tres" id="5_njkd6"]
 [ext_resource type="PackedScene" uid="uid://bwtgmvnahevxa" path="res://Scenes/spear_icon.tscn" id="6_x0o02"]
 [ext_resource type="PackedScene" uid="uid://bp47s02tqmoly" path="res://Scenes/dash_icon.tscn" id="7_3ypud"]
+[ext_resource type="PackedScene" uid="uid://b0p3fa0tcganh" path="res://Scenes/health_bar.tscn" id="8_njkd6"]
 [ext_resource type="PackedScene" uid="uid://c05qrrs83ymip" path="res://Scenes/level_goal.tscn" id="10_e8spf"]
 [ext_resource type="PackedScene" uid="uid://c6dg1bfb0my0g" path="res://Scenes/Enemies/zombie_archer.tscn" id="12_3ypud"]
 [ext_resource type="PackedScene" uid="uid://d0uss1ghtluwf" path="res://Scenes/Enemies/cultist.tscn" id="13_njkd6"]
@@ -54,6 +55,16 @@ script = ExtResource("5_d054f")
 offset_top = 84.0
 offset_right = 128.0
 offset_bottom = 212.0
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("8_njkd6")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -250.0
+offset_top = 129.0
+offset_right = 250.0
+offset_bottom = 139.0
+grow_horizontal = 2
 
 [node name="Zombie Grunt" parent="." instance=ExtResource("3_ej3xh")]
 position = Vector2(4912, 1746)
