@@ -8,3 +8,12 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_oi57b")
 script = ExtResource("2_an2dv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 33.0
+offset_right = 179.0
+offset_bottom = 100.0
+theme_override_font_sizes/font_size = 48
+text = "E"

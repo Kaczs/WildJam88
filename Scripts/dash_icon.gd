@@ -4,7 +4,7 @@ extends TextureRect
 @onready var move_component:MovementComponent = player.get_node("MovementComponent")
 var on_cooldown := false
 var unavailable := true
-var cost := 66
+var cost := 33
 
 func _process(_delta):
 	# HACK, running out of time

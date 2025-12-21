@@ -9,7 +9,8 @@ func enter(_previous_state_path: String, _data := {}):
 	animation_player.play("glaivefall")
 
 func phys_update(_delta: float):
-	falling_factor += (_delta*2)
+	if falling_factor <= 4.0:
+		falling_factor += (_delta*2)
 	# Scale gravity as you go
 	player_body.velocity.y += (gravity * _delta) * falling_factor
 	var horizontal_input = Input.get_axis("Left", "Right")

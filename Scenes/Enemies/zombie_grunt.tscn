@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://bsdwdjt7ngsdt"]
 
 [ext_resource type="Script" uid="uid://bvtwpdpadyapj" path="res://Scripts/health_component.gd" id="1_1a5dh"]
-[ext_resource type="Script" uid="uid://h4t376isiqip" path="res://Scenes/Enemies/Enemy Scripts/zombie_grunt.gd" id="1_fm8vn"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Enemy Scripts/zombie_grunt.gd" id="1_fm8vn"]
 [ext_resource type="Texture2D" uid="uid://fe03wv67va6t" path="res://Assets/EnemySprites/ZombieBase.png" id="2_1a5dh"]
 [ext_resource type="PackedScene" uid="uid://b67qppnk8tonb" path="res://Scenes/Enemy Components/enemy_brain_component.tscn" id="3_wdmh3"]
 [ext_resource type="PackedScene" uid="uid://cq6ysku38lqcn" path="res://Scenes/Enemy Components/EnemyStateScenes/enemy_search.tscn" id="4_wmeet"]
