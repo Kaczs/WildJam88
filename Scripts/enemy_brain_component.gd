@@ -79,6 +79,7 @@ func transition_to_next_state(target_state_path: String, data: Dictionary = {}):
 	#print(current_state.name)
 
 func enemy_hit(stagger_duration:float, current_health:int):
+	SoundManager.play_2d(SoundFiles.enmey_hit, enemy_body, "SFX", 2000)
 	if current_health <= 0:
 		is_dead = true
 	if is_dead:
