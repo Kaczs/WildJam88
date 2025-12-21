@@ -181,7 +181,7 @@ particle_flag_disable_z = true
 angle_min = -720.0
 angle_max = 720.0
 initial_velocity_min = 24.289999
-initial_velocity_max = 112.439995
+initial_velocity_max = 322.07
 gravity = Vector3(0, 50, 0)
 scale_min = 0.01
 scale_max = 0.049999997
@@ -205,6 +205,7 @@ position = Vector2(-6, 164)
 texture = ExtResource("3_yvr84")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 2
 position = Vector2(1, 11.000001)
 rotation = -1.620127
 emitting = false
